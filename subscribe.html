@@ -174,7 +174,7 @@
         <div class="topnav">
           <a class="btn" href="./">← 回首頁</a>
           <button class="btn" type="button" onclick="if (window.Skin && Skin.open) Skin.open()" title="換網站風格">🎨 風格</button>
-          <a class="btn" href="preview.html">🖼 看實際畫面</a>
+          <a class="btn" href="preview.html">網站重要功能預覽</a>
         </div>
       </div>
 
@@ -195,18 +195,6 @@
         <p style="margin-top: 0.5rem">
           <b>在你的訂閱有效期間內新開放的科目一併開放使用，不另外收費。</b>
         </p>
-        <ul class="pub-feat">
-          <li>📚 收錄 105～115 年歷屆試題，全部分好類</li>
-          <li>🤖 每一題都有 AI 詳解與臨床意義</li>
-          <li>🔟 每一題都附 10 題類似題</li>
-          <li>💬 每一題都有留言討論區</li>
-          <li>🎯 照試卷練 / 照分類練兩種模式</li>
-          <li>📉 各分類錯誤率，一眼看出弱點</li>
-          <li>🚩 錯題本收錄錯題、標記、每日進度</li>
-          <li>🗂 AI 幫你把題目整理成筆記</li>
-          <li>🧠 口訣分享區：大家一起整理重點、想口訣</li>
-          <li>🎨 七種閱讀風格，含夜讀暗色</li>
-        </ul>
       </section>
 
       <h2 style="margin-top: 1.6rem">價格（新臺幣，已含稅）</h2>
@@ -234,10 +222,10 @@
       <div class="card go">
         <h3>🔑 怎麼購買？</h3>
         <p>
-          先到你的考試網站用 Google 帳號登入（第一次登入自動送 7 天免費試用），
-          在網站裡的「訂閱」頁面選方案付款，付完自動開通。
+          登入你的考試網站，點右上角「訂閱」，選方案付款，付完自動開通。<br />
+          第一次登入自動送 7 天免費試用；推薦朋友直接拿一個月免費序號，全站通用。
         </p>
-        <div id="go-btns"></div>
+        <a class="btn primary" href="./#choose">選擇你的考試 →</a>
       </div>
 
       <section class="card pub-box buy-notes" id="buy-notes">
@@ -254,7 +242,7 @@
 
           <dt>序號與兌換碼</dt>
           <dd>
-            推薦朋友拿到的序號、活動送的兌換碼，<b>全站通用</b>：不管在牙醫師、護理師，或以後的醫師站，都能兌換成使用天數。
+            推薦朋友直接拿一個月免費序號，<b>全站通用</b>：牙醫師、護理師，或以後的醫師站都能兌換成使用天數。
           </dd>
 
           <dt>付款方式</dt>
@@ -326,7 +314,7 @@
 
     <script src="sites.js"></script>
     <script>
-      // 目前開放的科目 + 「前往登入購買」按鈕,都從 sites.js 來,新站上線只要改那邊
+      // 目前開放的科目,從 sites.js 來,新站上線只要改那邊
       document.getElementById("open-list").innerHTML = SITES.map(function (s) {
         var live = s.status === "live" && s.url;
         return (
@@ -339,19 +327,6 @@
           "</span>"
         );
       }).join("");
-      document.getElementById("go-btns").innerHTML = SITES.filter(function (s) {
-        return s.status === "live" && s.url;
-      })
-        .map(function (s) {
-          return (
-            '<a class="btn primary" href="' +
-            s.url +
-            'subscribe.html">前往' +
-            s.name +
-            "網站登入購買 →</a>"
-          );
-        })
-        .join("");
     </script>
   </body>
 </html>
