@@ -48,3 +48,6 @@ footer a { color: inherit; }
 /* 入口網站:登入元件只在「已登入」時顯示 (頭像 + 名字 + 登出選單);
    沒登入時它會自己畫一顆「Google 登入」,跟頁面上的「登入」鈕重複 → 藏起來 */
 #auth-widget .auth-w-signin { display: none !important; }
+
+/* hidden 屬性要贏過 .btn 的 display (不然登入後「登入」鈕藏不掉) */
+[hidden] { display: none !important; }
