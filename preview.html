@@ -13,6 +13,8 @@
     
     
     
+    <script src="skin.js"></script>
+    <link rel="stylesheet" href="skin.css" />
     <style>
       /* v644: 公開的「網站內容預覽」— 不用登入就能看到裡面長什麼樣 (綠界審核員不想登入 Google;新客人也想先看再買) */
       * {
@@ -192,6 +194,7 @@
     <div class="wrap">
       <div class="top">
         <a href="./" class="back">← 回首頁</a>
+        <button class="back" type="button" onclick="if (window.Skin && Skin.open) Skin.open()" style="cursor:pointer;font-family:inherit">🎨 風格</button>
         <a href="subscribe.html" class="cta">看方案與價格</a>
       </div>
 

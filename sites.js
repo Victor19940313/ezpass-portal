@@ -1,10 +1,12 @@
 // 入口網站的站台清單。status 是 live 才點得進去,soon 顯示「準備中」。
 // 新站上線:把 status 改 live、url 填好,推上去就好。
+// years:收錄的考題年份 (民國),來自 07_共用版/sites/<站>/site.json 的 years。
 var SITES = [
   {
     id: "dental",
     name: "牙醫師",
-    sub: "第二階段 · 歷屆 7,040 題",
+    stage: "第二階段",
+    years: "105～115 年",
     art: "tooth",
     status: "live",
     url: "https://ezpass-dental.com/",
@@ -12,7 +14,8 @@ var SITES = [
   {
     id: "nursing",
     name: "護理師",
-    sub: "歷屆 8,480 題",
+    stage: "",
+    years: "105～115 年",
     art: "nurseCap",
     status: "soon",
     url: "https://nursing.ezpass-exam.com/",
@@ -20,7 +23,8 @@ var SITES = [
   {
     id: "physician1",
     name: "醫師",
-    sub: "第一階段 · 歷屆 4,400 題",
+    stage: "第一階段",
+    years: "105～115 年",
     art: "stethoscope",
     status: "soon",
     url: "",
@@ -28,7 +32,8 @@ var SITES = [
   {
     id: "physician2",
     name: "醫師",
-    sub: "第二階段 · 歷屆 7,040 題",
+    stage: "第二階段",
+    years: "105～115 年",
     art: "stethoscope",
     status: "soon",
     url: "",

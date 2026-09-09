@@ -1,41 +1,43 @@
-/* 入口網站共用樣式 — 跟各科網站同一套視覺語言 (Noto Sans TC + 米白底 + 紫色主色) */
+/* 入口網站共用樣式 — 跟各科網站同一套視覺語言 (Noto Sans TC + 米白底 + 紫色主色)
+   顏色全部走 --sk-* 變數 (skin.css 選了風格就會蓋掉),沒選風格時用後面的預設值 */
 * { box-sizing: border-box; }
 body {
   margin: 0;
-  font-family: "Noto Sans TC", -apple-system, "Microsoft JhengHei", sans-serif;
-  background: #f8f7f0;
-  color: #1f2937;
+  font-family: var(--sk-font, "Noto Sans TC", -apple-system, "Microsoft JhengHei", sans-serif);
+  background: var(--sk-bg, #f8f7f0);
+  color: var(--sk-ink, #1f2937);
   line-height: 1.7;
 }
-a { color: #7c3aed; }
-.wrap { max-width: 940px; margin: 0 auto; padding: 1.2rem 1.2rem 3rem; }
+a { color: var(--sk-accent, #7c3aed); }
+.wrap { max-width: 940px; margin: 0 auto; padding: 1.2rem 1.2rem 3rem; position: relative; z-index: 1; }
 .topbar {
   display: flex; align-items: center; justify-content: space-between;
   gap: .6rem; flex-wrap: wrap; margin-bottom: 1.2rem;
 }
-.logo { display: flex; align-items: center; gap: .55rem; font-weight: 900; font-size: 1.05rem; color: #1f2937; text-decoration: none; }
+.logo { display: flex; align-items: center; gap: .55rem; font-weight: 900; font-size: 1.05rem; color: var(--sk-ink, #1f2937); text-decoration: none; }
 .logo .mark {
-  width: 34px; height: 34px; border-radius: 10px; background: #7c3aed; color: #fff;
+  width: 34px; height: 34px; border-radius: 10px; background: var(--sk-accent, #7c3aed); color: var(--sk-accent-ink, #fff);
   display: flex; align-items: center; justify-content: center; font-size: .95rem; font-weight: 900;
-  box-shadow: 0 3px 0 #5b21b6;
+  box-shadow: 0 3px 0 var(--sk-accent-d, #5b21b6);
 }
 .topnav { display: flex; gap: .5rem; flex-wrap: wrap; }
 .btn {
-  display: inline-block; text-decoration: none; font-weight: 800; border-radius: 999px;
-  padding: .45rem 1.05rem; font-size: .9rem; border: 1.5px solid #e5e7eb; background: #fff; color: #6b7280;
+  display: inline-block; text-decoration: none; font-weight: 800; border-radius: 999px; cursor: pointer;
+  padding: .45rem 1.05rem; font-size: .9rem; border: 1.5px solid var(--sk-line, #e5e7eb); background: var(--sk-card, #fff); color: var(--sk-ink2, #6b7280);
+  font-family: inherit; line-height: 1.5;
 }
-.btn.primary { background: #7c3aed; color: #fff; border-color: #7c3aed; box-shadow: 0 3px 0 #5b21b6; }
+.btn.primary { background: var(--sk-accent, #7c3aed); color: var(--sk-accent-ink, #fff); border-color: var(--sk-accent, #7c3aed); box-shadow: 0 3px 0 var(--sk-accent-d, #5b21b6); }
 .btn.lg { font-size: 1rem; padding: .7rem 1.5rem; }
 h1 { font-size: 1.9rem; font-weight: 900; margin: .4rem 0 .3rem; letter-spacing: -.01em; }
 h2 { font-size: 1.2rem; font-weight: 900; margin: 2.2rem 0 .8rem; }
-.lead { color: #6b7280; margin: 0 0 1.6rem; font-size: 1rem; }
+.lead { color: var(--sk-ink2, #6b7280); margin: 0 0 1.6rem; font-size: 1rem; }
 .card {
-  background: #fff; border: 1.5px solid #e5e7eb; border-radius: 16px;
-  box-shadow: 0 2px 10px rgba(0,0,0,.04);
+  background: var(--sk-card, #fff); border: 1.5px solid var(--sk-line, #e5e7eb); border-radius: var(--sk-radius, 16px);
+  box-shadow: var(--sk-shadow, 0 2px 10px rgba(0,0,0,.04));
 }
 footer {
-  margin-top: 3rem; text-align: center; color: #9ca3af; font-size: .78rem; line-height: 1.8;
-  border-top: 1px solid #ececec; padding-top: 1.2rem;
+  margin-top: 3rem; text-align: center; color: var(--sk-mute, #9ca3af); font-size: .78rem; line-height: 1.8;
+  border-top: 1px solid var(--sk-line, #ececec); padding-top: 1.2rem;
 }
 footer a { color: inherit; }
 @media (max-width: 640px) {
