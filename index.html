@@ -34,6 +34,71 @@
         margin: 0 auto 1.4rem;
       }
 
+      #auth-widget:empty {
+        display: none;
+      }
+      .sub-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        font-size: 0.8rem;
+        font-weight: 800;
+        border-radius: 999px;
+        padding: 0.35rem 0.8rem;
+        background: var(--sk-accent-soft, #ede9fe);
+        color: var(--sk-accent-d, #5b21b6);
+        text-decoration: none;
+      }
+      .sub-pill.warn {
+        background: #fef3c7;
+        color: #92400e;
+      }
+      .sub-pill.expired {
+        background: #fee2e2;
+        color: #991b1b;
+      }
+      .login-modal {
+        position: fixed;
+        inset: 0;
+        z-index: 11000;
+        background: rgba(20, 18, 30, 0.45);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem;
+      }
+      .login-modal[hidden] {
+        display: none !important;
+      }
+      .login-box {
+        position: relative;
+        width: min(420px, 100%);
+        padding: 1.4rem 1.4rem 1.2rem;
+        text-align: center;
+      }
+      .login-box h3 {
+        margin: 0 0 0.3rem;
+        font-size: 1.15rem;
+      }
+      .login-box p {
+        margin: 0;
+        font-size: 0.88rem;
+        color: var(--sk-ink2, #6b7280);
+      }
+      .login-box .login-note {
+        font-size: 0.76rem;
+        margin-top: 0.8rem;
+      }
+      .login-x {
+        position: absolute;
+        top: 0.6rem;
+        right: 0.7rem;
+        border: 0;
+        background: none;
+        font-size: 1rem;
+        cursor: pointer;
+        color: var(--sk-mute, #9ca3af);
+      }
       .browser-note {
         margin: -0.3rem 0 0.8rem;
         font-size: 0.82rem;
@@ -220,6 +285,56 @@
             🎨 風格
           </button>
           <a class="btn" href="preview.html">網站重要功能預覽</a>
+          <span id="sub-pill"></span>
+          <span id="auth-widget"></span>
+          <button
+            class="btn primary"
+            type="button"
+            id="btn-login"
+            onclick="openLogin()"
+            hidden
+          >
+            登入
+          </button>
+        </div>
+      </div>
+
+      <!-- 登入視窗:Google 或任何 Email (收登入連結) -->
+      <div
+        id="login-modal"
+        class="login-modal"
+        hidden
+        onclick="if (event.target === this) closeLogin();"
+      >
+        <div class="login-box card">
+          <button
+            class="login-x"
+            type="button"
+            onclick="closeLogin()"
+            aria-label="關閉"
+          >
+            ✕
+          </button>
+          <h3>登入 ezpass</h3>
+          <p>
+            一個帳號，所有開放中的考試網站都能用。第一次登入送 7 天免費試用。
+          </p>
+          <div
+            style="
+              display: flex;
+              justify-content: center;
+              margin: 0.8rem 0 0.2rem;
+            "
+          >
+            <button class="btn primary" type="button" onclick="Auth.signIn()">
+              用 Google 帳號登入
+            </button>
+          </div>
+          <div id="email-login"></div>
+          <p class="login-note">
+            從 LINE、Instagram、Facebook
+            點進來的，請先點右上角「⋯」→「用瀏覽器開啟」。
+          </p>
         </div>
       </div>
 
@@ -249,7 +364,9 @@
           <span class="ic">📉</span>錯誤率<small>一眼看出弱點</small>
         </div>
         <div class="card feat">
-          <span class="ic">🤖</span>AI 詳解<small>連臨床意義一起講</small>
+          <span class="ic">🤖</span>兩套 AI 詳解<small
+            >Gemini ＋ 考選部指定用書</small
+          >
         </div>
         <div class="card feat">
           <span class="ic">🔟</span>十題類似題<small
@@ -319,8 +436,78 @@
       </footer>
     </div>
 
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-database-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
+    <script src="auth.js"></script>
+    <script src="subscription.js"></script>
     <script src="sites.js"></script>
     <script>
+      // 入口網站登入 (跟牙醫站同一個 Firebase 專案,帳號 / 試用 / 訂閱共用)
+      function openLogin() {
+        var m = document.getElementById("login-modal");
+        m.hidden = false;
+        var tries = 0;
+        (function draw() {
+          if (document.querySelector("#email-login .auth-e-input")) return;
+          if (window.Auth && Auth.renderEmailForm)
+            return Auth.renderEmailForm("email-login");
+          if (++tries < 40) setTimeout(draw, 200);
+        })();
+      }
+      function closeLogin() {
+        document.getElementById("login-modal").hidden = true;
+      }
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") closeLogin();
+      });
+      function renderPill(st) {
+        var el = document.getElementById("sub-pill");
+        if (!el) return;
+        if (!st || st.reason === "not_logged_in" || st.reason === "error") {
+          el.innerHTML = "";
+          return;
+        }
+        var cls = "sub-pill",
+          txt = "";
+        if (st.reason === "paid") {
+          txt =
+            st.plan === "lifetime"
+              ? "✨ 終身會員"
+              : "✨ 會員 · 剩 " + st.days_left + " 天";
+          if (st.days_left <= 5) cls += " warn";
+        } else if (st.reason === "trial") {
+          txt = "🎁 試用中 · 剩 " + st.days_left + " 天";
+          if (st.days_left <= 2) cls += " warn";
+        } else if (st.reason === "trial_expired") {
+          txt = "試用結束 · 選方案開通";
+          cls += " expired";
+        } else if (st.reason === "subscription_expired") {
+          txt = "已過期 · 續訂";
+          cls += " expired";
+        }
+        el.innerHTML =
+          '<a class="' + cls + '" href="subscribe.html">' + txt + "</a>";
+      }
+      (function () {
+        var tries = 0;
+        function hook() {
+          if (!window.Auth || !Auth.onChange) {
+            if (++tries < 40) setTimeout(hook, 250);
+            return;
+          }
+          Auth.onChange(function (user) {
+            var b = document.getElementById("btn-login");
+            if (b) b.hidden = !!user;
+            if (user) closeLogin();
+            if (window.Subscription && Subscription.refresh)
+              Subscription.refresh();
+          });
+          if (window.Subscription && Subscription.onChange)
+            Subscription.onChange(renderPill);
+        }
+        hook();
+      })();
       // 站台卡片:開放中 → 先進「第一次使用看這邊」(不會一進去就是登入 / 訂閱);已有帳號的人另外給直接登入
       // 帶目前的風格過去 (各站是不同網域,localStorage 不共用;skin.js 看到 ?skin= 會存起來套上)
       function skinQs() {

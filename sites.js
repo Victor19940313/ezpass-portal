@@ -17,7 +17,7 @@ var SITES = [
     stage: "",
     years: "105～115 年",
     art: "nurseCap",
-    status: "soon",
+    status: "live",
     url: "https://nursing.ezpass-exam.com/",
   },
   {
