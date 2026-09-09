@@ -675,6 +675,7 @@
             🎨 風格
           </button>
           <span id="auth-widget"></span>
+          <button class="btn primary" type="button" id="btn-login" onclick="document.getElementById('not-logged').scrollIntoView({ behavior: 'smooth', block: 'center' })" hidden>登入</button>
         </div>
       </div>
 
@@ -1210,6 +1211,17 @@
           "</span>"
         );
       }).join("");
+      (function () {
+        var tries = 0;
+        function hookAuth() {
+          if (!window.Auth || !Auth.onChange) { if (++tries < 40) setTimeout(hookAuth, 250); return; }
+          Auth.onChange(function (user) {
+            var b = document.getElementById("btn-login");
+            if (b) b.hidden = !!user;
+          });
+        }
+        hookAuth();
+      })();
       (function () {
         var tries = 0;
         function draw() {
