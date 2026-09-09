@@ -17,9 +17,9 @@
       href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap"
       rel="stylesheet"
     />
-    <script src="skin.js?v=v655"></script>
-    <link rel="stylesheet" href="skin.css?v=v655" />
-    <link rel="stylesheet" href="site.css?v=v655" />
+    <script src="skin.js?v=v656"></script>
+    <link rel="stylesheet" href="skin.css?v=v656" />
+    <link rel="stylesheet" href="site.css?v=v656" />
     <style>
       .top-hero {
         text-align: center;
@@ -442,9 +442,9 @@
     <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-database-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
-    <script src="auth.js?v=v655"></script>
-    <script src="subscription.js?v=v655"></script>
-    <script src="sites.js?v=v655"></script>
+    <script src="auth.js?v=v656"></script>
+    <script src="subscription.js?v=v656"></script>
+    <script src="sites.js?v=v656"></script>
     <script>
       // 入口網站登入 (跟牙醫站同一個 Firebase 專案,帳號 / 試用 / 訂閱共用)
       function openLogin() {
@@ -535,7 +535,7 @@
         return (
           '<div class="card site' +
           (live ? "" : " soon") +
-          '">' +
+          '" data-site-id="' + s.id + '">' +
           '<div class="art">' +
           ART[s.art] +
           "</div>" +
@@ -551,12 +551,25 @@
           "</div></div>"
         );
       }).join("");
-      // 點站台連結時把目前風格帶過去
+      // 點站台連結:帶風格過去;已登入的話再換一張通行證,進去就不用再登一次 (v656)
       document.getElementById("sites").addEventListener("click", function (e) {
         var a = e.target.closest("a[data-site-link]");
         if (!a) return;
-        var base = a.getAttribute("href").split("?")[0];
-        a.setAttribute("href", base + skinQs());
+        var base = a.getAttribute("href").split("#")[0].split("?")[0] + skinQs();
+        var card = a.closest(".site");
+        var site = card ? card.getAttribute("data-site-id") : "";
+        var user = window.Auth && Auth.getUser && Auth.getUser();
+        if (!user || !window.Auth.ssoLink || !site) {
+          a.setAttribute("href", base);
+          return;
+        }
+        e.preventDefault();
+        var old = a.textContent;
+        a.textContent = "帶你進去…";
+        Auth.ssoLink(site, base)
+          .then(function (url) { location.href = url; })
+          .catch(function () { location.href = base; })
+          .finally(function () { setTimeout(function () { a.textContent = old; }, 4000); });
       });
     </script>
   </body>
