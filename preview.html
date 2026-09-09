@@ -91,11 +91,20 @@
         max-width: 560px;
       }
       .group {
-        font-size: 0.78rem;
-        font-weight: 800;
-        letter-spacing: 0.08em;
-        color: var(--sk-mute, #9ca3af);
-        margin: 2rem 0 0.6rem;
+        font-size: 1.25rem;
+        font-weight: 900;
+        color: var(--sk-ink, #1f2937);
+        margin: 2.4rem 0 0.9rem;
+        display: flex;
+        align-items: center;
+        gap: 0.7rem;
+      }
+      .group::after {
+        content: "";
+        flex: 1;
+        height: 2px;
+        background: var(--sk-line, #e5e7eb);
+        border-radius: 2px;
       }
       .bottom {
         text-align: center;
@@ -150,7 +159,7 @@
         <a href="#s9"><b>9</b>閱讀風格</a>
       </div>
 
-      <div class="group">練習</div>
+      <div class="group">📝 練習</div>
 
       <div class="card step" id="s1">
         <div>
@@ -257,7 +266,7 @@
         </div>
       </div>
 
-      <div class="group">複習</div>
+      <div class="group">🔁 複習</div>
 
       <div class="card step" id="s6">
         <div>
