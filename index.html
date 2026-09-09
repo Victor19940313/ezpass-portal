@@ -115,7 +115,7 @@
 
       .feats {
         display: grid;
-        grid-template-columns: repeat(5, minmax(0, 1fr));
+        grid-template-columns: repeat(4, minmax(0, 1fr));
         gap: 0.7rem;
       }
       .feat {
@@ -168,6 +168,8 @@
         font-weight: 800;
         min-height: 1.1em;
       }
+      .pri { text-decoration: none; color: inherit; display: block; transition: transform .12s, box-shadow .12s; }
+      a.pri:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(0,0,0,.08); }
       .pri.best {
         border-color: var(--sk-accent, #7c3aed);
         box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.12);
@@ -196,11 +198,7 @@
           grid-template-columns: repeat(2, minmax(0, 1fr));
         }
       }
-      @media (min-width: 721px) and (max-width: 900px) {
-        .feats {
-          grid-template-columns: repeat(3, minmax(0, 1fr));
-        }
-      }
+      
     </style>
   </head>
   <body>
@@ -239,59 +237,24 @@
 
       <h2>每一站都有的功能</h2>
       <div class="feats">
-        <div class="card feat">
-          <span class="ic">🎯</span>照分類練<small>同一個觀念一次寫熟</small>
-        </div>
-        <div class="card feat">
-          <span class="ic">📉</span>錯誤率<small>一眼看出弱點</small>
-        </div>
-        <div class="card feat">
-          <span class="ic">🤖</span>AI 詳解<small>連臨床意義一起講</small>
-        </div>
-        <div class="card feat">
-          <span class="ic">🔟</span>十題類似題<small
-            >每一題都附 10 題類似題</small
-          >
-        </div>
-        <div class="card feat">
-          <span class="ic">🚩</span>錯題本<small>收錄錯題</small>
-        </div>
-        <div class="card feat">
-          <span class="ic">🗂</span>筆記本<small>AI 幫你分章節</small>
-        </div>
-        <div class="card feat">
-          <span class="ic">🔍</span>關鍵字瀏覽<small>想到什麼查什麼</small>
-        </div>
-        <div class="card feat">
-          <span class="ic">💬</span>留言討論區<small>每一題都能討論</small>
-        </div>
-        <div class="card feat">
-          <span class="ic">🧠</span>口訣分享區<small
-            >大家一起整理重點、想口訣</small
-          >
-        </div>
-        <div class="card feat">
-          <span class="ic">🎨</span>七種閱讀風格<small>含夜讀暗色</small>
-        </div>
+        <div class="card feat"><span class="ic">🎯</span>照分類練<small>同一個觀念一次寫熟</small></div>
+        <div class="card feat"><span class="ic">📉</span>錯誤率<small>一眼看出弱點</small></div>
+        <div class="card feat"><span class="ic">🤖</span>AI 詳解<small>連臨床意義一起講</small></div>
+        <div class="card feat"><span class="ic">🔟</span>十題類似題<small>每一題都附 10 題類似題</small></div>
+        <div class="card feat"><span class="ic">🏷️</span>題目標記<small>把要複習、有疑問的題目標起來</small></div>
+        <div class="card feat"><span class="ic">🚩</span>錯題本<small>收錄錯題</small></div>
+        <div class="card feat"><span class="ic">🗂</span>筆記本<small>AI 幫你分章節</small></div>
+        <div class="card feat"><span class="ic">🔍</span>關鍵字瀏覽<small>想到什麼查什麼</small></div>
+        <div class="card feat"><span class="ic">💬</span>留言討論區<small>每一題都能討論</small></div>
+        <div class="card feat"><span class="ic">🧠</span>口訣分享區<small>大家一起整理重點、想口訣</small></div>
+        <div class="card feat"><span class="ic">📅</span>每日練習紀錄<small>每天寫了幾題一目了然</small></div>
+        <div class="card feat"><span class="ic">🎨</span>七種閱讀風格<small>含夜讀暗色</small></div>
       </div>
-
       <h2>一次訂閱，開放的科目都能用</h2>
       <div class="pricing">
-        <div class="card pri">
-          <div class="nm">月費</div>
-          <div class="amt">$400<span> / 月</span></div>
-          <div class="sv"></div>
-        </div>
-        <div class="card pri best">
-          <div class="nm">季費</div>
-          <div class="amt">$1000<span> / 3 月</span></div>
-          <div class="sv">省 $200</div>
-        </div>
-        <div class="card pri">
-          <div class="nm">半年</div>
-          <div class="amt">$1500<span> / 6 月</span></div>
-          <div class="sv">省 $900</div>
-        </div>
+        <a class="card pri" href="subscribe.html#plans"><div class="nm">月費</div><div class="amt">$400<span> / 月</span></div><div class="sv"></div></a>
+        <a class="card pri best" href="subscribe.html#plans"><div class="nm">季費</div><div class="amt">$1000<span> / 3 月</span></div><div class="sv">省 $200</div></a>
+        <a class="card pri" href="subscribe.html#plans"><div class="nm">半年</div><div class="amt">$1500<span> / 6 月</span></div><div class="sv">省 $900</div></a>
       </div>
       <p class="trial">
         第一次登入送 7 天免費試用，不用付款。<br />
