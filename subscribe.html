@@ -1,0 +1,347 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2224%22 fill=%22%237c3aed%22/><text x=%2250%22 y=%2268%22 font-size=%2250%22 font-weight=%22900%22 font-family=%22sans-serif%22 text-anchor=%22middle%22 fill=%22white%22>EZ</text></svg>" />
+    <title>方案與價格 — ezpass 國考互動筆記</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="site.css" />
+    <style>
+      .sub-title {
+        color: #6b7280;
+        margin: 0 0 1.4rem;
+      }
+      .pub-box {
+        padding: 1.1rem 1.3rem;
+        margin-bottom: 1.2rem;
+      }
+      .pub-box h2 {
+        margin: 0 0 0.6rem;
+        font-size: 1.1rem;
+      }
+      .pub-box p {
+        margin: 0 0 0.6rem;
+        font-size: 0.93rem;
+      }
+      .pub-feat {
+        list-style: none;
+        padding: 0;
+        margin: 0.6rem 0 0;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.3rem 0.8rem;
+        font-size: 0.88rem;
+      }
+      .open-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.45rem;
+        margin: 0.4rem 0 0.2rem;
+      }
+      .open-list span {
+        font-size: 0.8rem;
+        font-weight: 800;
+        border-radius: 999px;
+        padding: 0.15rem 0.65rem;
+        background: #f1f5f9;
+        color: #64748b;
+      }
+      .open-list span.on {
+        background: #dcfce7;
+        color: #166534;
+      }
+
+      .plans {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 0.8rem;
+        margin: 1rem 0;
+      }
+      .plan {
+        padding: 1rem 0.8rem;
+        text-align: center;
+      }
+      .plan .name {
+        font-weight: 800;
+        color: #6b7280;
+        font-size: 0.88rem;
+      }
+      .plan .price {
+        font-size: 1.7rem;
+        font-weight: 900;
+      }
+      .plan .price .unit {
+        font-size: 0.8rem;
+        font-weight: 500;
+        color: #6b7280;
+      }
+      .plan .save {
+        font-size: 0.78rem;
+        color: #16a34a;
+        font-weight: 800;
+        min-height: 1.2em;
+      }
+      .plan .per {
+        font-size: 0.78rem;
+        color: #6b7280;
+      }
+      .plan.recommend {
+        border-color: #7c3aed;
+        box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.12);
+        position: relative;
+      }
+      .plan.recommend::before {
+        content: "最多人選";
+        position: absolute;
+        top: -0.7rem;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #7c3aed;
+        color: #fff;
+        font-size: 0.7rem;
+        font-weight: 800;
+        border-radius: 999px;
+        padding: 0.1rem 0.6rem;
+      }
+
+      .go {
+        text-align: center;
+        padding: 1.2rem 1rem;
+        margin: 0.4rem 0 1.4rem;
+      }
+      .go h3 {
+        margin: 0 0 0.4rem;
+        font-size: 1.05rem;
+      }
+      .go p {
+        margin: 0 0 0.8rem;
+        color: #6b7280;
+        font-size: 0.9rem;
+      }
+      .go .btn {
+        margin: 0.2rem 0.2rem;
+      }
+
+      .buy-notes dl {
+        margin: 0;
+      }
+      .buy-notes dt {
+        font-weight: 800;
+        margin-top: 0.8rem;
+        font-size: 0.92rem;
+      }
+      .buy-notes dt:first-child {
+        margin-top: 0;
+      }
+      .buy-notes dd {
+        margin: 0.15rem 0 0;
+        font-size: 0.88rem;
+        color: #374151;
+      }
+      .seller-card {
+        margin-top: 1rem;
+        padding: 0.7rem 0.9rem;
+        background: #f8fafc;
+        border: 1px dashed #cbd5e1;
+        border-radius: 10px;
+        font-size: 0.82rem;
+        color: #475569;
+      }
+
+      @media (max-width: 640px) {
+        .plans {
+          grid-template-columns: 1fr;
+        }
+        .pub-feat {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="topbar">
+        <a class="logo" href="./"
+          ><span class="mark">EZ</span> ezpass 國考互動筆記</a
+        >
+        <div class="topnav">
+          <a class="btn" href="./">← 回首頁</a>
+          <a class="btn" href="preview.html">🖼 看實際畫面</a>
+        </div>
+      </div>
+
+      <h1>方案與價格</h1>
+      <p class="sub-title">
+        一次訂閱，開放的科目都能用。以下內容不用登入就看得到。
+      </p>
+
+      <section class="card pub-box">
+        <h2>這是什麼服務？</h2>
+        <p>
+          「ezpass 國考互動筆記」是一個<b>線上（網頁版）的國家考試練習服務</b>，
+          提供歷屆試題、AI 詳解、個人筆記與錯題追蹤。
+          用瀏覽器打開網址就能使用，不需要安裝，手機、平板、電腦都可以，資料自動跨裝置同步。
+        </p>
+        <p><b>目前開放的科目：</b></p>
+        <div class="open-list" id="open-list"></div>
+        <p style="margin-top: 0.5rem">
+          <b>在你的訂閱有效期間內新開放的科目一併開放使用，不另外收費。</b>
+        </p>
+        <ul class="pub-feat">
+          <li>📚 歷屆試題全部依考點分類</li>
+          <li>🤖 每一題都有 AI 詳解與臨床意義</li>
+          <li>🎯 照試卷練 / 照考點練兩種模式</li>
+          <li>📉 各考點錯誤率，一眼看出弱點</li>
+          <li>🚩 錯題本、標記、每日進度</li>
+          <li>🗂 AI 幫你把題目整理成筆記</li>
+          <li>🧠 口訣與重點分享區</li>
+          <li>🎨 七種閱讀風格，含夜讀暗色</li>
+        </ul>
+      </section>
+
+      <h2 style="margin-top: 1.6rem">價格（新臺幣，已含稅）</h2>
+      <div class="plans">
+        <div class="card plan">
+          <div class="name">月費</div>
+          <div class="price">$400<span class="unit"> / 月</span></div>
+          <div class="save"></div>
+          <div class="per">短期衝刺</div>
+        </div>
+        <div class="card plan recommend">
+          <div class="name">季費</div>
+          <div class="price">$1000<span class="unit"> / 3 月</span></div>
+          <div class="save">省 $200 (17% off)</div>
+          <div class="per">$333 / 月</div>
+        </div>
+        <div class="card plan">
+          <div class="name">半年</div>
+          <div class="price">$1500<span class="unit"> / 6 月</span></div>
+          <div class="save">省 $900 (38% off)</div>
+          <div class="per">$250 / 月</div>
+        </div>
+      </div>
+
+      <div class="card go">
+        <h3>🔑 怎麼購買？</h3>
+        <p>
+          先到你的考試網站用 Google 帳號登入（第一次登入自動送 7 天免費試用），
+          在網站裡的「訂閱」頁面選方案付款，付完自動開通。
+        </p>
+        <div id="go-btns"></div>
+      </div>
+
+      <section class="card pub-box buy-notes" id="buy-notes">
+        <h2>購買須知</h2>
+        <dl>
+          <dt>商品內容</dt>
+          <dd>
+            ezpass 國考互動筆記的使用權限，期間依你選擇的方案為 1 個月、3 個月或
+            6 個月。
+            價格為新臺幣，已含稅。服務期間內功能全部開放，沒有額外費用。
+            <b>一份訂閱可使用本服務當時已開放的所有科目</b
+            >；日後開放的科目在訂閱期間內一併開放，不另外加價。
+          </dd>
+
+          <dt>付款方式</dt>
+          <dd>
+            信用卡、ATM
+            虛擬帳號轉帳、超商代碼繳費（皆由綠界科技提供），或銀行匯款。
+          </dd>
+
+          <dt>開通時間與交付方式</dt>
+          <dd>
+            本服務為線上服務，沒有實體商品，不需要寄送。
+            使用信用卡付款完成後系統會自動開通，通常一分鐘內生效； ATM
+            與超商繳費在收到款項後自動開通；
+            銀行匯款需人工核對，我們會在一個工作天內開通。 開通後直接用原本的
+            Google 帳號登入網站即可使用。
+          </dd>
+
+          <dt>免費試用</dt>
+          <dd>
+            第一次登入即享 7
+            天免費試用，期間功能全部開放、不需要付款、也不會自動扣款。
+            試用期滿後需要訂閱才能繼續使用。
+          </dd>
+
+          <dt>退款政策</dt>
+          <dd>
+            本服務屬於「非以有形媒介提供之數位內容」與「一經提供即完成之線上服務」，
+            依《通訊交易解除權合理例外情事適用準則》第二條規定，不適用七日猶豫期。
+            為保障你的權益，我們提供上述 7
+            天免費試用，請在試用期間確認合用再付款。
+            完成付款、權限開通後恕不退費。
+            若因系統問題導致無法正常使用，請來信告知，我們會協助排除或補償等值的使用天數。
+          </dd>
+
+          <dt>客服聯絡方式</dt>
+          <dd>
+            客服信箱：<a href="mailto:ezpassdental@gmail.com"
+              >ezpassdental@gmail.com</a
+            >
+            （服務時間為週一至週五，我們會在一至兩個工作天內回覆）
+          </dd>
+
+          <dt>隱私權</dt>
+          <dd>
+            登入時我們只會取得你 Google
+            帳號的電子郵件與顯示名稱，用於識別身分與跨裝置同步你的作答紀錄與筆記。
+            我們不會將你的資料提供給第三方，也不會用於行銷。
+          </dd>
+
+          <dt>其他提醒</dt>
+          <dd>
+            訂閱綁定你的 Google 帳號，換裝置登入同一個帳號即可繼續使用。<br />
+            使用銀行匯款時，請正確填寫帳號末五碼與匯款人姓名，填錯會延遲對帳。
+          </dd>
+        </dl>
+        <div class="seller-card">
+          賣家：ezpassdental（個人賣家）· 客服信箱 ezpassdental@gmail.com<br />
+          線上付款服務由綠界科技股份有限公司提供。
+        </div>
+      </section>
+
+      <footer>
+        客服信箱：<a href="mailto:ezpassdental@gmail.com"
+          >ezpassdental@gmail.com</a
+        ><br />
+        © 2026 ezpass 國考互動筆記 · 版權所有翻印必究
+      </footer>
+    </div>
+
+    <script src="sites.js"></script>
+    <script>
+      // 目前開放的科目 + 「前往登入購買」按鈕,都從 sites.js 來,新站上線只要改那邊
+      document.getElementById("open-list").innerHTML = SITES.map(function (s) {
+        var live = s.status === "live" && s.url;
+        return (
+          '<span class="' +
+          (live ? "on" : "") +
+          '">' +
+          s.name +
+          (s.sub.indexOf("第") === 0 ? " " + s.sub.split(" · ")[0] : "") +
+          (live ? "" : "（準備中）") +
+          "</span>"
+        );
+      }).join("");
+      document.getElementById("go-btns").innerHTML = SITES.filter(function (s) {
+        return s.status === "live" && s.url;
+      })
+        .map(function (s) {
+          return (
+            '<a class="btn primary" href="' +
+            s.url +
+            'subscribe.html">前往' +
+            s.name +
+            "網站登入購買 →</a>"
+          );
+        })
+        .join("");
+    </script>
+  </body>
+</html>
