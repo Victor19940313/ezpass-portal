@@ -807,7 +807,9 @@
       <div class="ec-box" id="ec-box">
         <h3>💳 線上付款 (付完自動開通)</h3>
         <p>
-          信用卡付完馬上開通;ATM、超商繳完款後幾分鐘內自動開通。要先勾選下方的服務條款。
+          信用卡付完馬上開通;ATM、超商繳完款後幾分鐘內自動開通。要先勾選下方的服務條款。<br />
+          <b>試用期還沒用完就購買不會吃虧</b>:剩下的試用天數會直接加到訂閱期間
+          (例如試用還剩 3 天、買 30 天 → 一共 33 天);續訂也是從原本的到期日往後接。
         </p>
         <div class="ec-btns">
           <button class="ec-btn" type="button" onclick="payEcpay('credit')">
@@ -1086,7 +1088,9 @@
           <dd>
             第一次登入即享 7
             天免費試用，期間功能全部開放、不需要付款、也不會自動扣款。
-            試用期滿後需要訂閱才能繼續使用。
+            試用期滿後需要訂閱才能繼續使用。<br />
+            <b>試用期間購買不會浪費：</b>剩下的試用天數會加到訂閱期間。例如試用還剩 3
+            天時購買 1 個月，總共可以用 33 天。 已經是會員時續訂也一樣，新的天數從原本的到期日往後接。
           </dd>
 
           <dt>退款政策</dt>
@@ -1557,13 +1561,22 @@
           const days = data.gift_days || 30;
           const now = Date.now();
           // v573: 還在會員期內就從原到期日往後加,不吃掉剩下的天數 (跟獎勵頁「續命」一致)
+          // v662: 試用期沒用完就開通,剩下的試用天數也要加上去 (HUA)
           let base = now;
           try {
-            const curSub = (
-              await db.ref("users/" + user.uid + "/subscription").once("value")
-            ).val();
-            if (curSub && curSub.expires_at && curSub.expires_at > now)
-              base = curSub.expires_at;
+            const [curSub, prof] = await Promise.all([
+              db.ref("users/" + user.uid + "/subscription").once("value"),
+              db.ref("users/" + user.uid + "/profile").once("value"),
+            ]);
+            const cs = curSub.val();
+            if (cs && cs.expires_at && cs.expires_at > base)
+              base = cs.expires_at;
+            const p = prof.val() || {};
+            const t = p.trial_started_at || p.created_ts;
+            if (t) {
+              const trialEnd = t + 7 * 86400000;
+              if (trialEnd > base) base = trialEnd;
+            }
           } catch (e) {}
           const expires = base + days * 86400_000;
           // 用 transaction 防競爭 (兩人同時兌換)
