@@ -95,3 +95,31 @@ footer a { color: inherit; }
   .topbar .logo { font-size: .98rem; }
   .memberbar .mb-plans { margin-left: 0; }
 }
+
+/* ═══ v666:換風格時招牌要跟著換色,不能被 skin.css 洗成白底白字 ═══ */
+html[data-skin] .topbar {
+  background: linear-gradient(135deg, var(--sk-accent-d, #4c1d95), var(--sk-accent, #7c3aed)) !important;
+  color: var(--sk-accent-ink, #fff) !important;
+  border: 0 !important;
+  border-bottom: 0 !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1) !important;
+}
+html[data-skin] .topbar .logo,
+html[data-skin] .topbar h1,
+html[data-skin] .topbar .btn {
+  color: var(--sk-accent-ink, #fff) !important;
+}
+html[data-skin] .topbar .btn {
+  background: rgba(255, 255, 255, 0.16) !important;
+  border-color: rgba(255, 255, 255, 0.42) !important;
+}
+html[data-skin] .topbar .btn.primary {
+  background: #fff !important;
+  color: var(--sk-accent-d, #4c1d95) !important;
+  border-color: #fff !important;
+}
+html[data-skin] .topbar .logo .mark {
+  background: rgba(255, 255, 255, 0.22) !important;
+  color: var(--sk-accent-ink, #fff) !important;
+  box-shadow: none !important;
+}
