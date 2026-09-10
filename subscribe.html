@@ -807,7 +807,7 @@
       <div class="ec-box" id="ec-box">
         <h3>💳 線上付款 (付完自動開通)</h3>
         <p>
-          信用卡付完馬上開通;ATM、超商繳完款後幾分鐘內自動開通,不用填對帳。要先勾選下方的服務條款。
+          信用卡付完馬上開通;ATM、超商繳完款後幾分鐘內自動開通。要先勾選下方的服務條款。
         </p>
         <div class="ec-btns">
           <button class="ec-btn" type="button" onclick="payEcpay('credit')">
@@ -825,51 +825,15 @@
       <div class="lp-box" id="lp-box">
         <h3>💚 LINE Pay 付款 (付完立刻開通)</h3>
         <p>
-          按下去會跳到 LINE Pay,付款成功會<b>自動開通</b>,不用填對帳資料。
+          按下去會跳到 LINE Pay,付款成功會<b>自動開通</b>。
           要先勾選下方的服務條款。
         </p>
         <button class="lp-btn" id="lp-btn" onclick="payLinepay()">
           用 LINE Pay 付 <span id="lp-amount">$400</span>
         </button>
-        <div class="lp-or">— 或是用下面的匯款 —</div>
       </div>
-      <div class="bank-info" id="bank-info">
-        <h3>💳 匯款資訊</h3>
-        <div class="bank-row">
-          <span class="k">銀行</span>
-          <span class="v">富邦銀行 (012)</span>
-        </div>
-        <div class="bank-row">
-          <span class="k">帳號</span>
-          <span class="v">
-            0081680008708963
-            <button class="copy-btn" onclick="copyAcc()">複製</button>
-          </span>
-        </div>
-        <div class="bank-row">
-          <span class="k">金額</span>
-          <span class="v big" id="show-amount">$400</span>
-        </div>
-      </div>
-
       <div class="form" id="form">
-        <h3>📝 匯款完填這裡 (幫我們對帳)</h3>
-        <div class="field">
-          <label for="payer-name">匯款人姓名</label>
-          <input id="payer-name" type="text" placeholder="例:王小明" />
-        </div>
-        <div class="field">
-          <label for="atm-last5">匯款帳號末 5 碼</label>
-          <input
-            id="atm-last5"
-            type="text"
-            placeholder="例:12345"
-            maxlength="5"
-            pattern="[0-9]{5}"
-            inputmode="numeric"
-          />
-          <div class="hint">妳自己銀行帳號的最後 5 碼 (不是我們的)</div>
-        </div>
+        <h3>📝 付款前先看這裡</h3>
         <div class="field" id="referrer-field">
           <label for="referrer-email">推薦人 email (選填)</label>
           <input
@@ -886,7 +850,7 @@
           <div class="terms-title">📄 服務條款與免責聲明</div>
           <div class="terms-box" id="terms-box">
             <p>
-              請於送出對帳前詳閱以下條款。您勾選「我已閱讀並同意」並送出對帳，即表示您已充分理解並同意受本條款拘束。
+              請於付款前詳閱以下條款。您勾選「我已閱讀並同意」並完成付款，即表示您已充分理解並同意受本條款拘束。
             </p>
 
             <h4>一、服務性質</h4>
@@ -913,13 +877,13 @@
             <h4>三、付款與開通</h4>
             <ol>
               <li>
-                本服務採銀行轉帳／ATM
-                匯款之人工對帳方式，並非即時自動開通。送出對帳資料後，作者將於收到款項並確認後儘速開通，開通時間依對帳作業狀況而定，恕無法保證特定時限。
+                本服務之付款由綠界科技或 LINE Pay
+                處理，付款完成後系統自動開通；ATM 虛擬帳號與超商代碼繳費者，於收到款項後幾分鐘內自動開通。
               </li>
               <li>
-                您填寫之匯款人姓名與帳號末五碼僅供對帳使用。因資料填寫錯誤、金額不符或匯款未入帳導致無法對帳者，開通將延後，並可能需要您另行提供匯款證明。
+                若付款已完成但超過十分鐘仍未開通，請來信客服信箱，並附上付款時間與金額，我們會盡快處理。
               </li>
-              <li>訂閱期間自實際開通日起算，非自匯款日起算。</li>
+              <li>訂閱期間自實際開通日起算。</li>
               <li>
                 本服務之價格、方案內容與優惠得隨時調整，調整前已開通之訂閱不受影響。
               </li>
@@ -1008,7 +972,7 @@
             <ol>
               <li>
                 本服務蒐集之個人資料包括：Google
-                帳號之電子郵件與顯示名稱、匯款人姓名、匯款帳號末五碼、練習與訂閱紀錄、裝置資訊，用途限於提供服務、對帳、防止濫用與必要之聯繫。
+                帳號之電子郵件與顯示名稱、練習與訂閱紀錄、裝置資訊，用途限於提供服務、防止濫用與必要之聯繫。
               </li>
               <li>
                 資料儲存於第三方雲端服務（如 Google
@@ -1079,23 +1043,15 @@
               >我已閱讀並同意上述服務條款與免責聲明，了解本服務為數位內容，開通後不接受退費。</span
             >
           </label>
-          <div class="terms-hint" id="terms-hint">勾選同意後才能送出對帳</div>
+          <div class="terms-hint" id="terms-hint">勾選同意後才能付款</div>
         </div>
-        <button
-          class="submit-btn locked"
-          id="submit-btn"
-          onclick="submitOrder()"
-        >
-          ✓ 我已匯款，送出對帳
-        </button>
       </div>
 
+      <!-- 線上付款回來時顯示 (綠界 / LINE Pay 都會用到) -->
       <div class="success" id="success">
         <div class="success-icon">✅</div>
-        <h2>已收到妳的匯款通知!</h2>
-        <p>
-          我們<b>會盡快</b>對帳並開通妳的訂閱<br />開通後徽章會變成金色「✨會員」
-        </p>
+        <h2>付款成功，已自動開通!</h2>
+        <p>徽章會變成金色「✨會員」<br />如果沒有馬上變，重新整理一次就好</p>
         <div class="order-id" id="order-id"></div>
       </div>
 
@@ -1114,16 +1070,15 @@
 
           <dt>付款方式</dt>
           <dd>
-            信用卡、ATM
-            虛擬帳號轉帳、超商代碼繳費（皆由綠界科技提供），或銀行匯款。
+            信用卡、ATM 虛擬帳號轉帳、超商代碼繳費（皆由綠界科技提供），或
+            LINE Pay。所有付款方式都在收到款項後自動開通，不需要人工處理。
           </dd>
 
           <dt>開通時間與交付方式</dt>
           <dd>
             本服務為線上服務，沒有實體商品，不需要寄送。
-            使用信用卡付款完成後系統會自動開通，通常一分鐘內生效； ATM
-            與超商繳費在收到款項後自動開通；
-            銀行匯款需人工核對，我們會在一個工作天內開通。 開通後直接用原本的
+            使用信用卡或 LINE Pay 付款完成後系統會自動開通，通常一分鐘內生效；
+            ATM 虛擬帳號與超商代碼在收到款項後幾分鐘內自動開通。 開通後直接用原本的
             Google 帳號登入網站即可使用。
           </dd>
 
@@ -1163,7 +1118,7 @@
           <dt>其他提醒</dt>
           <dd>
             訂閱綁定您的 Google 帳號，換裝置登入同一個帳號即可繼續使用。<br />
-            使用銀行匯款時，請正確填寫帳號末五碼與匯款人姓名，填錯會延遲對帳。
+            付款請在本頁的線上付款按鈕操作，我們不會用私訊或電話要您轉帳到任何帳戶。
           </dd>
         </dl>
         <div class="seller-card">
@@ -1238,9 +1193,6 @@
           el.classList.add("selected");
           selectedPlan = el.dataset.plan;
           selectedAmount = parseInt(el.dataset.amount, 10);
-          document.getElementById("show-amount").textContent =
-            "$" + selectedAmount;
-          document.getElementById("bank-info").classList.add("show");
           lpSync();
           ecSync();
           document.getElementById("form").classList.add("show");
@@ -1250,21 +1202,15 @@
         });
       });
 
-      function copyAcc() {
-        navigator.clipboard.writeText("0081680008708963").then(() => {
-          alert("帳號已複製到剪貼簿");
-        });
-      }
-
       // v549: 免責聲明勾選 → 開放送出鈕
       const TERMS_VERSION = "2026-09-03b";
       function onTermsChange() {
         const cb = document.getElementById("terms-agree");
-        const btn = document.getElementById("submit-btn");
         const hint = document.getElementById("terms-hint");
         const ok = !!(cb && cb.checked);
-        if (btn) btn.classList.toggle("locked", !ok);
-        if (hint) hint.textContent = ok ? "" : "勾選同意後才能送出對帳";
+        if (hint) hint.textContent = ok ? "" : "勾選同意後才能付款";
+        if (typeof lpSync === "function") lpSync();
+        if (typeof ecSync === "function") ecSync();
       }
       window.onTermsChange = onTermsChange;
 
@@ -1333,7 +1279,7 @@
           location.href = j.paymentUrl;
         } catch (e) {
           alert(
-            "LINE Pay 付款啟動失敗:" + e.message + "\n可以改用匯款,或稍後再試",
+            "LINE Pay 付款啟動失敗:" + e.message + "\n可以改用信用卡 / ATM,或稍後再試",
           );
           btn.disabled = false;
           btn.innerHTML =
@@ -1367,7 +1313,7 @@
           alert(
             "LINE Pay 付款沒有完成 (" +
               (q.get("why") || "未知") +
-              ")。沒有開通也沒有扣款的話可以再試一次,或改用匯款。",
+              ")。沒有開通也沒有扣款的話可以再試一次,或換一種付款方式。",
           );
         }
       })();
@@ -1447,7 +1393,7 @@
           document.body.appendChild(form);
           form.submit();
         } catch (e) {
-          alert("線上付款啟動失敗:" + e.message + "\n可以改用匯款,或稍後再試");
+          alert("線上付款啟動失敗:" + e.message + "\n可以改用 LINE Pay,或稍後再試");
           btns.forEach((b) => (b.disabled = false));
         }
       }
@@ -1474,7 +1420,7 @@
           document.getElementById("plans").style.display = "none";
           sc.querySelector("h2").textContent = "已取得繳費資訊";
           sc.querySelector("p").innerHTML =
-            "請依綠界頁面上的 ATM 帳號或超商代碼繳款,<b>繳完款後幾分鐘內會自動開通</b>,不用再回來對帳。";
+            "請依綠界頁面上的 ATM 帳號或超商代碼繳款,<b>繳完款後幾分鐘內會自動開通</b>。";
           document.getElementById("order-id").textContent = q.get("oid")
             ? "訂單編號: " + q.get("oid")
             : "";
@@ -1488,94 +1434,11 @@
           alert(
             "線上付款沒有完成 (" +
               (q.get("why") || "未知") +
-              ")。沒有扣款的話可以再試一次,或改用匯款。",
+              ")。沒有扣款的話可以再試一次,或換一種付款方式。",
           );
         }
       })();
 
-      async function submitOrder() {
-        const user = window.Auth && window.Auth.getUser();
-        if (!user) {
-          alert("請先 Google 登入");
-          document.getElementById("not-logged").classList.add("show");
-          return;
-        }
-        if (!selectedPlan) {
-          alert("請先選一個方案");
-          return;
-        }
-        const payerName = document.getElementById("payer-name").value.trim();
-        const last5 = document.getElementById("atm-last5").value.trim();
-        if (!payerName) {
-          alert("請填匯款人姓名");
-          return;
-        }
-        if (!/^[0-9]{5}$/.test(last5)) {
-          alert("末 5 碼要填 5 個數字");
-          return;
-        }
-        // v549: 一定要勾同意免責聲明
-        const termsCb = document.getElementById("terms-agree");
-        if (!termsCb || !termsCb.checked) {
-          alert("請先閱讀並勾選同意服務條款與免責聲明");
-          try {
-            document
-              .getElementById("terms-wrap")
-              .scrollIntoView({ behavior: "smooth", block: "center" });
-          } catch (e) {}
-          return;
-        }
-        const btn = document.getElementById("submit-btn");
-        btn.disabled = true;
-        btn.textContent = "送出中...";
-        // v540: 欄位被藏 (已填過推薦人) 就不送，避免殘值溜過去
-        const _refField = document.getElementById("referrer-field");
-        const referrerEmail =
-          _refField && _refField.style.display === "none"
-            ? ""
-            : (document.getElementById("referrer-email").value || "")
-                .trim()
-                .toLowerCase();
-        try {
-          const db = firebase.database();
-          const ref = db.ref("pending_orders").push();
-          const payload = {
-            uid: user.uid,
-            email: user.email || "",
-            name: user.displayName || "",
-            payer_name: payerName,
-            plan: selectedPlan,
-            amount: selectedAmount,
-            atm_last5: last5,
-            status: "waiting",
-            created_ts: firebase.database.ServerValue.TIMESTAMP,
-            terms_version: TERMS_VERSION, // v549: 使用者同意的條款版本
-            terms_agreed_ts: Date.now(),
-          };
-          if (referrerEmail) payload.referrer_email = referrerEmail;
-          await ref.set(payload);
-          // 通知 HUA (Telegram, 失敗不 fatal)
-          try {
-            fetch(
-              "https://island-watch.seat-watch.workers.dev/notify/dental?oid=" +
-                encodeURIComponent(ref.key),
-              { method: "GET", mode: "cors" },
-            ).catch(() => {});
-          } catch (e) {}
-          // 顯示成功
-          document.getElementById("plans").style.display = "none";
-          document.getElementById("bank-info").classList.remove("show");
-          document.getElementById("form").classList.remove("show");
-          document.getElementById("order-id").textContent =
-            "訂單編號: " + ref.key;
-          document.getElementById("success").classList.add("show");
-          window.scrollTo({ top: 0, behavior: "smooth" });
-        } catch (e) {
-          alert("送出失敗:" + e.message + "\n\n請重試或聯絡我們");
-          btn.disabled = false;
-          btn.textContent = "✓ 我已匯款，送出對帳";
-        }
-      }
 
       // 顯示訂閱狀態卡
       function renderStatus() {
