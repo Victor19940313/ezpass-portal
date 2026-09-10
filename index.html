@@ -352,8 +352,8 @@
         <h1>國考歷屆考題、詳解、筆記，一站搞定</h1>
         <p class="lead">
           歷屆試題全部分好類，每一題都有詳解和十題類似題。不會的按一下收進錯題本或加進筆記，AI
-          幫你整理成章節。
-          手機、平板、電腦打開網頁就能用，無時無刻都能練習和複習，資料跨裝置同步。
+          幫您整理成章節。
+          手機、平板、電腦打開網頁就能用，<b>不用下載任何程式或 App</b>，無時無刻都能練習和複習，資料跨裝置同步。
         </p>
       </div>
 
@@ -361,16 +361,16 @@
         <a class="btn primary lg" href="start.html">✨ 第一次使用看這邊</a>
       </div>
 
-      <h2 id="choose">選擇你的考試</h2>
+      <h2 id="choose">選擇您的考試</h2>
       <div class="sites" id="sites"></div>
 
       <h2>每一站都有的功能</h2>
       <div class="feats">
         <div class="card feat">
-          <span class="ic">🎯</span>照分類練<small>所有考古題目幫你分門別類</small>
+          <span class="ic">🎯</span>照分類練<small>所有考古題目幫您分門別類</small>
         </div>
         <div class="card feat">
-          <span class="ic">📉</span>錯誤率<small>幫你量身算出類題錯誤率</small>
+          <span class="ic">📉</span>錯誤率<small>幫您量身算出類題錯誤率</small>
         </div>
         <div class="card feat">
           <span class="ic">🤖</span>兩套 AI 詳解<small
@@ -561,7 +561,7 @@
         }
         e.preventDefault();
         var old = a.textContent;
-        a.textContent = "帶你進去…";
+        a.textContent = "帶您進去…";
         Auth.ssoLink(site, base)
           .then(function (url) { location.href = url; })
           .catch(function () { location.href = base; })
