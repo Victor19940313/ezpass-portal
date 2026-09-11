@@ -114,6 +114,52 @@
       .wish {
         margin: 2.2rem 0 0;
       }
+      .wish-toggle {
+        display: flex;
+        align-items: center;
+        gap: 0.7rem;
+        width: 100%;
+        text-align: left;
+        background: var(--ui-card, #fff);
+        border: 1.5px dashed var(--ui-line, #d8d3cb);
+        border-radius: 14px;
+        padding: 0.9rem 1.1rem;
+        cursor: pointer;
+        font: inherit;
+        color: inherit;
+        transition: border-color 0.15s, background 0.15s;
+      }
+      .wish-toggle:hover {
+        border-color: var(--ui-accent-solid, #7c3aed);
+      }
+      .wish-toggle-t {
+        font-weight: 700;
+        font-size: 1rem;
+      }
+      .wish-toggle-s {
+        color: var(--ui-ink2, #6b7280);
+        font-size: 0.85rem;
+        flex: 1;
+      }
+      .wish-toggle-i {
+        color: var(--ui-ink2, #6b7280);
+        transition: transform 0.15s;
+      }
+      .wish-toggle[aria-expanded="true"] .wish-toggle-i {
+        transform: rotate(180deg);
+      }
+      .wish-panel {
+        margin-top: 0.7rem;
+      }
+      @media (max-width: 560px) {
+        .wish-toggle {
+          flex-wrap: wrap;
+          gap: 0.25rem;
+        }
+        .wish-toggle-s {
+          flex-basis: 100%;
+        }
+      }
       .wish-lead {
         color: var(--ui-ink2, #6b7280);
         font-size: 0.92rem;
@@ -146,7 +192,9 @@
         cursor: pointer;
         font-size: 0.9rem;
         background: var(--ui-bg, #fff);
-        transition: border-color 0.12s, background 0.12s;
+        transition:
+          border-color 0.12s,
+          background 0.12s;
       }
       .wish-opt:hover {
         border-color: var(--ui-accent-solid, #7c3aed);
@@ -389,9 +437,26 @@
         </nav>
         <div class="topacts">
           <span class="nav-sep" aria-hidden="true"></span>
-          <button class="btn ico" type="button" onclick="if (window.Skin && Skin.open) Skin.open();" title="換網站風格" aria-label="換網站風格">🎨</button>
+          <button
+            class="btn ico"
+            type="button"
+            onclick="if (window.Skin && Skin.open) Skin.open();"
+            title="換網站風格"
+            aria-label="換網站風格"
+          >
+            🎨
+          </button>
           <span id="auth-widget"></span>
-          <button class="btn primary" type="button" id="btn-login" data-login="modal" onclick="openLogin()" hidden>登入</button>
+          <button
+            class="btn primary"
+            type="button"
+            id="btn-login"
+            data-login="modal"
+            onclick="openLogin()"
+            hidden
+          >
+            登入
+          </button>
         </div>
       </div>
       <div class="memberbar" hidden>
@@ -448,22 +513,32 @@
       </div>
 
       <div style="text-align: center; margin: 0 0 1.6rem">
-        <a class="btn primary lg" href="start.html">✨ 新手上路：3 分鐘看懂怎麼用</a>
+        <a class="btn primary lg" href="start.html"
+          >✨ 新手上路：3 分鐘看懂怎麼用</a
+        >
       </div>
 
       <h2 id="choose">選擇您的考試</h2>
       <div class="sites" id="sites"></div>
 
       <!-- 2026-09-11 HUA:「首頁能不能擺一個地方放:我要考別的證照沒有在上面,我要許願」
-           「一個登入的帳號只能投一個證照」 -->
+           「一個登入的帳號只能投一個證照」
+           「做成一個鈕,按進去後再勾選」+ 文案不要太現實 -->
       <section class="wish" id="wish">
-        <h2 style="margin-bottom: 0.4rem">找不到你要考的？來許願</h2>
-        <p class="wish-lead">
-          告訴我你要考什麼，我照許願的人數決定下一個做哪一科。<br />
-          目前只做<b>全部都是選擇題</b>的考試；<b>一個帳號投一個</b>，之後想改隨時可以改。
-        </p>
-        <div id="wish-body" class="wish-body">
-          <div class="wish-loading">讀取中…</div>
+        <button class="wish-toggle" id="wish-toggle" aria-expanded="false">
+          <span class="wish-toggle-t">✨ 找不到你要考的？來許願</span>
+          <span class="wish-toggle-s">跟我說你要考什麼，我記下來</span>
+          <span class="wish-toggle-i">▾</span>
+        </button>
+        <div id="wish-panel" class="wish-panel" hidden>
+          <p class="wish-lead">
+            這個網站是一個考生做給考生的。你要考的還沒上線，跟我說一聲，我會記下來。<br />
+            我一個人慢慢做，先從<b>全部都是選擇題</b>的考試開始，做好一科再做下一科。<br />
+            一個帳號許一個願，之後改主意隨時可以回來改。
+          </p>
+          <div id="wish-body" class="wish-body">
+            <div class="wish-loading">讀取中…</div>
+          </div>
         </div>
       </section>
 
@@ -568,6 +643,7 @@
     <script src="subscription.js?v=v684"></script>
     <script src="sites.js?v=v684"></script>
     <script src="nav.js?v=v684"></script>
+    <script src="wish.js?v=v684" defer></script>
     <script>
       // 入口網站登入 (跟牙醫站同一個 Firebase 專案,帳號 / 試用 / 訂閱共用)
       function openLogin() {
