@@ -653,3 +653,13 @@ table.table tr:last-child td {
     font-size: 0.8rem;
   }
 }
+
+
+/* skin.css 有些規則會用 !important 把字換成該風格的深/淺色,
+   套在「實心主色 + 白字」的東西上就會變成淺底淺字 (夜讀量到 3.55:1)。
+   這裡把白字要回來 — 實心主色每個風格都已經調到白字 >= 4.6:1。*/
+.btn.primary,
+.toc a b,
+.step-row .no {
+  color: #fff !important;
+}
