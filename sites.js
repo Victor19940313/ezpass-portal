@@ -18,7 +18,7 @@ var SITES = [
     years: "105～115 年",
     art: "nurseCap",
     status: "live",
-    url: "https://nursing.ezpass-exam.com/",
+    url: "/nursing/",
   },
   {
     id: "dental1",
@@ -35,8 +35,8 @@ var SITES = [
     stage: "第一階段",
     years: "105～115 年",
     art: "stethoscope",
-    status: "soon",
-    url: "",
+    status: "live",
+    url: "/physician1/",
   },
   {
     id: "physician2",
@@ -44,8 +44,8 @@ var SITES = [
     stage: "第二階段",
     years: "105～115 年",
     art: "stethoscope",
-    status: "soon",
-    url: "",
+    status: "live",
+    url: "/physician2/",
   },
 ];
 
