@@ -680,29 +680,27 @@
         <a class="logo" href="./"
           ><span class="mark">EZ</span> ezpass 國考互動筆記</a
         >
-        <div class="topnav">
-          <a class="btn" href="./">← 首頁</a>
-          <a class="btn" href="start.html">第一次使用看這邊</a>
-          <button
-            class="btn"
-            type="button"
-            onclick="if (window.Skin && Skin.open) Skin.open();"
-            title="換網站風格"
-          >
-            🎨 風格
-          </button>
+        <nav class="topnav" aria-label="主選單">
+          <a class="nav-l" href="./">首頁</a>
+          <a class="nav-l" href="start.html">新手上路</a>
+          <a class="nav-l" href="subscribe.html">方案與價格</a>
+          <a class="nav-l" href="rewards.html">推薦拿獎勵</a>
+        </nav>
+        <div class="topacts">
+          <span class="nav-sep" aria-hidden="true"></span>
+          <button class="btn ico" type="button" onclick="if (window.Skin && Skin.open) Skin.open();" title="換網站風格" aria-label="換網站風格">🎨</button>
           <span id="auth-widget"></span>
-          <button class="btn primary" type="button" id="btn-login" onclick="document.getElementById('not-logged').scrollIntoView({ behavior: 'smooth', block: 'center' })" hidden>登入</button>
+          <button class="btn primary" type="button" id="btn-login" data-login="modal" onclick="document.getElementById('not-logged').scrollIntoView({ behavior: 'smooth', block: 'center' })" hidden>登入</button>
         </div>
       </div>
-      <div class="memberbar">
+      <div class="memberbar" hidden>
         <span id="sub-pill"></span>
-        <a class="mb-gift" href="rewards.html">🎁 推薦朋友，各拿一個月</a>
-        <a class="mb-plans" href="subscribe.html">方案與價格 ›</a>
       </div>
 
       <h1>方案與價格</h1>
-      <p class="sub-title">一次訂閱，一站通用：訂閱期間內開放的科目都能使用。</p>
+      <p class="sub-title">
+        一次訂閱，一站通用：訂閱期間內開放的科目都能使用。
+      </p>
 
       <!-- v642: 公開的服務說明 (不用登入就看得到) -->
       <section class="pub-box">
@@ -812,9 +810,7 @@
 
       <div id="not-logged" class="not-logged">
         <h3>💡 建議先免費試用，確定合用再購買</h3>
-        <p>
-          第一次登入自動送 7 天免費試用，全部功能都能用。一個帳號全站通用。
-        </p>
+        <p>第一次登入自動送 7 天免費試用，全部功能都能用。一個帳號全站通用。</p>
         <div
           style="
             display: flex;
@@ -839,7 +835,8 @@
         <p>
           信用卡付完馬上開通;ATM、超商繳完款後幾分鐘內自動開通。要先勾選下方的服務條款。<br />
           <b>試用期還沒用完就購買不會吃虧</b>:剩下的試用天數會直接加到訂閱期間
-          (例如試用還剩 3 天、買 30 天 → 一共 33 天);續訂也是從原本的到期日往後接。
+          (例如試用還剩 3 天、買 30 天 → 一共 33
+          天);續訂也是從原本的到期日往後接。
         </p>
         <div class="ec-btns">
           <button class="ec-btn" type="button" onclick="payEcpay('credit')">
@@ -910,7 +907,8 @@
             <ol>
               <li>
                 本服務之付款由綠界科技或 LINE Pay
-                處理，付款完成後系統自動開通；ATM 虛擬帳號與超商代碼繳費者，於收到款項後幾分鐘內自動開通。
+                處理，付款完成後系統自動開通；ATM
+                虛擬帳號與超商代碼繳費者，於收到款項後幾分鐘內自動開通。
               </li>
               <li>
                 若付款已完成但超過十分鐘仍未開通，請來信客服信箱，並附上付款時間與金額，我們會盡快處理。
@@ -1091,75 +1089,77 @@
       <section class="pub-box buy-notes" id="buy-notes">
         <details>
           <summary data-hint="展開 ▾">購買須知</summary>
-        <dl>
-          <dt>商品內容</dt>
-          <dd>
-            ezpass 國考互動筆記的使用權限，期間依您選擇的方案為 1 個月、3 個月或
-            6 個月。
-            價格為新臺幣，已含稅。服務期間內功能全部開放，沒有額外費用。
-            <b>一份訂閱可使用本服務當時已開放的所有科目</b
-            >；日後開放的科目在訂閱期間內一併開放，不另外加價。。
-          </dd>
+          <dl>
+            <dt>商品內容</dt>
+            <dd>
+              ezpass 國考互動筆記的使用權限，期間依您選擇的方案為 1 個月、3
+              個月或 6 個月。
+              價格為新臺幣，已含稅。服務期間內功能全部開放，沒有額外費用。
+              <b>一份訂閱可使用本服務當時已開放的所有科目</b
+              >；日後開放的科目在訂閱期間內一併開放，不另外加價。。
+            </dd>
 
-          <dt>付款方式</dt>
-          <dd>
-            信用卡、ATM 虛擬帳號轉帳、超商代碼繳費（皆由綠界科技提供），或
-            LINE Pay。所有付款方式都在收到款項後自動開通，不需要人工處理。
-          </dd>
+            <dt>付款方式</dt>
+            <dd>
+              信用卡、ATM 虛擬帳號轉帳、超商代碼繳費（皆由綠界科技提供），或
+              LINE Pay。所有付款方式都在收到款項後自動開通，不需要人工處理。
+            </dd>
 
-          <dt>開通時間與交付方式</dt>
-          <dd>
-            本服務為線上服務，沒有實體商品，不需要寄送。
-            使用信用卡或 LINE Pay 付款完成後系統會自動開通，通常一分鐘內生效；
-            ATM 虛擬帳號與超商代碼在收到款項後幾分鐘內自動開通。 開通後直接用原本的
-            Google 帳號登入網站即可使用。
-          </dd>
+            <dt>開通時間與交付方式</dt>
+            <dd>
+              本服務為線上服務，沒有實體商品，不需要寄送。 使用信用卡或 LINE Pay
+              付款完成後系統會自動開通，通常一分鐘內生效； ATM
+              虛擬帳號與超商代碼在收到款項後幾分鐘內自動開通。
+              開通後直接用原本的 Google 帳號登入網站即可使用。
+            </dd>
 
-          <dt>免費試用</dt>
-          <dd>
-            第一次登入即享 7
-            天免費試用，期間功能全部開放、不需要付款、也不會自動扣款。
-            試用期滿後需要訂閱才能繼續使用。<br />
-            <b>試用期間購買不會浪費：</b>剩下的試用天數會加到訂閱期間。例如試用還剩 3
-            天時購買 1 個月，總共可以用 33 天。 已經是會員時續訂也一樣，新的天數從原本的到期日往後接。
-          </dd>
+            <dt>免費試用</dt>
+            <dd>
+              第一次登入即享 7
+              天免費試用，期間功能全部開放、不需要付款、也不會自動扣款。
+              試用期滿後需要訂閱才能繼續使用。<br />
+              <b>試用期間購買不會浪費：</b
+              >剩下的試用天數會加到訂閱期間。例如試用還剩 3 天時購買 1
+              個月，總共可以用 33 天。
+              已經是會員時續訂也一樣，新的天數從原本的到期日往後接。
+            </dd>
 
-          <dt>退款政策</dt>
-          <dd>
-            本服務屬於「非以有形媒介提供之數位內容」與「一經提供即完成之線上服務」，
-            依《通訊交易解除權合理例外情事適用準則》第二條規定，不適用七日猶豫期。
-            為保障您的權益，我們提供上述 7
-            天免費試用，請在試用期間確認合用再付款。
-            完成付款、權限開通後恕不退費。
-            若因系統問題導致無法正常使用，請來信告知，我們會協助排除或補償等值的使用天數。
-          </dd>
+            <dt>退款政策</dt>
+            <dd>
+              本服務屬於「非以有形媒介提供之數位內容」與「一經提供即完成之線上服務」，
+              依《通訊交易解除權合理例外情事適用準則》第二條規定，不適用七日猶豫期。
+              為保障您的權益，我們提供上述 7
+              天免費試用，請在試用期間確認合用再付款。
+              完成付款、權限開通後恕不退費。
+              若因系統問題導致無法正常使用，請來信告知，我們會協助排除或補償等值的使用天數。
+            </dd>
 
-          <dt>客服聯絡方式</dt>
-          <dd>
-            客服信箱：<a href="mailto:ezpassdental@gmail.com"
-              >ezpassdental@gmail.com</a
-            >
-            （服務時間為週一至週五，我們會在一至兩個工作天內回覆）<br />
-            也可以直接在網站上<a href="feedback.html">回報問題或許願</a>。
-          </dd>
+            <dt>客服聯絡方式</dt>
+            <dd>
+              客服信箱：<a href="mailto:ezpassdental@gmail.com"
+                >ezpassdental@gmail.com</a
+              >
+              （服務時間為週一至週五，我們會在一至兩個工作天內回覆）<br />
+              也可以登入之後，在您使用的考試網站裡點「意見回饋」回報問題或許願。
+            </dd>
 
-          <dt>隱私權</dt>
-          <dd>
-            登入時我們只會取得您 Google
-            帳號的電子郵件與顯示名稱，用於識別身分與跨裝置同步您的作答紀錄與筆記。
-            我們不會將您的資料提供給第三方，也不會用於行銷。
-          </dd>
+            <dt>隱私權</dt>
+            <dd>
+              登入時我們只會取得您 Google
+              帳號的電子郵件與顯示名稱，用於識別身分與跨裝置同步您的作答紀錄與筆記。
+              我們不會將您的資料提供給第三方，也不會用於行銷。
+            </dd>
 
-          <dt>其他提醒</dt>
-          <dd>
-            訂閱綁定您的 Google 帳號，換裝置登入同一個帳號即可繼續使用。<br />
-            付款請在本頁的線上付款按鈕操作，我們不會用私訊或電話要您轉帳到任何帳戶。
-          </dd>
-        </dl>
-        <div class="seller-card">
-          賣家：ezpassdental · 客服信箱 ezpassdental@gmail.com<br />
-          線上付款服務由綠界科技股份有限公司提供。
-        </div>
+            <dt>其他提醒</dt>
+            <dd>
+              訂閱綁定您的 Google 帳號，換裝置登入同一個帳號即可繼續使用。<br />
+              付款請在本頁的線上付款按鈕操作，我們不會用私訊或電話要您轉帳到任何帳戶。
+            </dd>
+          </dl>
+          <div class="seller-card">
+            賣家：ezpassdental · 客服信箱 ezpassdental@gmail.com<br />
+            線上付款服務由綠界科技股份有限公司提供。
+          </div>
         </details>
       </section>
 
@@ -1179,6 +1179,7 @@
     <script src="auth.js?v=v656"></script>
     <script src="subscription.js?v=v656"></script>
     <script src="sites.js?v=v656"></script>
+    <script src="nav.js"></script>
     <script>
       // 目前開放的科目 (從 sites.js 來)
       document.getElementById("open-list").innerHTML = SITES.map(function (s) {
@@ -1196,7 +1197,10 @@
       (function () {
         var tries = 0;
         function hookAuth() {
-          if (!window.Auth || !Auth.onChange) { if (++tries < 40) setTimeout(hookAuth, 250); return; }
+          if (!window.Auth || !Auth.onChange) {
+            if (++tries < 40) setTimeout(hookAuth, 250);
+            return;
+          }
           Auth.onChange(function (user) {
             var b = document.getElementById("btn-login");
             if (b) b.hidden = !!user;
@@ -1315,7 +1319,9 @@
           location.href = j.paymentUrl;
         } catch (e) {
           alert(
-            "LINE Pay 付款啟動失敗:" + e.message + "\n可以改用信用卡 / ATM,或稍後再試",
+            "LINE Pay 付款啟動失敗:" +
+              e.message +
+              "\n可以改用信用卡 / ATM,或稍後再試",
           );
           btn.disabled = false;
           btn.innerHTML =
@@ -1429,7 +1435,9 @@
           document.body.appendChild(form);
           form.submit();
         } catch (e) {
-          alert("線上付款啟動失敗:" + e.message + "\n可以改用 LINE Pay,或稍後再試");
+          alert(
+            "線上付款啟動失敗:" + e.message + "\n可以改用 LINE Pay,或稍後再試",
+          );
           btns.forEach((b) => (b.disabled = false));
         }
       }
@@ -1474,7 +1482,6 @@
           );
         }
       })();
-
 
       // 顯示訂閱狀態卡
       function renderStatus() {

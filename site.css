@@ -36,7 +36,7 @@ h2 { font-size: 1.2rem; font-weight: 900; margin: 2.2rem 0 .8rem; }
   box-shadow: var(--sk-shadow, 0 2px 10px rgba(0,0,0,.04));
 }
 footer {
-  margin-top: 3rem; text-align: center; color: var(--sk-mute, #9ca3af); font-size: .78rem; line-height: 1.8;
+  margin-top: 3rem; text-align: center; color: var(--sk-ink2, #6b7280); font-size: .78rem; line-height: 1.8;
   border-top: 1px solid var(--sk-line, #ececec); padding-top: 1.2rem;
 }
 footer a { color: inherit; }
@@ -122,4 +122,85 @@ html[data-skin] .topbar .logo .mark {
   background: rgba(255, 255, 255, 0.22) !important;
   color: var(--sk-accent-ink, #fff) !important;
   box-shadow: none !important;
+}
+
+/* ═══ v675:四頁共用的導覽列 (首頁 / 新手上路 / 方案與價格 / 推薦拿獎勵) ═══
+   目的:每一頁都長一樣,而且一眼看得出自己在哪一頁 (目前頁 = 白底紫字)。*/
+.topnav { align-items: center; gap: .25rem; }
+.nav-l {
+  display: inline-block; text-decoration: none; font-weight: 800;
+  font-size: .88rem; line-height: 1.5; padding: .38rem .72rem;
+  border-radius: 999px; color: #fff; white-space: nowrap;
+}
+.nav-l:hover { background: rgba(255,255,255,.18); }
+.nav-l[aria-current="page"] { background: #fff; color: #4c1d95; }
+.nav-sep { width: 1px; height: 20px; background: rgba(255,255,255,.3); margin: 0 .35rem; flex: 0 0 auto; }
+.topnav .btn.ico { padding: .38rem .62rem; font-size: .95rem; }
+/* 換風格時招牌是紫色漸層,選單一律白字 (skin.css 會想把它洗成深色) */
+html[data-skin] .topbar .nav-l { color: #fff !important; background: transparent !important; }
+html[data-skin] .topbar .nav-l:hover { background: rgba(255,255,255,.18) !important; }
+html[data-skin] .topbar .nav-l[aria-current="page"] { background: #fff !important; color: #4c1d95 !important; }
+@media (max-width: 760px) {
+  .topbar { flex-wrap: wrap; }
+  .topnav { width: 100%; gap: .15rem; justify-content: flex-start; }
+  .nav-l { font-size: .8rem; padding: .3rem .55rem; }
+  .nav-sep { display: none; }
+}
+/* 會員列:只放訂閱狀態,沒東西就整條不出現 (nav.js 控制) */
+.memberbar { padding-top: .55rem; }
+
+/* ═══ v675:招牌白字太淡的修正 ═══
+   量過:白字壓在招牌漸層上,夜讀只有 2.4:1、水彩 2.8:1、可愛風 3.2:1 (小字要 4.5:1 才夠)。
+   做法:在原本的漸層上面壓一層很淡的深色,每個風格壓的量不一樣,色調維持原樣。
+   壓完每一個風格的白字都 ≥ 4.5:1。classic 本來就 5.7:1,不動。 */
+html[data-skin="kawaii"] .topbar {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.18), rgba(0, 0, 0, 0.18)),
+    linear-gradient(135deg, var(--sk-accent-d), var(--sk-accent)) !important;
+}
+html[data-skin="toon"] .topbar {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.18), rgba(0, 0, 0, 0.18)),
+    linear-gradient(135deg, var(--sk-accent-d), var(--sk-accent)) !important;
+}
+html[data-skin="notebook"] .topbar {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)),
+    linear-gradient(135deg, var(--sk-accent-d), var(--sk-accent)) !important;
+}
+html[data-skin="stationery"] .topbar {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.14), rgba(0, 0, 0, 0.14)),
+    linear-gradient(135deg, var(--sk-accent-d), var(--sk-accent)) !important;
+}
+html[data-skin="clinic"] .topbar {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.06)),
+    linear-gradient(135deg, var(--sk-accent-d), var(--sk-accent)) !important;
+}
+html[data-skin="night"] .topbar {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.32), rgba(0, 0, 0, 0.32)),
+    linear-gradient(135deg, var(--sk-accent-d), var(--sk-accent)) !important;
+}
+html[data-skin="watercolor"] .topbar {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)),
+    linear-gradient(135deg, var(--sk-accent-d), var(--sk-accent)) !important;
+}
+
+/* v675:標題列排版 — 桌機:招牌 … 選單 · 動作;手機:第一排招牌+動作,第二排選單平均分佈 */
+.topbar { display: flex; align-items: center; gap: .6rem; flex-wrap: wrap; }
+.topnav { margin-left: auto; }
+.topacts { display: flex; align-items: center; gap: .4rem; flex: 0 0 auto; }
+@media (max-width: 760px) {
+  .topbar {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas: "logo acts" "nav nav";
+    gap: .5rem;
+  }
+  .logo { grid-area: logo; min-width: 0; }
+  .topnav { grid-area: nav; margin-left: 0; width: 100%; justify-content: space-between; }
+  .topacts { grid-area: acts; }
+}
+
+/* 小手機 (360px) 招牌名稱會斷成兩行 → 縮一點讓它一行放得下 */
+@media (max-width: 420px) {
+  .topbar .logo { font-size: .88rem; gap: .45rem; }
+  .topbar .logo .mark { width: 30px; height: 30px; font-size: .85rem; border-radius: 9px; }
+  .topbar .btn { padding: .34rem .72rem; font-size: .8rem; }
 }

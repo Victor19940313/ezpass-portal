@@ -206,6 +206,12 @@
         margin-top: 0.1rem;
       }
 
+      .feats-more {
+        text-align: center;
+        margin: 0.9rem 0 0;
+        font-size: 0.9rem;
+        font-weight: 700;
+      }
       .pricing {
         display: flex;
         gap: 0.8rem;
@@ -285,32 +291,21 @@
         <a class="logo" href="./"
           ><span class="mark">EZ</span> ezpass 國考互動筆記</a
         >
-        <div class="topnav">
-          <button
-            class="btn"
-            type="button"
-            onclick="if (window.Skin && Skin.open) Skin.open();"
-            title="換網站風格"
-          >
-            🎨 風格
-          </button>
-          <a class="btn" href="preview.html">網站重要功能預覽</a>
+        <nav class="topnav" aria-label="主選單">
+          <a class="nav-l" href="./">首頁</a>
+          <a class="nav-l" href="start.html">新手上路</a>
+          <a class="nav-l" href="subscribe.html">方案與價格</a>
+          <a class="nav-l" href="rewards.html">推薦拿獎勵</a>
+        </nav>
+        <div class="topacts">
+          <span class="nav-sep" aria-hidden="true"></span>
+          <button class="btn ico" type="button" onclick="if (window.Skin && Skin.open) Skin.open();" title="換網站風格" aria-label="換網站風格">🎨</button>
           <span id="auth-widget"></span>
-          <button
-            class="btn primary"
-            type="button"
-            id="btn-login"
-            onclick="openLogin()"
-            hidden
-          >
-            登入
-          </button>
+          <button class="btn primary" type="button" id="btn-login" data-login="modal" onclick="openLogin()" hidden>登入</button>
         </div>
       </div>
-      <div class="memberbar">
+      <div class="memberbar" hidden>
         <span id="sub-pill"></span>
-        <a class="mb-gift" href="rewards.html">🎁 推薦朋友，各拿一個月</a>
-        <a class="mb-plans" href="subscribe.html">方案與價格 ›</a>
       </div>
 
       <!-- 登入視窗:Google 或任何 Email (收登入連結) -->
@@ -356,13 +351,14 @@
         <h1>國考歷屆考題、詳解、筆記，一站搞定</h1>
         <p class="lead">
           歷屆試題全部分好類，每一題都有詳解和十題類似題。不會的按一下收進錯題本或加進筆記，AI
-          幫您整理成章節。
-          手機、平板、電腦打開網頁就能用，<b>不用下載任何程式或 App</b>，無時無刻都能練習和複習，資料跨裝置同步。
+          幫您整理成章節。 手機、平板、電腦打開網頁就能用，<b
+            >不用下載任何程式或 App</b
+          >，無時無刻都能練習和複習，資料跨裝置同步。
         </p>
       </div>
 
       <div style="text-align: center; margin: 0 0 1.6rem">
-        <a class="btn primary lg" href="start.html">✨ 第一次使用看這邊</a>
+        <a class="btn primary lg" href="start.html">✨ 新手上路：3 分鐘看懂怎麼用</a>
       </div>
 
       <h2 id="choose">選擇您的考試</h2>
@@ -371,7 +367,9 @@
       <h2>每一站都有的功能</h2>
       <div class="feats">
         <div class="card feat">
-          <span class="ic">🎯</span>照分類練<small>所有考古題目幫您分門別類</small>
+          <span class="ic">🎯</span>照分類練<small
+            >所有考古題目幫您分門別類</small
+          >
         </div>
         <div class="card feat">
           <span class="ic">📉</span>錯誤率<small>幫您量身算出類題錯誤率</small>
@@ -414,9 +412,14 @@
           >
         </div>
         <div class="card feat">
-          <span class="ic">🎨</span>七種閱讀風格<small>讀膩了嗎？換點風格吧</small>
+          <span class="ic">🎨</span>七種閱讀風格<small
+            >讀膩了嗎？換點風格吧</small
+          >
         </div>
       </div>
+      <p class="feats-more">
+        <a href="start.html#screens">看這些功能的實際畫面 →</a>
+      </p>
       <h2>一次訂閱，一站通用</h2>
       <div class="pricing">
         <a class="card pri" href="subscribe.html#plans"
@@ -461,6 +464,7 @@
     <script src="auth.js?v=v656"></script>
     <script src="subscription.js?v=v656"></script>
     <script src="sites.js?v=v656"></script>
+    <script src="nav.js"></script>
     <script>
       // 入口網站登入 (跟牙醫站同一個 Firebase 專案,帳號 / 試用 / 訂閱共用)
       function openLogin() {
@@ -480,52 +484,21 @@
       document.addEventListener("keydown", function (e) {
         if (e.key === "Escape") closeLogin();
       });
-      function renderPill(st) {
-        var el = document.getElementById("sub-pill");
-        if (!el) return;
-        if (!st || st.reason === "not_logged_in" || st.reason === "error") {
-          el.innerHTML = "";
-          return;
-        }
-        var cls = "sub-pill",
-          txt = "";
-        if (st.reason === "paid") {
-          txt =
-            st.plan === "lifetime"
-              ? "✨ 終身會員"
-              : "✨ 會員 · 剩 " + st.days_left + " 天";
-          if (st.days_left <= 5) cls += " warn";
-        } else if (st.reason === "trial") {
-          txt = "🎁 試用中 · 剩 " + st.days_left + " 天";
-          if (st.days_left <= 2) cls += " warn";
-        } else if (st.reason === "trial_expired") {
-          txt = "試用結束 · 選方案開通";
-          cls += " expired";
-        } else if (st.reason === "subscription_expired") {
-          txt = "已過期 · 續訂";
-          cls += " expired";
-        }
-        el.innerHTML =
-          '<a class="' + cls + '" href="subscribe.html">' + txt + "</a>";
-      }
+      // v675: 訂閱小藥丸、登入鈕的顯示/隱藏都搬去 nav.js (四頁共用),
+      //       這裡只留首頁自己的登入視窗行為。
       (function () {
         var tries = 0;
-        function hook() {
+        (function hook() {
           if (!window.Auth || !Auth.onChange) {
             if (++tries < 40) setTimeout(hook, 250);
             return;
           }
           Auth.onChange(function (user) {
-            var b = document.getElementById("btn-login");
-            if (b) b.hidden = !!user;
             if (user) closeLogin();
-            if (window.Subscription && Subscription.refresh)
-              Subscription.refresh();
           });
-          if (window.Subscription && Subscription.onChange)
-            Subscription.onChange(renderPill);
-        }
-        hook();
+        })();
+        // 別的頁面按「登入」會帶 ?login=1 回首頁 → 自動打開登入視窗
+        if (/[?&]login=1/.test(location.search)) openLogin();
       })();
       // 站台卡片:開放中 → 先進「第一次使用看這邊」(不會一進去就是登入 / 訂閱);已有帳號的人另外給直接登入
       // 帶目前的風格過去 (各站是不同網域,localStorage 不共用;skin.js 看到 ?skin= 會存起來套上)
@@ -539,23 +512,42 @@
       }
       document.getElementById("sites").innerHTML = SITES.map(function (s) {
         var live = s.status === "live" && s.url;
-        var desc = (s.stage ? s.stage + " · " : "") + "收錄 " + s.years + "考題";
+        var desc =
+          (s.stage ? s.stage + " · " : "") + "收錄 " + s.years + "考題";
         var inner =
-          '<div class="art">' + ART[s.art] + "</div>" +
-          '<div class="txt"><div class="nm">' + s.name +
-          (live ? '<span class="tag live">開放中</span>' : '<span class="tag soon">準備中</span>') +
-          '</div><div class="ds">' + desc + "</div></div>" +
+          '<div class="art">' +
+          ART[s.art] +
+          "</div>" +
+          '<div class="txt"><div class="nm">' +
+          s.name +
+          (live
+            ? '<span class="tag live">開放中</span>'
+            : '<span class="tag soon">準備中</span>') +
+          '</div><div class="ds">' +
+          desc +
+          "</div></div>" +
           (live ? '<span class="site-go">→</span>' : "");
         // 開放中的整張卡就是連結,點了直接進站 (沒登入就會看到登入畫面)
         return live
-          ? '<a class="card site" data-site-link="" data-site-id="' + s.id + '" href="' + s.url + '">' + inner + "</a>"
-          : '<div class="card site soon" data-site-id="' + s.id + '">' + inner + "</div>";
+          ? '<a class="card site" data-site-link="" data-site-id="' +
+              s.id +
+              '" href="' +
+              s.url +
+              '">' +
+              inner +
+              "</a>"
+          : '<div class="card site soon" data-site-id="' +
+              s.id +
+              '">' +
+              inner +
+              "</div>";
       }).join("");
       // 點站台連結:帶風格過去;已登入的話再換一張通行證,進去就不用再登一次 (v656)
       document.getElementById("sites").addEventListener("click", function (e) {
         var a = e.target.closest("a[data-site-link]");
         if (!a) return;
-        var base = a.getAttribute("href").split("#")[0].split("?")[0] + skinQs();
+        var base =
+          a.getAttribute("href").split("#")[0].split("?")[0] + skinQs();
         var card = a.closest(".site");
         var site = card ? card.getAttribute("data-site-id") : "";
         var user = window.Auth && Auth.getUser && Auth.getUser();
@@ -567,9 +559,17 @@
         var old = a.textContent;
         a.textContent = "帶您進去…";
         Auth.ssoLink(site, base)
-          .then(function (url) { location.href = url; })
-          .catch(function () { location.href = base; })
-          .finally(function () { setTimeout(function () { a.textContent = old; }, 4000); });
+          .then(function (url) {
+            location.href = url;
+          })
+          .catch(function () {
+            location.href = base;
+          })
+          .finally(function () {
+            setTimeout(function () {
+              a.textContent = old;
+            }, 4000);
+          });
       });
     </script>
   </body>

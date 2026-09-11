@@ -4,15 +4,27 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="noindex, nofollow" />
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2224%22 fill=%22%237c3aed%22/><text x=%2250%22 y=%2268%22 font-size=%2250%22 font-weight=%22900%22 font-family=%22sans-serif%22 text-anchor=%22middle%22 fill=%22white%22>EZ</text></svg>" />
-    <title>第一次使用看這邊 — ezpass 國考互動筆記</title>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2224%22 fill=%22%237c3aed%22/><text x=%2250%22 y=%2268%22 font-size=%2250%22 font-weight=%22900%22 font-family=%22sans-serif%22 text-anchor=%22middle%22 fill=%22white%22>EZ</text></svg>"
+    />
+    <title>新手上路 — ezpass 國考互動筆記</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
     <script src="skin.js"></script>
     <link rel="stylesheet" href="skin.css" />
     <link rel="stylesheet" href="site.css" />
     <style>
-      .lead { max-width: 640px; }
-      .steps4 { display: grid; gap: 0.8rem; margin: 0 0 2rem; }
+      .lead {
+        max-width: 640px;
+      }
+      .steps4 {
+        display: grid;
+        gap: 0.8rem;
+        margin: 0 0 2rem;
+      }
       .st {
         display: grid;
         grid-template-columns: 2.2rem 1fr;
@@ -30,10 +42,23 @@
         display: grid;
         place-items: center;
       }
-      .st h3 { margin: 0.1rem 0 0.3rem; font-size: 1.02rem; }
-      .st p { margin: 0; font-size: 0.9rem; color: var(--sk-ink2, #4b5563); line-height: 1.75; }
-      .st .go { margin-top: 0.6rem; }
-      .faq { display: grid; gap: 0.6rem; }
+      .st h3 {
+        margin: 0.1rem 0 0.3rem;
+        font-size: 1.02rem;
+      }
+      .st p {
+        margin: 0;
+        font-size: 0.9rem;
+        color: var(--sk-ink2, #4b5563);
+        line-height: 1.75;
+      }
+      .st .go {
+        margin-top: 0.6rem;
+      }
+      .faq {
+        display: grid;
+        gap: 0.6rem;
+      }
       .faq details {
         padding: 0.85rem 1.1rem;
       }
@@ -43,13 +68,162 @@
         font-size: 0.95rem;
         list-style: none;
       }
-      .faq summary::-webkit-details-marker { display: none; }
-      .faq summary::before { content: "▸ "; color: var(--sk-accent, #7c3aed); }
-      .faq details[open] summary::before { content: "▾ "; }
-      .faq p { margin: 0.6rem 0 0; font-size: 0.9rem; color: var(--sk-ink2, #4b5563); line-height: 1.8; }
+      .faq summary::-webkit-details-marker {
+        display: none;
+      }
+      .faq summary::before {
+        content: "▸ ";
+        color: var(--sk-accent, #7c3aed);
+      }
+      .faq details[open] summary::before {
+        content: "▾ ";
+      }
+      .faq p {
+        margin: 0.6rem 0 0;
+        font-size: 0.9rem;
+        color: var(--sk-ink2, #4b5563);
+        line-height: 1.8;
+      }
+      /* ── 以下原本是「網站重要功能預覽」那一頁,v675 併進來 ── */
+      /* 網站重要功能預覽:照「您會怎麼用」的順序,一步一張圖,左邊說明右邊畫面 (HUA: 不要只是一堆圖片放一起) */
+      .flow {
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+        margin: 0 0 1.6rem;
+      }
+      .flow a {
+        text-decoration: none;
+        font-size: 0.82rem;
+        font-weight: 800;
+        border-radius: 999px;
+        padding: 0.3rem 0.8rem;
+        background: var(--sk-card, #fff);
+        border: 1.5px solid var(--sk-line, #e5e7eb);
+        color: var(--sk-ink2, #6b7280);
+      }
+      .flow a b {
+        color: var(--sk-accent, #7c3aed);
+        margin-right: 0.25rem;
+      }
+      .step {
+        display: grid;
+        grid-template-columns: 300px minmax(0, 1fr);
+        gap: 1.2rem;
+        align-items: start;
+        padding: 1.2rem 1.3rem;
+        margin-bottom: 1.1rem;
+      }
+      .step .num {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background: var(--sk-accent, #7c3aed);
+        color: var(--sk-accent-ink, #fff);
+        font-weight: 900;
+        font-size: 0.9rem;
+        margin-bottom: 0.5rem;
+      }
+      .step h2 {
+        margin: 0 0 0.45rem;
+        font-size: 1.12rem;
+      }
+      .step ul {
+        margin: 0;
+        padding-left: 1.1rem;
+        font-size: 0.88rem;
+        color: var(--sk-ink2, #4b5563);
+        line-height: 1.7;
+      }
+      .step ul li {
+        margin: 0.15rem 0;
+      }
+      .step .pic {
+        border: 1.5px solid var(--sk-line, #e5e7eb);
+        border-radius: 12px;
+        overflow: hidden;
+        background: #fafafa;
+      }
+      .step .pic img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+      .step.small .pic {
+        max-width: 560px;
+      }
+      .group {
+        font-size: 1.25rem;
+        font-weight: 900;
+        color: var(--sk-ink, #1f2937);
+        margin: 2.4rem 0 0.9rem;
+        display: flex;
+        align-items: center;
+        gap: 0.7rem;
+      }
+      .group::after {
+        content: "";
+        flex: 1;
+        height: 2px;
+        background: var(--sk-line, #e5e7eb);
+        border-radius: 2px;
+      }
+      .bottom {
+        text-align: center;
+        margin-top: 2rem;
+      }
+      .bottom p {
+        color: var(--sk-ink2, #6b7280);
+        font-size: 0.88rem;
+        margin-top: 0.6rem;
+      }
+      @media (max-width: 720px) {
+        .step {
+          grid-template-columns: 1fr;
+          gap: 0.8rem;
+          padding: 1rem;
+        }
+      }
+      /* v675: 這一頁的目錄 */
+      .toc {
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+        margin: 0 0 1.8rem;
+      }
+      .toc a {
+        text-decoration: none;
+        font-size: 0.85rem;
+        font-weight: 800;
+        border-radius: 999px;
+        padding: 0.38rem 0.9rem;
+        background: var(--sk-card, #fff);
+        border: 1.5px solid var(--sk-line, #e5e7eb);
+        color: var(--sk-ink, #1f2937);
+      }
+      .toc a:hover { border-color: var(--sk-accent, #7c3aed); }
+      .toc a b {
+        display: inline-grid;
+        place-items: center;
+        width: 1.15rem;
+        height: 1.15rem;
+        border-radius: 50%;
+        margin-right: 0.4rem;
+        background: var(--sk-accent, #7c3aed);
+        color: var(--sk-accent-ink, #fff);
+        font-size: 0.7rem;
+      }
+      #steps, #screens, #a2h, #faq { scroll-margin-top: 14px; }
       /* v656: 加到手機主畫面 */
-      .sec-h { margin: 2.2rem 0 0.6rem; }
-      .sec-h h2 { margin: 0 0 0.2rem; }
+      .sec-h {
+        margin: 2.2rem 0 0.6rem;
+      }
+      .sec-h h2 {
+        margin: 0 0 0.2rem;
+      }
       .sec-h .sub {
         margin: 0;
         font-size: 0.9rem;
@@ -69,8 +243,13 @@
         font-weight: 700;
         line-height: 1.6;
       }
-      .no-install .ni-ic { font-size: 1.2rem; }
-      .no-install span.t { font-weight: 500; color: #047857; }
+      .no-install .ni-ic {
+        font-size: 1.2rem;
+      }
+      .no-install span.t {
+        font-weight: 500;
+        color: #047857;
+      }
       .a2h-lead {
         margin: 0 0 1rem;
         font-size: 0.94rem;
@@ -153,22 +332,28 @@
   <body>
     <div class="wrap">
       <div class="topbar">
-        <a class="logo" href="./"><span class="mark">EZ</span> ezpass 國考互動筆記</a>
-        <div class="topnav">
-          <a class="btn" href="./">← 首頁</a>
-          <button class="btn" type="button" onclick="if (window.Skin && Skin.open) Skin.open()" title="換網站風格">🎨 風格</button>
+        <a class="logo" href="./"
+          ><span class="mark">EZ</span> ezpass 國考互動筆記</a
+        >
+        <nav class="topnav" aria-label="主選單">
+          <a class="nav-l" href="./">首頁</a>
+          <a class="nav-l" href="start.html">新手上路</a>
+          <a class="nav-l" href="subscribe.html">方案與價格</a>
+          <a class="nav-l" href="rewards.html">推薦拿獎勵</a>
+        </nav>
+        <div class="topacts">
+          <span class="nav-sep" aria-hidden="true"></span>
+          <button class="btn ico" type="button" onclick="if (window.Skin && Skin.open) Skin.open();" title="換網站風格" aria-label="換網站風格">🎨</button>
+          <span id="auth-widget"></span>
+          <button class="btn primary" type="button" id="btn-login" hidden>登入</button>
         </div>
       </div>
-      <div class="memberbar">
+      <div class="memberbar" hidden>
         <span id="sub-pill"></span>
-        <a class="mb-gift" href="rewards.html">🎁 推薦朋友，各拿一個月</a>
-        <a class="mb-plans" href="subscribe.html">方案與價格 ›</a>
       </div>
 
-      <h1>第一次使用看這邊</h1>
-      <p class="lead">
-        三分鐘看完就會用。不管您考的是哪一科，流程都一樣。
-      </p>
+      <h1>新手上路</h1>
+      <p class="lead">三分鐘看完就會用。不管您考的是哪一科，流程都一樣。</p>
       <div class="no-install">
         <span class="ni-ic">✅</span>
         <div>
@@ -177,13 +362,25 @@
         </div>
       </div>
 
-      <div class="steps4">
+      <!-- v675: 這一頁變長了 (功能預覽併進來),給一個目錄免得使用者迷路 -->
+      <nav class="toc" aria-label="這一頁的內容">
+        <a href="#steps"><b>1</b>四個步驟</a>
+        <a href="#screens"><b>2</b>實際畫面</a>
+        <a href="#a2h"><b>3</b>加到手機主畫面</a>
+        <a href="#faq"><b>4</b>常見問題</a>
+      </nav>
+
+      <div class="steps4" id="steps">
         <div class="card st">
           <div class="no">1</div>
           <div>
             <h3>先看看裡面長什麼樣</h3>
-            <p>不用登入，照您實際會用到的順序看一遍：挑分類、作答、標記、看詳解、類似題、錯題本、筆記本。</p>
-            <div class="go"><a class="btn" href="preview.html">網站重要功能預覽 →</a></div>
+            <p>
+              不用登入，照您實際會用到的順序看一遍：挑分類、作答、標記、看詳解、類似題、錯題本、筆記本。
+            </p>
+            <div class="go">
+              <a class="btn" href="#screens">往下看實際畫面 ↓</a>
+            </div>
           </div>
         </div>
         <div class="card st">
@@ -191,11 +388,14 @@
           <div>
             <h3>選您的考試，用 Google 或 Email 登入</h3>
             <p>
-              點首頁的考試卡片就會進到那個網站的登入畫面。<b>建議用 Gmail 登入</b>，按一下就進去、最快；
-              其他信箱也可以，我們會寄一封登入連結給您。
+              點首頁的考試卡片就會進到那個網站的登入畫面。<b
+                >建議用 Gmail 登入</b
+              >，按一下就進去、最快； 其他信箱也可以，我們會寄一封登入連結給您。
               第一次登入自動送 <b>7 天免費試用</b>，全部功能都能用。
             </p>
-            <div class="go"><a class="btn primary" href="./#choose">選擇您的考試 →</a></div>
+            <div class="go">
+              <a class="btn primary" href="./#choose">選擇您的考試 →</a>
+            </div>
           </div>
         </div>
         <div class="card st">
@@ -220,14 +420,221 @@
         </div>
       </div>
 
+      <!-- v675: 原本獨立的「網站重要功能預覽」併進來,使用者不用跳出去再找路回來 -->
+      <section class="sec" id="screens">
+        <div class="sec-h">
+          <h2>實際畫面：從挑題到複習</h2>
+          <p class="sub">
+            以下都是真實畫面截圖。四個考試的網站介面都一樣，只是題目不同。
+          </p>
+        </div>
+        <div class="flow">
+          <a href="#s1"><b>1</b>挑分類</a>
+          <a href="#s2"><b>2</b>作答</a>
+          <a href="#s3"><b>3</b>標記</a>
+          <a href="#s4"><b>4</b>看詳解</a>
+          <a href="#s5"><b>5</b>類似題</a>
+          <a href="#s6"><b>6</b>錯題本</a>
+          <a href="#s7"><b>7</b>筆記本</a>
+          <a href="#s8"><b>8</b>口訣分享</a>
+          <a href="#s9"><b>9</b>閱讀風格</a>
+        </div>
+        <div class="group">📝 練習</div>
+
+        <div class="card step" id="s1">
+          <div>
+            <span class="num">1</span>
+            <h2>挑一個分類開始練</h2>
+            <ul>
+              <li>
+                歷屆考題全部分好類，挑一個分類，同一個觀念的題目一次寫熟。
+              </li>
+              <li>每個分類顯示做過幾題、錯誤率多少，紅色就是您的弱點。</li>
+              <li>也可以照試卷練，一份一份寫，考前模擬計時。</li>
+            </ul>
+          </div>
+          <div class="pic">
+            <img
+              src="preview-shots/01_topic_home.jpg"
+              alt="挑分類：每個分類做過幾題、錯誤率多少"
+              loading="lazy"
+            />
+          </div>
+        </div>
+
+        <div class="card step" id="s2">
+          <div>
+            <span class="num">2</span>
+            <h2>作答</h2>
+            <ul>
+              <li>手機、平板、電腦都能寫，畫面會自動配合大小。</li>
+              <li>選項可以劃線、上螢光筆，像在紙本上做記號。</li>
+              <li>寫到一半離開，下次按「回到考題」就接著寫。</li>
+            </ul>
+          </div>
+          <div class="pic">
+            <img
+              src="preview-shots/02_question.jpg"
+              alt="作答畫面"
+              loading="lazy"
+            />
+          </div>
+        </div>
+
+        <div class="card step small" id="s3">
+          <div>
+            <span class="num">3</span>
+            <h2>標記考題</h2>
+            <ul>
+              <li>
+                答完每一題，一排按鈕：<b>送分題／一知半解／亂猜一通／不需要懂</b>。
+              </li>
+              <li>標起來的題目之後可以「只練標記題」，一次又一次回來收拾。</li>
+              <li>想收進錯題本，按「🚩 錯題本」就好。</li>
+            </ul>
+          </div>
+          <div class="pic">
+            <img
+              src="preview-shots/09_mark.jpg"
+              alt="標記列：送分題、一知半解、亂猜一通、不需要懂、錯題本"
+              loading="lazy"
+            />
+          </div>
+        </div>
+
+        <div class="card step" id="s4">
+          <div>
+            <span class="num">4</span>
+            <h2>看詳解</h2>
+            <ul>
+              <li><b>每一題都有兩套詳解</b>，一套看不懂就換另一套。</li>
+              <li>
+                <b>Gemini 詳解</b
+                >：出題者想考什麼、核心理論、為何選這個、其他選項錯在哪，最後附一段臨床意義。
+              </li>
+              <li>
+                <b>NotebookLM 詳解</b
+                >：全部依<b>考選部指定用書</b>寫出來的，講法跟課本一致。
+              </li>
+              <li>每一題下面都有留言區，看不懂可以問、可以討論。</li>
+            </ul>
+          </div>
+          <div class="pic">
+            <img
+              src="preview-shots/03_explanation.jpg"
+              alt="答完立刻看詳解"
+              loading="lazy"
+            />
+          </div>
+        </div>
+
+        <div class="card step" id="s5">
+          <div>
+            <span class="num">5</span>
+            <h2>十題類似題</h2>
+            <ul>
+              <li>
+                寫到不會的，按右上角「類似題」，馬上列出歷年考過的十題類似題。
+              </li>
+              <li>同一個觀念連著練，練到會為止。</li>
+            </ul>
+          </div>
+          <div class="pic">
+            <img
+              src="preview-shots/04_similar.jpg"
+              alt="十題類似題"
+              loading="lazy"
+            />
+          </div>
+        </div>
+
+        <div class="group">🔁 複習</div>
+
+        <div class="card step" id="s6">
+          <div>
+            <span class="num">6</span>
+            <h2>錯題本</h2>
+            <ul>
+              <li>您收進來的題目集中在這裡，依分類收合。</li>
+              <li>點一下就展開題目、圖片、選項和詳解，不用跳頁。</li>
+              <li>按「練」重寫一次，寫完回到同一題的位置。</li>
+            </ul>
+          </div>
+          <div class="pic">
+            <img
+              src="preview-shots/05_wrongbook.jpg"
+              alt="錯題本"
+              loading="lazy"
+            />
+          </div>
+        </div>
+
+        <div class="card step" id="s7">
+          <div>
+            <span class="num">7</span>
+            <h2>筆記本</h2>
+            <ul>
+              <li>題目按一下「加入筆記」，AI 幫您整理成章節。</li>
+              <li>相似的觀念自動併在同一章，越練筆記越完整。</li>
+              <li>可以自己改、加圖、加螢光筆，截圖直接貼進去。</li>
+            </ul>
+          </div>
+          <div class="pic">
+            <img
+              src="preview-shots/06_notebook.jpg"
+              alt="筆記本"
+              loading="lazy"
+            />
+          </div>
+        </div>
+
+        <div class="card step" id="s8">
+          <div>
+            <span class="num">8</span>
+            <h2>口訣與重點分享區</h2>
+            <ul>
+              <li>大家一起整理重點、想口訣，依科目和分類排好。</li>
+              <li>看到喜歡的按讚、收藏；自己寫的也可以公開分享。</li>
+            </ul>
+          </div>
+          <div class="pic">
+            <img
+              src="preview-shots/07_mnemonics.jpg"
+              alt="口訣與重點分享區"
+              loading="lazy"
+            />
+          </div>
+        </div>
+
+        <div class="card step" id="s9">
+          <div>
+            <span class="num">9</span>
+            <h2>七種閱讀風格</h2>
+            <ul>
+              <li>
+                可愛風、診所清爽、韓系文具、水彩、手帳、動畫風，還有看久不累的夜讀暗色。
+              </li>
+              <li>登入後所有網站都用同一個風格，換裝置也一樣。</li>
+            </ul>
+          </div>
+          <div class="pic">
+            <img
+              src="preview-shots/08_night.jpg"
+              alt="夜讀暗色風格"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </section>
       <!-- v656: 加到手機主畫面 (HUA: 第一次使用那邊做幾張圖,iPhone / Android 都要) -->
-      <section class="sec">
+      <section class="sec" id="a2h">
         <div class="sec-h">
           <h2>把它加到手機主畫面</h2>
           <p class="sub">像 App 一樣一點就開，但不用下載任何東西</p>
         </div>
         <p class="a2h-lead">
-          這不是下載 App，是把網站做成一個捷徑：桌面會多一個圖示，點下去直接進網站，不用每次開瀏覽器打網址。<b>資料還是同一份</b>，換手機登入同一個帳號就都在。
+          這不是下載
+          App，是把網站做成一個捷徑：桌面會多一個圖示，點下去直接進網站，不用每次開瀏覽器打網址。<b>資料還是同一份</b>，換手機登入同一個帳號就都在。
         </p>
         <div class="a2h">
           <div class="a2h-card">
@@ -235,16 +642,68 @@
             <ol class="a2h-steps">
               <li>
                 <div class="a2h-t">用 <b>Safari</b> 打開這個網站</div>
-                <svg class="a2h-fig" viewBox="0 0 240 120" role="img" aria-label="Safari 下方工具列中間的分享鍵">
-                  <rect x="8" y="8" width="224" height="104" rx="14" fill="#fff" stroke="#d9d4c4" stroke-width="2"/>
-                  <rect x="24" y="24" width="192" height="22" rx="11" fill="#f1efe6"/>
-                  <text x="120" y="39" text-anchor="middle" font-size="11" fill="#7a7060" font-family="sans-serif">ezpass-exam.com</text>
-                  <rect x="24" y="80" width="192" height="24" rx="12" fill="#f6f4ec"/>
-                  <circle cx="120" cy="92" r="19" fill="none" stroke="#7c3aed" stroke-width="2" stroke-dasharray="4 4"/>
-                  <g transform="translate(120 92)" stroke="#7c3aed" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M0 6V-8"/>
-                    <path d="M-5 -3l5-5 5 5"/>
-                    <path d="M-7 1v7h14V1"/>
+                <svg
+                  class="a2h-fig"
+                  viewBox="0 0 240 120"
+                  role="img"
+                  aria-label="Safari 下方工具列中間的分享鍵"
+                >
+                  <rect
+                    x="8"
+                    y="8"
+                    width="224"
+                    height="104"
+                    rx="14"
+                    fill="#fff"
+                    stroke="#d9d4c4"
+                    stroke-width="2"
+                  />
+                  <rect
+                    x="24"
+                    y="24"
+                    width="192"
+                    height="22"
+                    rx="11"
+                    fill="#f1efe6"
+                  />
+                  <text
+                    x="120"
+                    y="39"
+                    text-anchor="middle"
+                    font-size="11"
+                    fill="#7a7060"
+                    font-family="sans-serif"
+                  >
+                    ezpass-exam.com
+                  </text>
+                  <rect
+                    x="24"
+                    y="80"
+                    width="192"
+                    height="24"
+                    rx="12"
+                    fill="#f6f4ec"
+                  />
+                  <circle
+                    cx="120"
+                    cy="92"
+                    r="19"
+                    fill="none"
+                    stroke="#7c3aed"
+                    stroke-width="2"
+                    stroke-dasharray="4 4"
+                  />
+                  <g
+                    transform="translate(120 92)"
+                    stroke="#7c3aed"
+                    stroke-width="2"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  >
+                    <path d="M0 6V-8" />
+                    <path d="M-5 -3l5-5 5 5" />
+                    <path d="M-7 1v7h14V1" />
                   </g>
                 </svg>
               </li>
@@ -253,20 +712,90 @@
               </li>
               <li>
                 <div class="a2h-t">往下滑，選<b>加入主畫面</b></div>
-                <svg class="a2h-fig" viewBox="0 0 240 120" role="img" aria-label="分享選單裡的加入主畫面">
-                  <rect x="8" y="8" width="224" height="104" rx="14" fill="#fff" stroke="#d9d4c4" stroke-width="2"/>
-                  <rect x="22" y="22" width="196" height="24" rx="8" fill="#f6f4ec"/>
-                  <text x="36" y="38" font-size="11" fill="#9a927e" font-family="sans-serif">加入書籤</text>
-                  <rect x="22" y="52" width="196" height="32" rx="8" fill="#f5f0ff" stroke="#7c3aed" stroke-width="2"/>
+                <svg
+                  class="a2h-fig"
+                  viewBox="0 0 240 120"
+                  role="img"
+                  aria-label="分享選單裡的加入主畫面"
+                >
+                  <rect
+                    x="8"
+                    y="8"
+                    width="224"
+                    height="104"
+                    rx="14"
+                    fill="#fff"
+                    stroke="#d9d4c4"
+                    stroke-width="2"
+                  />
+                  <rect
+                    x="22"
+                    y="22"
+                    width="196"
+                    height="24"
+                    rx="8"
+                    fill="#f6f4ec"
+                  />
+                  <text
+                    x="36"
+                    y="38"
+                    font-size="11"
+                    fill="#9a927e"
+                    font-family="sans-serif"
+                  >
+                    加入書籤
+                  </text>
+                  <rect
+                    x="22"
+                    y="52"
+                    width="196"
+                    height="32"
+                    rx="8"
+                    fill="#f5f0ff"
+                    stroke="#7c3aed"
+                    stroke-width="2"
+                  />
                   <g transform="translate(36 61)">
-                    <rect x="0" y="0" width="15" height="15" rx="4" fill="none" stroke="#7c3aed" stroke-width="2"/>
-                    <path d="M7.5 4v7M4 7.5h7" stroke="#7c3aed" stroke-width="2" stroke-linecap="round"/>
+                    <rect
+                      x="0"
+                      y="0"
+                      width="15"
+                      height="15"
+                      rx="4"
+                      fill="none"
+                      stroke="#7c3aed"
+                      stroke-width="2"
+                    />
+                    <path
+                      d="M7.5 4v7M4 7.5h7"
+                      stroke="#7c3aed"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                    />
                   </g>
-                  <text x="60" y="73" font-size="12" fill="#4c1d95" font-weight="bold" font-family="sans-serif">加入主畫面</text>
-                  <rect x="22" y="90" width="196" height="14" rx="7" fill="#f6f4ec"/>
+                  <text
+                    x="60"
+                    y="73"
+                    font-size="12"
+                    fill="#4c1d95"
+                    font-weight="bold"
+                    font-family="sans-serif"
+                  >
+                    加入主畫面
+                  </text>
+                  <rect
+                    x="22"
+                    y="90"
+                    width="196"
+                    height="14"
+                    rx="7"
+                    fill="#f6f4ec"
+                  />
                 </svg>
               </li>
-              <li><div class="a2h-t">右上角按<b>新增</b>，桌面就出現圖示了</div></li>
+              <li>
+                <div class="a2h-t">右上角按<b>新增</b>，桌面就出現圖示了</div>
+              </li>
             </ol>
           </div>
 
@@ -275,66 +804,205 @@
             <ol class="a2h-steps">
               <li>
                 <div class="a2h-t">用 <b>Chrome</b> 打開這個網站</div>
-                <svg class="a2h-fig" viewBox="0 0 240 120" role="img" aria-label="Chrome 右上角的三個點">
-                  <rect x="8" y="8" width="224" height="104" rx="14" fill="#fff" stroke="#d9d4c4" stroke-width="2"/>
-                  <rect x="24" y="24" width="156" height="22" rx="11" fill="#f1efe6"/>
-                  <text x="102" y="39" text-anchor="middle" font-size="11" fill="#7a7060" font-family="sans-serif">ezpass-exam.com</text>
+                <svg
+                  class="a2h-fig"
+                  viewBox="0 0 240 120"
+                  role="img"
+                  aria-label="Chrome 右上角的三個點"
+                >
+                  <rect
+                    x="8"
+                    y="8"
+                    width="224"
+                    height="104"
+                    rx="14"
+                    fill="#fff"
+                    stroke="#d9d4c4"
+                    stroke-width="2"
+                  />
+                  <rect
+                    x="24"
+                    y="24"
+                    width="156"
+                    height="22"
+                    rx="11"
+                    fill="#f1efe6"
+                  />
+                  <text
+                    x="102"
+                    y="39"
+                    text-anchor="middle"
+                    font-size="11"
+                    fill="#7a7060"
+                    font-family="sans-serif"
+                  >
+                    ezpass-exam.com
+                  </text>
                   <g fill="#7c3aed">
-                    <circle cx="204" cy="28" r="3"/><circle cx="204" cy="35" r="3"/><circle cx="204" cy="42" r="3"/>
+                    <circle cx="204" cy="28" r="3" />
+                    <circle cx="204" cy="35" r="3" />
+                    <circle cx="204" cy="42" r="3" />
                   </g>
-                  <circle cx="204" cy="35" r="16" fill="none" stroke="#7c3aed" stroke-width="2" stroke-dasharray="4 4"/>
-                  <rect x="24" y="62" width="192" height="42" rx="10" fill="#f6f4ec"/>
+                  <circle
+                    cx="204"
+                    cy="35"
+                    r="16"
+                    fill="none"
+                    stroke="#7c3aed"
+                    stroke-width="2"
+                    stroke-dasharray="4 4"
+                  />
+                  <rect
+                    x="24"
+                    y="62"
+                    width="192"
+                    height="42"
+                    rx="10"
+                    fill="#f6f4ec"
+                  />
                 </svg>
               </li>
               <li>
                 <div class="a2h-t">點右上角<b>三個點</b></div>
               </li>
               <li>
-                <div class="a2h-t">選<b>加到主畫面</b>（有的手機寫「安裝應用程式」）</div>
-                <svg class="a2h-fig" viewBox="0 0 240 120" role="img" aria-label="Chrome 選單裡的加到主畫面">
-                  <rect x="8" y="8" width="224" height="104" rx="14" fill="#fff" stroke="#d9d4c4" stroke-width="2"/>
-                  <rect x="22" y="20" width="196" height="20" rx="7" fill="#f6f4ec"/>
-                  <text x="36" y="34" font-size="10" fill="#9a927e" font-family="sans-serif">新分頁</text>
-                  <rect x="22" y="46" width="196" height="32" rx="8" fill="#f5f0ff" stroke="#7c3aed" stroke-width="2"/>
+                <div class="a2h-t">
+                  選<b>加到主畫面</b>（有的手機寫「安裝應用程式」）
+                </div>
+                <svg
+                  class="a2h-fig"
+                  viewBox="0 0 240 120"
+                  role="img"
+                  aria-label="Chrome 選單裡的加到主畫面"
+                >
+                  <rect
+                    x="8"
+                    y="8"
+                    width="224"
+                    height="104"
+                    rx="14"
+                    fill="#fff"
+                    stroke="#d9d4c4"
+                    stroke-width="2"
+                  />
+                  <rect
+                    x="22"
+                    y="20"
+                    width="196"
+                    height="20"
+                    rx="7"
+                    fill="#f6f4ec"
+                  />
+                  <text
+                    x="36"
+                    y="34"
+                    font-size="10"
+                    fill="#9a927e"
+                    font-family="sans-serif"
+                  >
+                    新分頁
+                  </text>
+                  <rect
+                    x="22"
+                    y="46"
+                    width="196"
+                    height="32"
+                    rx="8"
+                    fill="#f5f0ff"
+                    stroke="#7c3aed"
+                    stroke-width="2"
+                  />
                   <g transform="translate(36 55)">
-                    <rect x="0" y="0" width="15" height="15" rx="4" fill="none" stroke="#7c3aed" stroke-width="2"/>
-                    <path d="M7.5 4v7M4 7.5h7" stroke="#7c3aed" stroke-width="2" stroke-linecap="round"/>
+                    <rect
+                      x="0"
+                      y="0"
+                      width="15"
+                      height="15"
+                      rx="4"
+                      fill="none"
+                      stroke="#7c3aed"
+                      stroke-width="2"
+                    />
+                    <path
+                      d="M7.5 4v7M4 7.5h7"
+                      stroke="#7c3aed"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                    />
                   </g>
-                  <text x="60" y="67" font-size="12" fill="#4c1d95" font-weight="bold" font-family="sans-serif">加到主畫面</text>
-                  <rect x="22" y="84" width="196" height="20" rx="7" fill="#f6f4ec"/>
-                  <text x="36" y="98" font-size="10" fill="#9a927e" font-family="sans-serif">設定</text>
+                  <text
+                    x="60"
+                    y="67"
+                    font-size="12"
+                    fill="#4c1d95"
+                    font-weight="bold"
+                    font-family="sans-serif"
+                  >
+                    加到主畫面
+                  </text>
+                  <rect
+                    x="22"
+                    y="84"
+                    width="196"
+                    height="20"
+                    rx="7"
+                    fill="#f6f4ec"
+                  />
+                  <text
+                    x="36"
+                    y="98"
+                    font-size="10"
+                    fill="#9a927e"
+                    font-family="sans-serif"
+                  >
+                    設定
+                  </text>
                 </svg>
               </li>
-              <li><div class="a2h-t">按<b>安裝</b>／<b>新增</b>，桌面就出現圖示了</div></li>
+              <li>
+                <div class="a2h-t">
+                  按<b>安裝</b>／<b>新增</b>，桌面就出現圖示了
+                </div>
+              </li>
             </ol>
           </div>
         </div>
       </section>
 
-      <h2>常見問題</h2>
+      <h2 id="faq">常見問題</h2>
       <div class="faq">
         <details>
           <summary>一定要用 Gmail 嗎？</summary>
-          <p>建議用 Gmail，按一下就登入最方便。沒有 Gmail 也沒關係，任何信箱都可以：輸入信箱後我們寄一封登入連結給您，點一下就登入，不用設密碼。</p>
+          <p>
+            建議用 Gmail，按一下就登入最方便。沒有 Gmail
+            也沒關係，任何信箱都可以：輸入信箱後我們寄一封登入連結給您，點一下就登入，不用設密碼。
+          </p>
         </details>
         <details>
           <summary>訂閱一次可以用幾個科目？</summary>
-          <p>一份訂閱可以用<b>當時已開放的所有科目</b>。訂閱期間內新開放的科目也一併開放，不另外加價。</p>
+          <p>
+            一份訂閱可以用<b>當時已開放的所有科目</b>。訂閱期間內新開放的科目也一併開放，不另外加價。
+          </p>
         </details>
         <details>
           <summary>試用到期資料會不見嗎？</summary>
-          <p>不會。到期只是把功能鎖起來，您的筆記、錯題本、作答紀錄都原封不動留著，續訂後立刻回來。</p>
+          <p>
+            不會。到期只是把功能鎖起來，您的筆記、錯題本、作答紀錄都原封不動留著，續訂後立刻回來。
+          </p>
         </details>
         <details>
           <summary>為什麼從 LINE 點連結進來不能登入？</summary>
           <p>
             LINE、Instagram、Facebook 的內建瀏覽器被 Google 擋住不給登入。
-            請點右上角「⋯」選「用瀏覽器開啟」，或直接在 Chrome、Safari、Edge、Firefox 輸入網址。
+            請點右上角「⋯」選「用瀏覽器開啟」，或直接在
+            Chrome、Safari、Edge、Firefox 輸入網址。
           </p>
         </details>
         <details>
           <summary>推薦朋友有什麼好處？</summary>
-          <p>朋友完成開通後，您會拿到<b>一個月免費序號</b>，全站通用，牙醫師、護理師、以後的醫師站都能兌換。</p>
+          <p>
+            朋友完成開通後，您會拿到<b>一個月免費序號</b>，全站通用，牙醫師、護理師、以後的醫師站都能兌換。
+          </p>
         </details>
       </div>
 
@@ -343,9 +1011,18 @@
       </div>
 
       <footer>
-        客服信箱：<a href="mailto:ezpassdental@gmail.com">ezpassdental@gmail.com</a><br />
+        客服信箱：<a href="mailto:ezpassdental@gmail.com"
+          >ezpassdental@gmail.com</a
+        ><br />
         © 2026 ezpass 國考互動筆記 · 版權所有翻印必究
       </footer>
     </div>
+
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-database-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
+    <script src="auth.js"></script>
+    <script src="subscription.js"></script>
+    <script src="nav.js"></script>
   </body>
 </html>
