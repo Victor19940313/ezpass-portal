@@ -135,10 +135,6 @@
       .wish-toggle-t {
         font-weight: 700;
         font-size: 1rem;
-      }
-      .wish-toggle-s {
-        color: var(--ui-ink2, #6b7280);
-        font-size: 0.85rem;
         flex: 1;
       }
       .wish-toggle-i {
@@ -150,21 +146,6 @@
       }
       .wish-panel {
         margin-top: 0.7rem;
-      }
-      @media (max-width: 560px) {
-        .wish-toggle {
-          flex-wrap: wrap;
-          gap: 0.25rem;
-        }
-        .wish-toggle-s {
-          flex-basis: 100%;
-        }
-      }
-      .wish-lead {
-        color: var(--ui-ink2, #6b7280);
-        font-size: 0.92rem;
-        line-height: 1.75;
-        margin: 0 0 0.9rem;
       }
       .wish-body {
         background: var(--ui-card, #fff);
@@ -527,15 +508,9 @@
       <section class="wish" id="wish">
         <button class="wish-toggle" id="wish-toggle" aria-expanded="false">
           <span class="wish-toggle-t">✨ 找不到你要考的？來許願</span>
-          <span class="wish-toggle-s">跟我說你要考什麼，我記下來</span>
           <span class="wish-toggle-i">▾</span>
         </button>
         <div id="wish-panel" class="wish-panel" hidden>
-          <p class="wish-lead">
-            這個網站是一個考生做給考生的。你要考的還沒上線，跟我說一聲，我會記下來。<br />
-            我一個人慢慢做，先從<b>全部都是選擇題</b>的考試開始，做好一科再做下一科。<br />
-            一個帳號許一個願，之後改主意隨時可以回來改。
-          </p>
           <div id="wish-body" class="wish-body">
             <div class="wish-loading">讀取中…</div>
           </div>
