@@ -26,6 +26,10 @@
   --ui-accent-d: var(--sk-accent-d, #4c1d95);
   --ui-accent-ink: var(--sk-accent-ink, #ffffff);
   --ui-accent-soft: var(--sk-accent-soft, #ede9fe);
+  /* 實心紫底配白字專用。量過:好幾個風格的主色太淺,白字壓上去只有 2.4~3.7:1,
+     所以凡是「填滿主色 + 白字」的東西 (主要按鈕、步驟編號、目錄數字) 一律用這一個,
+     每個風格各自調到白字 ≥ 4.6:1。*/
+  --ui-accent-solid: #7c3aed;
   --ui-radius: var(--sk-radius, 16px);
   --ui-radius-sm: 12px;
   --ui-shadow: var(--sk-shadow, 0 2px 10px rgba(0, 0, 0, 0.04));
@@ -62,6 +66,17 @@
   --ui-s4: 1.6rem;
   --ui-s5: 2.4rem;
 }
+
+
+
+/* 各風格的實心主色 (白字 ≥ 4.6:1) */
+html[data-skin="kawaii"] { --ui-accent-solid: #c34a71; }
+html[data-skin="toon"] { --ui-accent-solid: #2776cb; }
+html[data-skin="notebook"] { --ui-accent-solid: #d04343; }
+html[data-skin="stationery"] { --ui-accent-solid: #916c5f; }
+html[data-skin="clinic"] { --ui-accent-solid: #1a7abc; }
+html[data-skin="night"] { --ui-accent-solid: #7d6e99; }
+html[data-skin="watercolor"] { --ui-accent-solid: #956976; }
 
 /* 夜讀是暗底,四種語氣要換成暗色版,不然白天用的淺色卡片會刺眼、字也看不清 */
 html[data-skin="night"] {
@@ -266,13 +281,13 @@ h3 {
   color: var(--ui-accent);
 }
 .btn.primary {
-  background: var(--ui-accent);
-  color: var(--ui-accent-ink);
-  border-color: var(--ui-accent);
+  background: var(--ui-accent-solid);
+  color: #fff;
+  border-color: var(--ui-accent-solid);
   box-shadow: 0 3px 0 var(--ui-accent-d);
 }
 .btn.primary:hover {
-  color: var(--ui-accent-ink);
+  color: #fff;
 }
 .btn.lg {
   font-size: 1rem;
@@ -517,8 +532,8 @@ table.table tr:last-child td {
   width: 2.2rem;
   height: 2.2rem;
   border-radius: 50%;
-  background: var(--ui-accent);
-  color: var(--ui-accent-ink);
+  background: var(--ui-accent-solid);
+  color: #fff;
   font-weight: 900;
   display: grid;
   place-items: center;
@@ -555,8 +570,8 @@ table.table tr:last-child td {
   height: 1.15rem;
   border-radius: 50%;
   margin-right: 0.4rem;
-  background: var(--ui-accent);
-  color: var(--ui-accent-ink);
+  background: var(--ui-accent-solid);
+  color: #fff;
   font-size: 0.7rem;
 }
 
