@@ -219,7 +219,7 @@
       .wish-done b {
         color: var(--ui-accent-solid, #7c3aed);
       }
-      /* 一個職類一張卡,階段做成右邊的小鈕 (2026-09-11) */
+      /* 一個職類一張卡,階段做成右邊的小鈕 (2026-09-11;2026-09-12 對齊) */
       .site.multi {
         cursor: default;
       }
@@ -227,15 +227,17 @@
         display: flex;
         flex-direction: column;
         gap: 0.4rem;
-        flex: none;
+        flex: 0 0 auto;
+        width: 9.6rem; /* 固定寬 → 每張卡的鈕都一樣寬 */
       }
       .stage-btn {
-        display: inline-flex;
+        display: flex;
         align-items: center;
         justify-content: space-between;
-        gap: 0.5rem;
-        min-width: 6.6rem;
-        padding: 0.42rem 0.7rem;
+        gap: 0.4rem;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 0.42rem 0.5rem 0.42rem 0.75rem;
         border-radius: 999px;
         border: 1.5px solid var(--sk-accent, #7c3aed);
         color: var(--sk-accent-d, #5b21b6);
@@ -248,15 +250,28 @@
           background 0.12s,
           color 0.12s;
       }
+      .stage-btn .st-l {
+        flex: 1;
+        text-align: left;
+      }
+      .stage-btn .st-r {
+        flex: 0 0 3.1rem; /* 右邊狀態欄也固定寬 → 「→」和「準備中」對得齊 */
+        text-align: right;
+      }
+      .stage-btn .st-r.go {
+        color: var(--sk-accent, #7c3aed);
+        font-size: 1rem;
+      }
+      .stage-btn .st-r.off {
+        font-size: 0.72rem;
+        font-weight: 500;
+      }
       .stage-btn:hover {
         background: var(--sk-accent, #7c3aed);
         color: #fff;
       }
-      .stage-btn:hover .go {
+      .stage-btn:hover .st-r.go {
         color: #fff;
-      }
-      .stage-btn .go {
-        color: var(--sk-accent, #7c3aed);
       }
       .stage-btn.off {
         border-color: var(--sk-line, #e5e7eb);
@@ -265,15 +280,16 @@
         font-weight: 500;
         cursor: default;
       }
-      .stage-btn .s {
-        font-size: 0.72rem;
-        font-weight: 500;
-      }
       @media (max-width: 520px) {
+        .site-stages {
+          width: 8.2rem;
+        }
         .stage-btn {
-          min-width: 5.6rem;
-          padding: 0.35rem 0.55rem;
+          padding: 0.35rem 0.45rem 0.35rem 0.6rem;
           font-size: 0.8rem;
+        }
+        .stage-btn .st-r {
+          flex-basis: 2.8rem;
         }
       }
       .sites {
@@ -723,7 +739,11 @@
       }
       // 2026-09-11 HUA:「牙醫師一階和二階我想放在同一個大按鈕上的小按扭,醫師也是 藥師也是,
       //   這樣比較省版面」→ 同一個職類合併成一張卡,階段變成卡片右邊的小按鈕。
-      //   只有一個階段的 (護理師) 維持原樣:整張卡就是連結。
+      // 2026-09-12 HUA:「文字應該要整齊一致吧」→ 每一張卡結構完全一樣:
+      //   圖(固定寬) | 名稱+年份(可伸縮) | 階段鈕(固定寬,右側狀態欄再固定寬)。
+      //   只有一個階段的 (護理師) 也給一顆鈕,不再是「有的有鈕、有的只有箭頭」。
+      //   狀態不再用名字旁邊的小標籤表示 (有的有、有的沒有,反而不整齊),
+      //   一律由鈕右邊那一格表示:→ 是可以進去,「準備中」是還沒好。
       (function renderSites() {
         var groups = [];
         var byName = {};
@@ -743,10 +763,26 @@
           });
         });
 
-        function badge(live) {
+        function stageBtn(s, label) {
+          var live = s.status === "live" && s.url;
+          var right = live
+            ? '<span class="st-r go">→</span>'
+            : '<span class="st-r off">準備中</span>';
           return live
-            ? '<span class="tag live">開放中</span>'
-            : '<span class="tag soon">準備中</span>';
+            ? '<a class="stage-btn" data-site-link="" data-site-id="' +
+                s.id +
+                '" href="' +
+                s.url +
+                '"><span class="st-l">' +
+                label +
+                "</span>" +
+                right +
+                "</a>"
+            : '<span class="stage-btn off"><span class="st-l">' +
+                label +
+                "</span>" +
+                right +
+                "</span>";
         }
 
         document.getElementById("sites").innerHTML = groups
@@ -754,64 +790,21 @@
             var anyLive = g.items.some(function (s) {
               return s.status === "live" && s.url;
             });
-            var art = '<div class="art">' + ART[g.art] + "</div>";
-
-            // 只有一個階段 → 整張卡是連結 (跟以前一樣)
-            if (g.items.length === 1) {
-              var s = g.items[0];
-              var live = s.status === "live" && s.url;
-              var desc =
-                (s.stage ? s.stage + " · " : "") + "收錄 " + s.years + "考題";
-              var inner =
-                art +
-                '<div class="txt"><div class="nm">' +
-                s.name +
-                badge(live) +
-                '</div><div class="ds">' +
-                desc +
-                "</div></div>" +
-                (live ? '<span class="site-go">→</span>' : "");
-              return live
-                ? '<a class="card site" data-site-link="" data-site-id="' +
-                    s.id +
-                    '" href="' +
-                    s.url +
-                    '">' +
-                    inner +
-                    "</a>"
-                : '<div class="card site soon" data-site-id="' +
-                    s.id +
-                    '">' +
-                    inner +
-                    "</div>";
-            }
-
-            // 多個階段 → 一張卡 + 右邊一排階段小鈕
             var stages = g.items
               .map(function (s) {
-                var live = s.status === "live" && s.url;
-                var label = s.stage || s.name;
-                return live
-                  ? '<a class="stage-btn" data-site-link="" data-site-id="' +
-                      s.id +
-                      '" href="' +
-                      s.url +
-                      '">' +
-                      label +
-                      ' <span class="go">→</span></a>'
-                  : '<span class="stage-btn off" title="準備中">' +
-                      label +
-                      ' <span class="s">準備中</span></span>';
+                return stageBtn(s, s.stage || "進入");
               })
               .join("");
             return (
               '<div class="card site multi' +
               (anyLive ? "" : " soon") +
-              '">' +
-              art +
-              '<div class="txt"><div class="nm">' +
+              '" data-site-id="' +
+              g.items[0].id +
+              '"><div class="art">' +
+              ART[g.art] +
+              '</div><div class="txt"><div class="nm">' +
               g.name +
-              "</div><div class=\"ds\">收錄 " +
+              '</div><div class="ds">收錄 ' +
               g.items[0].years +
               '考題</div></div><div class="site-stages">' +
               stages +
