@@ -17,9 +17,9 @@
       href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap"
       rel="stylesheet"
     />
-    <script src="skin.js?v=v679"></script>
-    <link rel="stylesheet" href="skin.css?v=v679" />
-    <link rel="stylesheet" href="site.css?v=v679" />
+    <script src="skin.js?v=v681"></script>
+    <link rel="stylesheet" href="skin.css?v=v681" />
+    <link rel="stylesheet" href="site.css?v=v681" />
     <style>
       .top-hero {
         text-align: center;
@@ -174,12 +174,22 @@
         background: #dcfce7;
         color: #166534;
       }
+      /* v680:量過原本只有 2.55 的反差,人眼看很吃力 → 改成灰底深灰字 (約 7:1) */
       .tag.soon {
-        background: var(--sk-line, #f1f5f9);
-        color: var(--sk-ink2, #64748b);
+        background: #e5e7eb;
+        color: #3f4652;
       }
-      .site.soon {
-        opacity: 0.72;
+      html[data-skin="night"] .tag.soon {
+        background: #3a3d47;
+        color: #e4e2dc;
+      }
+      /* v680:整張卡調半透明會把裡面的字一起洗淡 (準備中的站點看不清楚)。
+         改成只讓圖示淡一點,文字維持正常對比。*/
+      .site.soon .art {
+        opacity: 0.6;
+      }
+      .site.soon .ds {
+        color: var(--sk-ink2, #6b7280);
       }
 
       .feats {
@@ -461,10 +471,10 @@
     <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-database-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
-    <script src="auth.js?v=v679"></script>
-    <script src="subscription.js?v=v679"></script>
-    <script src="sites.js?v=v679"></script>
-    <script src="nav.js?v=v679"></script>
+    <script src="auth.js?v=v681"></script>
+    <script src="subscription.js?v=v681"></script>
+    <script src="sites.js?v=v681"></script>
+    <script src="nav.js?v=v681"></script>
     <script>
       // 入口網站登入 (跟牙醫站同一個 Firebase 專案,帳號 / 試用 / 訂閱共用)
       function openLogin() {
