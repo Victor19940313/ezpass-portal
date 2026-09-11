@@ -192,7 +192,17 @@
     if (typeof QUESTIONS !== "undefined" && QUESTIONS.length) S.questionCount = String(QUESTIONS.length); // 練習本題庫載入後才有
     document.querySelectorAll("[data-site]").forEach(function (el) {
       var v = S[el.getAttribute("data-site")];
-      if (v != null) el.textContent = v;
+      if (v == null) return;
+      // v687: 長標題 (醫師一階國考互動筆記) 原本會斷成「…國考互 / 動筆記」。
+      //   標了 data-site-break 的就在「互動筆記」前放一個 <wbr>,
+      //   搭配 CSS 的 word-break:keep-all,只會斷在這裡。
+      var i = el.hasAttribute("data-site-break") ? v.lastIndexOf("互動筆記") : -1;
+      if (i > 0) {
+        el.textContent = "";
+        el.appendChild(document.createTextNode(v.slice(0, i)));
+        el.appendChild(document.createElement("wbr"));
+        el.appendChild(document.createTextNode(v.slice(i)));
+      } else el.textContent = v;
     });
     document.querySelectorAll("[data-site-placeholder]").forEach(function (el) {
       el.placeholder = tpl(el.getAttribute("data-site-placeholder"));
