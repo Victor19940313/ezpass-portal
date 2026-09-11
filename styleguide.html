@@ -1,0 +1,471 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow, noarchive" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2224%22 fill=%22%237c3aed%22/><text x=%2250%22 y=%2268%22 font-size=%2250%22 font-weight=%22900%22 font-family=%22sans-serif%22 text-anchor=%22middle%22 fill=%22white%22>EZ</text></svg>"
+    />
+    <title>樣式範本 — ezpass</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <script src="skin.js"></script>
+    <link rel="stylesheet" href="skin.css" />
+    <link rel="stylesheet" href="ui.css" />
+    <style>
+      /* 只有這一頁自己用的:示範用的排版框,不會進到正式頁面 */
+      .demo {
+        border: 1.5px dashed var(--ui-line);
+        border-radius: var(--ui-radius-sm);
+        padding: 1.1rem;
+        margin: var(--ui-s2) 0 var(--ui-s3);
+        background: var(--ui-bg);
+      }
+      .demo-row {
+        display: flex;
+        gap: var(--ui-s2);
+        flex-wrap: wrap;
+        align-items: center;
+      }
+      .why {
+        font-size: 0.85rem;
+        color: var(--ui-ink2);
+        margin: 0 0 var(--ui-s2);
+      }
+      .why b {
+        color: var(--ui-ink);
+      }
+      .swatches {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: var(--ui-s2);
+      }
+      .sw {
+        border: 1.5px solid var(--ui-line);
+        border-radius: var(--ui-radius-sm);
+        overflow: hidden;
+        background: var(--ui-card);
+      }
+      .sw .chip {
+        height: 46px;
+      }
+      .sw .nm {
+        padding: 0.4rem 0.6rem;
+        font-size: 0.76rem;
+        line-height: 1.5;
+        color: var(--ui-ink2);
+      }
+      .sw .nm b {
+        display: block;
+        color: var(--ui-ink);
+        font-size: 0.82rem;
+      }
+      .skinbar {
+        display: flex;
+        gap: 0.35rem;
+        flex-wrap: wrap;
+        margin: 0 0 var(--ui-s3);
+      }
+      .skinbar button {
+        font-family: inherit;
+        cursor: pointer;
+        border-radius: 999px;
+        border: 1.5px solid var(--ui-line);
+        background: var(--ui-card);
+        color: var(--ui-ink);
+        font-size: 0.82rem;
+        font-weight: 700;
+        padding: 0.3rem 0.75rem;
+      }
+      .skinbar button[aria-pressed="true"] {
+        background: var(--ui-accent);
+        color: var(--ui-accent-ink);
+        border-color: var(--ui-accent);
+      }
+      .bad-demo {
+        color: var(--sk-mute, #9ca3af);
+      }
+      .cmp {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--ui-s2);
+      }
+      @media (max-width: 620px) {
+        .cmp {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="topbar">
+        <a class="logo" href="./"
+          ><span class="mark">EZ</span> ezpass 國考互動筆記</a
+        >
+        <nav class="topnav" aria-label="主選單">
+          <a class="nav-l" href="./">首頁</a>
+          <a class="nav-l" href="start.html">新手上路</a>
+          <a class="nav-l" href="subscribe.html">方案與價格</a>
+          <a class="nav-l" href="rewards.html">推薦拿獎勵</a>
+        </nav>
+        <div class="topacts">
+          <span class="nav-sep" aria-hidden="true"></span>
+          <button
+            class="btn ico"
+            type="button"
+            onclick="if (window.Skin && Skin.open) Skin.open();"
+            title="換網站風格"
+            aria-label="換網站風格"
+          >
+            🎨
+          </button>
+          <button class="btn primary" type="button">登入</button>
+        </div>
+      </div>
+
+      <h1>樣式範本</h1>
+      <p class="lead">
+        這一頁是「網站零件的樣品櫃」。以後每一頁都用這裡的零件拼出來，全站就會長得一致；
+        要調整也只要改一個地方，三個站（入口、牙醫師、護理師）同時跟著變。
+      </p>
+
+      <div class="note">
+        <span class="ic">👀</span>
+        <div>
+          <b>請你這樣看：</b
+          >下面這排按鈕可以直接切換八種風格。每切一種，往下滑一遍，
+          看有沒有哪個零件變得看不清楚、或是醜到你不能接受。覺得不對的就跟我說第幾項。
+        </div>
+      </div>
+
+      <div class="skinbar" id="skinbar"></div>
+
+      <div class="toc">
+        <a href="#c1"><b>1</b>顏色與文字</a>
+        <a href="#c2"><b>2</b>標題層級</a>
+        <a href="#c3"><b>3</b>按鈕</a>
+        <a href="#c4"><b>4</b>卡片</a>
+        <a href="#c5"><b>5</b>提示框</a>
+        <a href="#c6"><b>6</b>標籤</a>
+        <a href="#c7"><b>7</b>表單</a>
+        <a href="#c8"><b>8</b>表格</a>
+        <a href="#c9"><b>9</b>收合</a>
+        <a href="#c10"><b>10</b>步驟</a>
+      </div>
+
+      <!-- 1 ───────────────────────────────────────── -->
+      <h2 id="c1">1. 顏色與文字</h2>
+      <p class="why">
+        全站的顏色只有這幾個名字，各風格會自動換成自己的色系。<b
+          >以後不再出現「這一頁的灰跟那一頁的灰不一樣」。</b
+        >
+      </p>
+      <div class="swatches" id="swatches"></div>
+
+      <div class="demo">
+        <p class="why">
+          <b>最重要的一條規則：文字只有兩層。</b>
+          我量過，再淡一階的灰色在八種風格下對比都只有 2.5～3.7（看得清楚要 4.5
+          以上）， 所以那個灰以後<b>只能用在裝飾</b>，不能拿來寫給人看的字。
+        </p>
+        <div class="cmp">
+          <div class="card pad">
+            <div class="pill ok">正確</div>
+            <p style="margin: 0.5rem 0 0">主要文字：這是給人讀的內容。</p>
+            <p class="small" style="margin: 0.3rem 0 0">
+              次要文字：補充說明、提示、頁尾都用這一層。
+            </p>
+          </div>
+          <div class="card pad">
+            <div class="pill danger">以前的錯誤示範</div>
+            <p style="margin: 0.5rem 0 0">主要文字：這是給人讀的內容。</p>
+            <p class="bad-demo" style="margin: 0.3rem 0 0; font-size: 0.82rem">
+              第三層淡灰：像這樣，在某些風格下你會看得很吃力。
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2 ───────────────────────────────────────── -->
+      <h2 id="c2">2. 標題層級</h2>
+      <p class="why">
+        一頁只有一個大標；區塊用中標；卡片裡面用小標。以後各頁大小一致，不會忽大忽小。
+      </p>
+      <div class="demo">
+        <h1 style="margin-top: 0">大標（一頁一個）</h1>
+        <p class="lead" style="margin-bottom: 1rem">
+          大標下面這一行叫「導言」，用來一句話說清楚這一頁要幹嘛。
+        </p>
+        <h2 style="margin-top: 0">中標（區塊標題）</h2>
+        <h3>小標（卡片、段落標題）</h3>
+        <p style="margin: 0">內文長這樣。</p>
+        <p class="small" style="margin: 0.3rem 0 0">次要說明長這樣。</p>
+      </div>
+
+      <!-- 3 ───────────────────────────────────────── -->
+      <h2 id="c3">3. 按鈕</h2>
+      <p class="why">
+        一個區塊裡<b>只會有一顆紫色主要按鈕</b>（希望你按的那顆），其他都是白色次要按鈕。
+      </p>
+      <div class="demo">
+        <div class="demo-row">
+          <button class="btn primary lg" type="button">主要 · 大</button>
+          <button class="btn primary" type="button">主要</button>
+          <button class="btn" type="button">次要</button>
+          <button class="btn sm" type="button">次要 · 小</button>
+          <button class="btn ico" type="button">🎨</button>
+          <button class="btn primary" type="button" disabled>
+            不能按（處理中）
+          </button>
+        </div>
+        <p class="why" style="margin: 0.9rem 0 0">
+          「不能按」是灰底深灰字，<b>不是把字調淡</b>——以前用調淡的做法，在深色風格下會整顆消失。
+        </p>
+      </div>
+
+      <!-- 4 ───────────────────────────────────────── -->
+      <h2 id="c4">4. 卡片</h2>
+      <p class="why">所有方框都是同一種圓角、邊框、陰影。</p>
+      <div class="demo">
+        <div class="card pad">
+          <h3>卡片標題</h3>
+          <p class="small" style="margin: 0">
+            卡片裡面放什麼都可以：文字、清單、按鈕。
+          </p>
+          <div class="demo-row" style="margin-top: 0.8rem">
+            <button class="btn primary" type="button">主要動作</button>
+            <button class="btn" type="button">次要</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5 ───────────────────────────────────────── -->
+      <h2 id="c5">5. 提示框（四種語氣）</h2>
+      <p class="why">
+        要提醒使用者的時候用這個。<b>語氣固定四種</b>，以後不會這一頁綠色那一頁黃色。
+      </p>
+      <div class="demo">
+        <div class="note">
+          <span class="ic">💡</span>
+          <div><b>說明：</b>一般資訊、操作提示。</div>
+        </div>
+        <div class="note ok">
+          <span class="ic">✅</span>
+          <div><b>成功：</b>付款完成、已開通、已儲存。</div>
+        </div>
+        <div class="note warn">
+          <span class="ic">⚠️</span>
+          <div><b>注意：</b>試用快到期、要先勾選條款。</div>
+        </div>
+        <div class="note danger">
+          <span class="ic">⛔</span>
+          <div><b>錯誤：</b>付款失敗、找不到這個序號。</div>
+        </div>
+      </div>
+
+      <!-- 6 ───────────────────────────────────────── -->
+      <h2 id="c6">6. 標籤</h2>
+      <p class="why">
+        用在卡片上標狀態，例如考試站是「開放中」還是「準備中」。
+      </p>
+      <div class="demo demo-row">
+        <span class="pill">一般</span>
+        <span class="pill ok">開放中</span>
+        <span class="pill warn">快到期</span>
+        <span class="pill danger">已過期</span>
+        <span class="pill off">準備中</span>
+      </div>
+
+      <!-- 7 ───────────────────────────────────────── -->
+      <h2 id="c7">7. 表單</h2>
+      <p class="why">意見回饋、輸入序號、填匯款資料都用這一套。</p>
+      <div class="demo">
+        <div class="field">
+          <label for="d1">你的信箱</label>
+          <input id="d1" type="email" placeholder="example@gmail.com" />
+          <p class="hint">我們只用來寄登入連結，不會寄廣告。</p>
+        </div>
+        <div class="field">
+          <label for="d2">想說的話</label>
+          <textarea id="d2" rows="3" placeholder="遇到什麼問題？"></textarea>
+          <p class="hint">0 / 2000</p>
+        </div>
+        <div class="field bad">
+          <label for="d3">匯款末五碼</label>
+          <input id="d3" type="text" value="123" />
+          <p class="hint">要填 5 碼，你只填了 3 碼。</p>
+        </div>
+        <button class="btn primary" type="button">送出</button>
+      </div>
+
+      <!-- 8 ───────────────────────────────────────── -->
+      <h2 id="c8">8. 表格</h2>
+      <p class="why">方案比較、獎勵紀錄、訂單紀錄都用這一種。</p>
+      <div class="demo">
+        <div class="table-wrap">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>方案</th>
+                <th>價格</th>
+                <th>平均每月</th>
+                <th>狀態</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>月費</td>
+                <td>$400</td>
+                <td>$400</td>
+                <td><span class="pill">一般</span></td>
+              </tr>
+              <tr>
+                <td>季費</td>
+                <td>$1000</td>
+                <td>$333</td>
+                <td><span class="pill ok">最多人選</span></td>
+              </tr>
+              <tr>
+                <td>半年</td>
+                <td>$1500</td>
+                <td>$250</td>
+                <td><span class="pill">一般</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- 9 ───────────────────────────────────────── -->
+      <h2 id="c9">9. 收合</h2>
+      <p class="why">
+        常見問題、購買須知這種「內容很長但不是每個人都要看」的，用收合。
+      </p>
+      <div class="demo">
+        <details class="acc">
+          <summary>一定要用 Gmail 嗎？</summary>
+          <div class="body">
+            不用。任何信箱都可以，我們會寄一封登入連結給你，點一下就登入，不用設密碼。
+          </div>
+        </details>
+        <details class="acc" open>
+          <summary>訂閱一次可以用幾個科目？</summary>
+          <div class="body">
+            一份訂閱可以用當時已開放的所有科目，訂閱期間內新開放的也一併開放，不另外加價。
+          </div>
+        </details>
+      </div>
+
+      <!-- 10 ──────────────────────────────────────── -->
+      <h2 id="c10">10. 步驟</h2>
+      <p class="why">「新手上路」那種一步一步的說明用這個。</p>
+      <div class="demo">
+        <div class="steps">
+          <div class="card step-row">
+            <div class="no">1</div>
+            <div>
+              <h3>先看看裡面長什麼樣</h3>
+              <p>不用登入，照你實際會用到的順序看一遍。</p>
+            </div>
+          </div>
+          <div class="card step-row">
+            <div class="no">2</div>
+            <div>
+              <h3>選你的考試，登入</h3>
+              <p>第一次登入自動送 7 天免費試用，全部功能都能用。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="site-foot">
+        客服信箱：<a href="mailto:ezpassdental@gmail.com"
+          >ezpassdental@gmail.com</a
+        ><br />
+        © 2026 ezpass 國考互動筆記 · 版權所有翻印必究
+      </div>
+    </div>
+
+    <script>
+      // 風格切換列:直接用 skin.js 的清單,按一下就換,方便一次看完八種
+      (function () {
+        var bar = document.getElementById("skinbar");
+        var tries = 0;
+        (function draw() {
+          if (!window.Skin || !Skin.list) {
+            if (++tries < 40) return setTimeout(draw, 150);
+            return;
+          }
+          bar.innerHTML = Skin.list
+            .map(function (s) {
+              return (
+                '<button type="button" data-skin="' +
+                s.id +
+                '">' +
+                s.em +
+                " " +
+                s.name +
+                "</button>"
+              );
+            })
+            .join("");
+          function mark() {
+            var cur = Skin.current();
+            [].forEach.call(bar.querySelectorAll("button"), function (b) {
+              b.setAttribute(
+                "aria-pressed",
+                b.dataset.skin === cur ? "true" : "false",
+              );
+            });
+          }
+          bar.addEventListener("click", function (e) {
+            var b = e.target.closest("button[data-skin]");
+            if (!b) return;
+            Skin.apply(b.dataset.skin, true);
+            mark();
+            paint();
+          });
+          mark();
+        })();
+      })();
+
+      // 色票:直接把目前風格實際算出來的顏色畫出來
+      function paint() {
+        var cs = getComputedStyle(document.documentElement);
+        var items = [
+          ["--ui-ink", "主要文字", "給人讀的內容"],
+          ["--ui-ink2", "次要文字", "補充說明、提示、頁尾"],
+          ["--ui-accent", "主色", "主要按鈕、連結、重點"],
+          ["--ui-accent-d", "主色（深）", "按鈕陰影、招牌左側"],
+          ["--ui-bg", "頁面底色", ""],
+          ["--ui-card", "卡片底色", ""],
+          ["--ui-line", "線條", "邊框、分隔線"],
+          ["--ui-ok-ink", "成功", "完成、已開通"],
+          ["--ui-warn-ink", "注意", "快到期、要留意"],
+          ["--ui-danger-ink", "錯誤", "失敗、過期"],
+        ];
+        document.getElementById("swatches").innerHTML = items
+          .map(function (it) {
+            var v = cs.getPropertyValue(it[0]).trim();
+            return (
+              '<div class="sw"><div class="chip" style="background:' +
+              v +
+              '"></div><div class="nm"><b>' +
+              it[1] +
+              "</b>" +
+              (it[2] || "") +
+              "</div></div>"
+            );
+          })
+          .join("");
+      }
+      paint();
+      window.addEventListener("load", paint);
+    </script>
+  </body>
+</html>
