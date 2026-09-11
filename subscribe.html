@@ -472,6 +472,32 @@
       .pub-box p {
         margin: 0 0 0.6rem;
       }
+      .buy-notes > details > summary {
+        font-size: 1.02rem;
+        color: #1f2937;
+        font-weight: 800;
+        cursor: pointer;
+        list-style: none;
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+      }
+      .buy-notes > details > summary::-webkit-details-marker {
+        display: none;
+      }
+      .buy-notes > details > summary::after {
+        content: attr(data-hint);
+        margin-left: auto;
+        font-weight: 600;
+        font-size: 0.82rem;
+        color: #7c3aed;
+      }
+      .buy-notes > details[open] > summary {
+        margin-bottom: 0.6rem;
+      }
+      .buy-notes > details[open] > summary::after {
+        content: "收起 ▴";
+      }
       .pub-box p:last-child {
         margin-bottom: 0;
       }
@@ -787,8 +813,7 @@
       <div id="not-logged" class="not-logged">
         <h3>💡 建議先免費試用，確定合用再購買</h3>
         <p>
-          第一次登入自動送 7 天免費試用，全部功能都能用、不用付款。
-          上面的方案與價格不用登入就看得到；登入只是為了把試用和訂閱綁在您的帳號上，之後每一站登入都通用。
+          第一次登入自動送 7 天免費試用，全部功能都能用。一個帳號全站通用。
         </p>
         <div
           style="
@@ -1064,7 +1089,8 @@
 
       <!-- v642: 購買須知 — 付款方式 / 開通時間 / 退款 / 客服 / 賣家資訊 (綠界收款審核要求) -->
       <section class="pub-box buy-notes" id="buy-notes">
-        <h2>購買須知</h2>
+        <details>
+          <summary data-hint="展開 ▾">購買須知</summary>
         <dl>
           <dt>商品內容</dt>
           <dd>
@@ -1131,9 +1157,10 @@
           </dd>
         </dl>
         <div class="seller-card">
-          賣家：ezpassdental（個人賣家）· 客服信箱 ezpassdental@gmail.com<br />
+          賣家：ezpassdental · 客服信箱 ezpassdental@gmail.com<br />
           線上付款服務由綠界科技股份有限公司提供。
         </div>
+        </details>
       </section>
 
       <footer style="position: sticky; top: 100vh">
