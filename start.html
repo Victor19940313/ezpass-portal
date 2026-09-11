@@ -204,7 +204,9 @@
         border: 1.5px solid var(--sk-line, #e5e7eb);
         color: var(--sk-ink, #1f2937);
       }
-      .toc a:hover { border-color: var(--sk-accent, #7c3aed); }
+      .toc a:hover {
+        border-color: var(--sk-accent, #7c3aed);
+      }
       .toc a b {
         display: inline-grid;
         place-items: center;
@@ -216,7 +218,12 @@
         color: var(--sk-accent-ink, #fff);
         font-size: 0.7rem;
       }
-      #steps, #screens, #a2h, #faq { scroll-margin-top: 14px; }
+      #steps,
+      #screens,
+      #a2h,
+      #faq {
+        scroll-margin-top: 14px;
+      }
       /* v656: 加到手機主畫面 */
       .sec-h {
         margin: 2.2rem 0 0.6rem;
@@ -343,9 +350,19 @@
         </nav>
         <div class="topacts">
           <span class="nav-sep" aria-hidden="true"></span>
-          <button class="btn ico" type="button" onclick="if (window.Skin && Skin.open) Skin.open();" title="換網站風格" aria-label="換網站風格">🎨</button>
+          <button
+            class="btn ico"
+            type="button"
+            onclick="if (window.Skin && Skin.open) Skin.open();"
+            title="換網站風格"
+            aria-label="換網站風格"
+          >
+            🎨
+          </button>
           <span id="auth-widget"></span>
-          <button class="btn primary" type="button" id="btn-login" hidden>登入</button>
+          <button class="btn primary" type="button" id="btn-login" hidden>
+            登入
+          </button>
         </div>
       </div>
       <div class="memberbar" hidden>
@@ -1002,7 +1019,7 @@
           <summary>推薦朋友有什麼好處？</summary>
           <p>
             朋友完成開通後，您會拿到<b>一個月免費序號</b>。<b>推薦次數不設上限</b>——推薦
-            1 個人拿 1 個月，推薦 10 個人就拿 10 個月。序號全站通用，牙醫師、護理師、醫師一階、醫師二階都能兌換。
+            1 個人拿 1 個月，推薦 10 個人就拿 10 個月。序號全站通用。
           </p>
         </details>
       </div>
