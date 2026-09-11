@@ -110,6 +110,86 @@
         border-radius: 12px;
         padding: 0.55rem 0.9rem;
       }
+      /* 許願區 (2026-09-11) */
+      .wish {
+        margin: 2.2rem 0 0;
+      }
+      .wish-lead {
+        color: var(--ui-ink2, #6b7280);
+        font-size: 0.92rem;
+        line-height: 1.75;
+        margin: 0 0 0.9rem;
+      }
+      .wish-body {
+        background: var(--ui-card, #fff);
+        border: 1.5px solid var(--ui-line, #e5e7eb);
+        border-radius: 14px;
+        padding: 1rem 1.1rem;
+      }
+      .wish-loading {
+        color: var(--ui-ink2, #6b7280);
+        font-size: 0.9rem;
+      }
+      .wish-opts {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(9.5rem, 1fr));
+        gap: 0.45rem;
+        margin-bottom: 0.8rem;
+      }
+      .wish-opt {
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+        padding: 0.5rem 0.6rem;
+        border: 1.5px solid var(--ui-line, #e5e7eb);
+        border-radius: 10px;
+        cursor: pointer;
+        font-size: 0.9rem;
+        background: var(--ui-bg, #fff);
+        transition: border-color 0.12s, background 0.12s;
+      }
+      .wish-opt:hover {
+        border-color: var(--ui-accent-solid, #7c3aed);
+      }
+      .wish-opt.on {
+        border-color: var(--ui-accent-solid, #7c3aed);
+        background: var(--ui-accent-weak, #f5f3ff);
+        font-weight: 700;
+      }
+      .wish-opt input {
+        accent-color: var(--ui-accent-solid, #7c3aed);
+        flex: none;
+      }
+      .wish-other {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 0.55rem 0.7rem;
+        border: 1.5px solid var(--ui-line, #e5e7eb);
+        border-radius: 10px;
+        font-size: 0.92rem;
+        margin-bottom: 0.8rem;
+      }
+      .wish-row {
+        display: flex;
+        align-items: center;
+        gap: 0.7rem;
+        flex-wrap: wrap;
+      }
+      .wish-msg {
+        font-size: 0.88rem;
+        color: var(--ui-ink2, #6b7280);
+      }
+      .wish-msg.ok {
+        color: #15803d;
+        font-weight: 700;
+      }
+      .wish-done {
+        font-size: 0.95rem;
+        line-height: 1.8;
+      }
+      .wish-done b {
+        color: var(--ui-accent-solid, #7c3aed);
+      }
       .sites {
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -374,6 +454,19 @@
       <h2 id="choose">選擇您的考試</h2>
       <div class="sites" id="sites"></div>
 
+      <!-- 2026-09-11 HUA:「首頁能不能擺一個地方放:我要考別的證照沒有在上面,我要許願」
+           「一個登入的帳號只能投一個證照」 -->
+      <section class="wish" id="wish">
+        <h2 style="margin-bottom: 0.4rem">找不到你要考的？來許願</h2>
+        <p class="wish-lead">
+          告訴我你要考什麼，我照許願的人數決定下一個做哪一科。<br />
+          目前只做<b>全部都是選擇題</b>的考試；<b>一個帳號投一個</b>，之後想改隨時可以改。
+        </p>
+        <div id="wish-body" class="wish-body">
+          <div class="wish-loading">讀取中…</div>
+        </div>
+      </section>
+
       <h2>每一站都有的功能</h2>
       <div class="feats">
         <div class="card feat">
@@ -450,7 +543,7 @@
       </div>
       <p class="trial">
         第一次登入送 7 天免費試用。<br />
-        推薦朋友直接拿一個月免費序號，全站通用。<br />
+        推薦朋友直接拿一個月免費序號，<b>次數不設上限</b>，全站通用。<br />
         <a href="subscribe.html">完整方案說明與購買須知 →</a>
       </p>
 
