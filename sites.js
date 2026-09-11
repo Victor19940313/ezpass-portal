@@ -21,6 +21,15 @@ var SITES = [
     url: "https://nursing.ezpass-exam.com/",
   },
   {
+    id: "dental1",
+    name: "牙醫師",
+    stage: "第一階段",
+    years: "105～115 年",
+    art: "tooth",
+    status: "soon",
+    url: "",
+  },
+  {
     id: "physician1",
     name: "醫師",
     stage: "第一階段",
