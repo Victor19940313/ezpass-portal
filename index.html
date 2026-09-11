@@ -219,6 +219,63 @@
       .wish-done b {
         color: var(--ui-accent-solid, #7c3aed);
       }
+      /* 一個職類一張卡,階段做成右邊的小鈕 (2026-09-11) */
+      .site.multi {
+        cursor: default;
+      }
+      .site-stages {
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+        flex: none;
+      }
+      .stage-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0.5rem;
+        min-width: 6.6rem;
+        padding: 0.42rem 0.7rem;
+        border-radius: 999px;
+        border: 1.5px solid var(--sk-accent, #7c3aed);
+        color: var(--sk-accent-d, #5b21b6);
+        background: var(--sk-card, #fff);
+        font-size: 0.86rem;
+        font-weight: 700;
+        text-decoration: none;
+        white-space: nowrap;
+        transition:
+          background 0.12s,
+          color 0.12s;
+      }
+      .stage-btn:hover {
+        background: var(--sk-accent, #7c3aed);
+        color: #fff;
+      }
+      .stage-btn:hover .go {
+        color: #fff;
+      }
+      .stage-btn .go {
+        color: var(--sk-accent, #7c3aed);
+      }
+      .stage-btn.off {
+        border-color: var(--sk-line, #e5e7eb);
+        color: var(--sk-ink2, #9ca3af);
+        background: transparent;
+        font-weight: 500;
+        cursor: default;
+      }
+      .stage-btn .s {
+        font-size: 0.72rem;
+        font-weight: 500;
+      }
+      @media (max-width: 520px) {
+        .stage-btn {
+          min-width: 5.6rem;
+          padding: 0.35rem 0.55rem;
+          font-size: 0.8rem;
+        }
+      }
       .sites {
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -664,38 +721,106 @@
           return "";
         }
       }
-      document.getElementById("sites").innerHTML = SITES.map(function (s) {
-        var live = s.status === "live" && s.url;
-        var desc =
-          (s.stage ? s.stage + " · " : "") + "收錄 " + s.years + "考題";
-        var inner =
-          '<div class="art">' +
-          ART[s.art] +
-          "</div>" +
-          '<div class="txt"><div class="nm">' +
-          s.name +
-          (live
+      // 2026-09-11 HUA:「牙醫師一階和二階我想放在同一個大按鈕上的小按扭,醫師也是 藥師也是,
+      //   這樣比較省版面」→ 同一個職類合併成一張卡,階段變成卡片右邊的小按鈕。
+      //   只有一個階段的 (護理師) 維持原樣:整張卡就是連結。
+      (function renderSites() {
+        var groups = [];
+        var byName = {};
+        SITES.forEach(function (s) {
+          var g = byName[s.name];
+          if (!g) {
+            g = byName[s.name] = { name: s.name, art: s.art, items: [] };
+            groups.push(g);
+          }
+          g.items.push(s);
+        });
+        // 階段由小到大排 (牙醫的資料是二階在前,因為它是第一個做的站)
+        var ORDER = ["第一階段", "第二階段", "第三階段"];
+        groups.forEach(function (g) {
+          g.items.sort(function (a, b) {
+            return ORDER.indexOf(a.stage) - ORDER.indexOf(b.stage);
+          });
+        });
+
+        function badge(live) {
+          return live
             ? '<span class="tag live">開放中</span>'
-            : '<span class="tag soon">準備中</span>') +
-          '</div><div class="ds">' +
-          desc +
-          "</div></div>" +
-          (live ? '<span class="site-go">→</span>' : "");
-        // 開放中的整張卡就是連結,點了直接進站 (沒登入就會看到登入畫面)
-        return live
-          ? '<a class="card site" data-site-link="" data-site-id="' +
-              s.id +
-              '" href="' +
-              s.url +
+            : '<span class="tag soon">準備中</span>';
+        }
+
+        document.getElementById("sites").innerHTML = groups
+          .map(function (g) {
+            var anyLive = g.items.some(function (s) {
+              return s.status === "live" && s.url;
+            });
+            var art = '<div class="art">' + ART[g.art] + "</div>";
+
+            // 只有一個階段 → 整張卡是連結 (跟以前一樣)
+            if (g.items.length === 1) {
+              var s = g.items[0];
+              var live = s.status === "live" && s.url;
+              var desc =
+                (s.stage ? s.stage + " · " : "") + "收錄 " + s.years + "考題";
+              var inner =
+                art +
+                '<div class="txt"><div class="nm">' +
+                s.name +
+                badge(live) +
+                '</div><div class="ds">' +
+                desc +
+                "</div></div>" +
+                (live ? '<span class="site-go">→</span>' : "");
+              return live
+                ? '<a class="card site" data-site-link="" data-site-id="' +
+                    s.id +
+                    '" href="' +
+                    s.url +
+                    '">' +
+                    inner +
+                    "</a>"
+                : '<div class="card site soon" data-site-id="' +
+                    s.id +
+                    '">' +
+                    inner +
+                    "</div>";
+            }
+
+            // 多個階段 → 一張卡 + 右邊一排階段小鈕
+            var stages = g.items
+              .map(function (s) {
+                var live = s.status === "live" && s.url;
+                var label = s.stage || s.name;
+                return live
+                  ? '<a class="stage-btn" data-site-link="" data-site-id="' +
+                      s.id +
+                      '" href="' +
+                      s.url +
+                      '">' +
+                      label +
+                      ' <span class="go">→</span></a>'
+                  : '<span class="stage-btn off" title="準備中">' +
+                      label +
+                      ' <span class="s">準備中</span></span>';
+              })
+              .join("");
+            return (
+              '<div class="card site multi' +
+              (anyLive ? "" : " soon") +
               '">' +
-              inner +
-              "</a>"
-          : '<div class="card site soon" data-site-id="' +
-              s.id +
-              '">' +
-              inner +
-              "</div>";
-      }).join("");
+              art +
+              '<div class="txt"><div class="nm">' +
+              g.name +
+              "</div><div class=\"ds\">收錄 " +
+              g.items[0].years +
+              '考題</div></div><div class="site-stages">' +
+              stages +
+              "</div></div>"
+            );
+          })
+          .join("");
+      })();
+
       // 點站台連結:帶風格過去;已登入的話再換一張通行證,進去就不用再登一次 (v656)
       document.getElementById("sites").addEventListener("click", function (e) {
         var a = e.target.closest("a[data-site-link]");
@@ -703,7 +828,9 @@
         var base =
           a.getAttribute("href").split("#")[0].split("?")[0] + skinQs();
         var card = a.closest(".site");
-        var site = card ? card.getAttribute("data-site-id") : "";
+        var site =
+          a.getAttribute("data-site-id") ||
+          (card ? card.getAttribute("data-site-id") : "");
         var user = window.Auth && Auth.getUser && Auth.getUser();
         if (!user || !window.Auth.ssoLink || !site) {
           a.setAttribute("href", base);
