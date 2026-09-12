@@ -353,6 +353,12 @@
         --sk-hl-ink: #23211f;
         --sk-input-bg: #fffaf0;
         --sk-input-line: #23211f;
+        /* 深底的皮膚:沒有卡片墊著、直接畫在背景上的字要另外給亮色,
+           不然標題會跟背景同色變隱形 (2026-09-12 抓到) */
+        --sk-ink-page: #fdf3d8;
+        --sk-ink2-page: #cbbfa6;
+        --sk-mute-page: #a2957f;
+        --sk-accent-page: #ff8a72;
       }
       /* ─────────────────────────────────────────────
          候選 2：柔和水彩（像妳貼的第 4 張）
@@ -411,18 +417,19 @@
         font-weight: 800;
         font-size: 0.72rem;
         letter-spacing: 0.26em;
-        color: var(--sk-accent);
+        color: var(--sk-accent-page, var(--sk-accent));
         margin-bottom: 0.2rem;
       }
       .demo .hero h1 {
         font-size: 1.6rem;
         line-height: 1.2;
         margin: 0 0 0.25rem;
-        color: var(--sk-ink);
+        color: var(--sk-ink-page, var(--sk-ink));
         word-break: keep-all;
       }
       .demo .hero .sub {
         margin: 0 0 0.7rem;
+        color: var(--sk-ink2-page, var(--sk-ink2));
       }
       .demo .hero-cta {
         display: inline-block;
@@ -482,7 +489,7 @@
         font-size: 0.72rem;
         font-weight: 800;
         letter-spacing: 0.1em;
-        color: var(--sk-mute);
+        color: var(--sk-mute-page, var(--sk-mute));
         margin: 1.2rem 0 0.5rem;
       }
       .demo .opt.correct,
