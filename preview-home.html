@@ -1,0 +1,587 @@
+<!doctype html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>首頁改版候選 — ezpass</title>
+    <style>
+      :root {
+        --ink: #1f2937;
+        --ink2: #4b5563;
+        --mute: #9ca3af;
+        --line: #e5e7eb;
+        --bg: #f3f4f6;
+        --card: #fff;
+        --accent: #6d28d9;
+        --good: #059669;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        padding: 0 0 4rem;
+        background: var(--bg);
+        color: var(--ink);
+        font-family:
+          "Noto Sans TC",
+          system-ui,
+          -apple-system,
+          sans-serif;
+        line-height: 1.75;
+      }
+      .wrap {
+        max-width: 1060px;
+        margin: 0 auto;
+        padding: 0 16px;
+      }
+      .head {
+        background: #fff;
+        border-bottom: 1px solid var(--line);
+        padding: 1.6rem 0 1.3rem;
+        margin-bottom: 1.6rem;
+      }
+      h1 {
+        font-size: 1.45rem;
+        margin: 0 0 0.4rem;
+      }
+      .head p {
+        margin: 0.2rem 0;
+        color: var(--ink2);
+        font-size: 0.93rem;
+      }
+      .why {
+        background: #fef9c3;
+        border: 1.5px solid #fde047;
+        border-radius: 10px;
+        padding: 0.8rem 1rem;
+        margin-top: 0.9rem;
+        font-size: 0.89rem;
+        line-height: 1.8;
+      }
+      .cand {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        margin-bottom: 2rem;
+        overflow: hidden;
+      }
+      .cand > .t {
+        display: flex;
+        align-items: baseline;
+        gap: 0.6rem;
+        flex-wrap: wrap;
+        padding: 0.85rem 1.1rem;
+        border-bottom: 1px solid var(--line);
+        background: #fafafa;
+      }
+      .cand > .t b {
+        font-size: 1.05rem;
+      }
+      .cand > .t span {
+        color: var(--mute);
+        font-size: 0.84rem;
+      }
+      .cand > .note {
+        padding: 0.7rem 1.1rem;
+        font-size: 0.86rem;
+        color: var(--ink2);
+        background: #f9fafb;
+        border-top: 1px solid var(--line);
+      }
+      .stage {
+        padding: 1.1rem;
+        background: repeating-linear-gradient(
+          45deg,
+          #f8fafc 0 10px,
+          #f1f5f9 10px 20px
+        );
+      }
+
+      .mock {
+        background: #fff;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 6px 24px rgba(0, 0, 0, 0.09);
+      }
+      .topbar {
+        background: linear-gradient(135deg, #5b21b6, #7c3aed);
+        color: #fff;
+        padding: 0.7rem 1rem;
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        font-weight: 800;
+        font-size: 0.9rem;
+      }
+      .topbar .mark {
+        background: rgba(255, 255, 255, 0.22);
+        border-radius: 7px;
+        padding: 0.1rem 0.4rem;
+        font-size: 0.78rem;
+      }
+      .topbar nav {
+        margin-left: auto;
+        display: flex;
+        gap: 0.8rem;
+        font-size: 0.8rem;
+        font-weight: 700;
+        opacity: 0.92;
+      }
+      @media (max-width: 700px) {
+        .topbar nav {
+          display: none;
+        }
+      }
+
+      .hero {
+        padding: 1.6rem 1.2rem 1.2rem;
+      }
+      .hero h2 {
+        font-size: 1.55rem;
+        line-height: 1.35;
+        margin: 0 0 0.5rem;
+        word-break: keep-all;
+      }
+      .hero .sub {
+        color: var(--ink2);
+        font-size: 0.95rem;
+        margin: 0 0 1rem;
+      }
+      .cta {
+        display: inline-block;
+        background: var(--accent);
+        color: #fff;
+        font-weight: 800;
+        border-radius: 999px;
+        padding: 0.6rem 1.4rem;
+        text-decoration: none;
+        font-size: 0.95rem;
+      }
+      .cta.ghost {
+        background: #fff;
+        color: var(--accent);
+        border: 2px solid var(--accent);
+        margin-left: 0.5rem;
+      }
+
+      .nums {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 0.6rem;
+        margin: 1.1rem 0 0;
+      }
+      .nums .n {
+        background: #f5f3ff;
+        border: 1.5px solid #ddd6fe;
+        border-radius: 12px;
+        padding: 0.7rem 0.4rem;
+        text-align: center;
+      }
+      .nums .n b {
+        display: block;
+        font-size: 1.35rem;
+        color: var(--accent);
+        line-height: 1.2;
+      }
+      .nums .n span {
+        font-size: 0.74rem;
+        color: var(--ink2);
+      }
+      @media (max-width: 620px) {
+        .nums {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      .shot {
+        display: block;
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+        border: 1px solid var(--line);
+      }
+      .phone {
+        width: 218px;
+        max-width: 100%;
+        border-radius: 20px;
+        border: 7px solid #111827;
+        box-shadow: 0 14px 34px rgba(0, 0, 0, 0.22);
+        display: block;
+        height: auto;
+        background: #fff;
+      }
+      .split {
+        display: grid;
+        grid-template-columns: 1.05fr 0.95fr;
+        gap: 1.2rem;
+        align-items: center;
+      }
+      @media (max-width: 760px) {
+        .split {
+          grid-template-columns: 1fr;
+        }
+      }
+      .phones {
+        display: flex;
+        gap: 0.7rem;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      .cap {
+        text-align: center;
+        font-size: 0.76rem;
+        color: var(--mute);
+        margin-top: 0.35rem;
+      }
+      .band {
+        background: #111827;
+        color: #fff;
+        padding: 1rem 1.2rem;
+      }
+      .band .nums .n {
+        background: rgba(255, 255, 255, 0.08);
+        border-color: rgba(255, 255, 255, 0.18);
+      }
+      .band .nums .n b {
+        color: #c4b5fd;
+      }
+      .band .nums .n span {
+        color: #d1d5db;
+      }
+      .feat {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.7rem;
+        padding: 0 1.2rem 1.3rem;
+      }
+      @media (max-width: 700px) {
+        .feat {
+          grid-template-columns: 1fr;
+        }
+      }
+      .feat div {
+        border: 1.5px solid var(--line);
+        border-radius: 12px;
+        padding: 0.75rem 0.85rem;
+        font-size: 0.86rem;
+      }
+      .feat b {
+        display: block;
+        font-size: 0.93rem;
+        margin-bottom: 0.15rem;
+      }
+      .now .hero h2 {
+        font-size: 1.3rem;
+      }
+      .tblwrap {
+        overflow-x: auto;
+      }
+      table {
+        border-collapse: collapse;
+        width: 100%;
+        font-size: 0.88rem;
+        background: #fff;
+      }
+      td,
+      th {
+        border: 1px solid var(--line);
+        padding: 0.45rem 0.6rem;
+        text-align: left;
+        white-space: nowrap;
+      }
+      th {
+        background: #f9fafb;
+      }
+      .ok {
+        color: var(--good);
+        font-weight: 700;
+      }
+      .no {
+        color: #dc2626;
+        font-weight: 700;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="head">
+      <div class="wrap">
+        <h1>🏠 首頁改版候選</h1>
+        <p>HUA：「我覺得他的網頁構圖比我的漂亮多了」＋「第 1 項呢？」</p>
+        <div class="why">
+          <b>這一頁只是給妳看長相，線上的首頁完全沒有動。</b><br />
+          下面每個候選都用<b>真實的數字</b>和<b>真實的網站截圖</b>（不是我畫的示意圖），
+          所以妳看到的就是做出來的樣子。挑一個跟我說，我才會真的改。
+        </div>
+      </div>
+    </div>
+
+    <div class="wrap">
+      <div class="cand">
+        <div class="t">
+          <b>現在的樣子</b><span>純文字，沒有數字，沒有畫面</span>
+        </div>
+        <div class="stage">
+          <div class="mock now">
+            <div class="topbar">
+              <span class="mark">EZ</span>ezpass 國考互動筆記
+              <nav>
+                <span>首頁</span><span>新手上路</span><span>方案與價格</span
+                ><span>推薦拿獎勵</span>
+              </nav>
+            </div>
+            <div class="hero">
+              <h2>國考歷屆考題、詳解、筆記，一站搞定</h2>
+              <p class="sub">選擇你的考試</p>
+              <a class="cta" href="#">開始使用</a>
+            </div>
+          </div>
+        </div>
+        <div class="note">
+          問題：訪客看不到<b>規模</b>（有幾題？），也看不到<b>東西長什麼樣</b>（詳解到底寫多細？）。
+          對手把「45 萬+ 題」放最大字，妳連自己有 26,960 題都沒說。
+        </div>
+      </div>
+
+      <div class="cand">
+        <div class="t">
+          <b>候選 A ｜ 數字條 + 手機實拍</b
+          ><span>最接近對手的做法，但內容是妳的</span>
+        </div>
+        <div class="stage">
+          <div class="mock">
+            <div class="topbar">
+              <span class="mark">EZ</span>ezpass 國考互動筆記
+              <nav>
+                <span>首頁</span><span>新手上路</span><span>方案與價格</span
+                ><span>推薦拿獎勵</span>
+              </nav>
+            </div>
+            <div class="hero">
+              <h2>11 年歷屆，<wbr />每一題都有完整詳解</h2>
+              <p class="sub">
+                不只給你答案，告訴你出題者在考什麼、為什麼別的選項不對。
+              </p>
+              <a class="cta" href="#">免費試用 7 天</a
+              ><a class="cta ghost" href="#">看詳解長什麼樣</a>
+              <div class="nums">
+                <div class="n"><b>26,960</b><span>歷屆題目</span></div>
+                <div class="n"><b>26,480</b><span>完整詳解</span></div>
+                <div class="n"><b>98%</b><span>詳解覆蓋率</span></div>
+                <div class="n"><b>4</b><span>國考科目</span></div>
+              </div>
+            </div>
+            <div class="stage" style="background: #fafafa">
+              <div class="phones">
+                <div>
+                  <img
+                    class="phone"
+                    src="preview-shots/home_practice.png"
+                    alt="練習本首頁"
+                  />
+                  <div class="cap">分類練習</div>
+                </div>
+                <div>
+                  <img
+                    class="phone"
+                    src="preview-shots/home_answer.png"
+                    alt="作答畫面"
+                  />
+                  <div class="cap">作答與對答案</div>
+                </div>
+                <div>
+                  <img
+                    class="phone"
+                    src="preview-shots/home_expl.png"
+                    alt="詳解畫面"
+                  />
+                  <div class="cap">四段式詳解</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="note">
+          數字一眼看到 + 三張手機實拍。對手就是這個路數，但他沒有「98%
+          詳解覆蓋率」這種數字可以講。
+        </div>
+      </div>
+
+      <div class="cand">
+        <div class="t">
+          <b>候選 B ｜ 左文右大圖</b><span>把詳解的厚度直接攤在第一眼</span>
+        </div>
+        <div class="stage">
+          <div class="mock">
+            <div class="topbar">
+              <span class="mark">EZ</span>ezpass 國考互動筆記
+              <nav>
+                <span>首頁</span><span>新手上路</span><span>方案與價格</span
+                ><span>推薦拿獎勵</span>
+              </nav>
+            </div>
+            <div class="hero">
+              <div class="split">
+                <div>
+                  <h2>26,960 題歷屆，<wbr />98% 有完整詳解</h2>
+                  <p class="sub">
+                    每一題都拆給你看：出題者想考什麼、核心理論、為什麼選它、其他選項錯在哪。
+                    答錯自動進錯題本，還能一鍵找 10 題類似題。
+                  </p>
+                  <a class="cta" href="#">免費試用 7 天</a>
+                </div>
+                <div>
+                  <img
+                    class="shot"
+                    src="preview-shots/home_desktop.png"
+                    alt="實際作答與詳解畫面"
+                  />
+                  <div class="cap">↑ 這是網站上真正的畫面，沒有修過</div>
+                </div>
+              </div>
+            </div>
+            <div class="band">
+              <div class="nums">
+                <div class="n"><b>26,960</b><span>歷屆題目</span></div>
+                <div class="n"><b>26,480</b><span>完整詳解</span></div>
+                <div class="n"><b>11 年</b><span>完整年份</span></div>
+                <div class="n"><b>4</b><span>國考科目</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="note">
+          大圖主導。優點是「詳解很厚」這件事不用講，看圖就知道。缺點是手機上圖會縮小。
+        </div>
+      </div>
+
+      <div class="cand">
+        <div class="t">
+          <b>候選 C ｜ 數字條 + 三張功能卡 + 大圖</b
+          ><span>資訊最完整，首頁也最長</span>
+        </div>
+        <div class="stage">
+          <div class="mock">
+            <div class="topbar">
+              <span class="mark">EZ</span>ezpass 國考互動筆記
+              <nav>
+                <span>首頁</span><span>新手上路</span><span>方案與價格</span
+                ><span>推薦拿獎勵</span>
+              </nav>
+            </div>
+            <div class="hero" style="padding-bottom: 0.6rem">
+              <h2>國考歷屆考題、詳解、筆記，<wbr />一站搞定</h2>
+              <p class="sub">牙醫二階 · 護理師 · 醫師一階 · 醫師二階</p>
+              <a class="cta" href="#">免費試用 7 天</a>
+            </div>
+            <div class="band">
+              <div class="nums">
+                <div class="n"><b>26,960</b><span>歷屆題目</span></div>
+                <div class="n"><b>26,480</b><span>完整詳解</span></div>
+                <div class="n"><b>98%</b><span>詳解覆蓋率</span></div>
+                <div class="n"><b>11 年</b><span>完整年份</span></div>
+              </div>
+            </div>
+            <div class="feat">
+              <div>
+                <b>📝 兩套詳解</b>同一題同時給你 Gemini 與 NotebookLM
+                的解法，看得懂為止。
+              </div>
+              <div>
+                <b>🗂 AI 筆記本</b>看到重點直接丟進筆記，AI
+                幫你分章節、跨章節搜尋。
+              </div>
+              <div>
+                <b>🧠 口訣分享區</b>大家一起寫口訣，好的口訣會被推上來。
+              </div>
+            </div>
+            <div class="stage" style="background: #fafafa">
+              <img
+                class="shot"
+                src="preview-shots/home_desktop.png"
+                alt="實際作答與詳解畫面"
+              />
+              <div class="cap">
+                ↑ 實際畫面：一題同時有臨床意義、兩套詳解、相關筆記、類似題
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="note">
+          最完整，但首頁會比較長。適合「訪客需要被說服」的情況。
+        </div>
+      </div>
+
+      <div class="cand">
+        <div class="t">
+          <b>這些數字是怎麼算的</b><span>不是我編的，是從題庫檔案數出來的</span>
+        </div>
+        <div class="stage" style="background: #fff">
+          <div class="tblwrap">
+            <table>
+              <tr>
+                <th>站</th>
+                <th>題目</th>
+                <th>有詳解</th>
+                <th>覆蓋率</th>
+              </tr>
+              <tr>
+                <td>牙醫二階</td>
+                <td>7,040</td>
+                <td>6,560</td>
+                <td class="ok">93%</td>
+              </tr>
+              <tr>
+                <td>護理師</td>
+                <td>8,480</td>
+                <td>8,480</td>
+                <td class="ok">100%</td>
+              </tr>
+              <tr>
+                <td>醫師一階</td>
+                <td>4,400</td>
+                <td>4,400</td>
+                <td class="ok">100%</td>
+              </tr>
+              <tr>
+                <td>醫師二階</td>
+                <td>7,040</td>
+                <td>7,040</td>
+                <td class="ok">100%</td>
+              </tr>
+              <tr>
+                <th>已開放合計</th>
+                <th>26,960</th>
+                <th>26,480</th>
+                <th class="ok">98%</th>
+              </tr>
+              <tr>
+                <td>牙醫一階（準備中）</td>
+                <td>3,520</td>
+                <td>2,031</td>
+                <td class="no">58%</td>
+              </tr>
+              <tr>
+                <td>藥師一階（準備中）</td>
+                <td>5,280</td>
+                <td>84</td>
+                <td class="no">2%</td>
+              </tr>
+              <tr>
+                <td>藥師二階（準備中）</td>
+                <td>4,620</td>
+                <td>36</td>
+                <td class="no">1%</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div class="note">
+          首頁只寫「已開放」的四個站，<b>準備中的不計入</b> ——
+          寫了卻點不進去，會被當成灌水。等藥師做完再把數字往上加。
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
