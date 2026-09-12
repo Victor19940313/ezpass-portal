@@ -1,0 +1,686 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>夜讀暗色 改版候選 — ezpass</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2224%22 fill=%22%230c0c0f%22/><text x=%2250%22 y=%2270%22 font-size=%2255%22 text-anchor=%22middle%22>🌙</text></svg>"
+    />
+    <style>
+      /* 這一頁是「給 HUA 挑」的預覽頁，不是正式樣式。
+         每個候選是一個 <section>，只改 --sk-* 變數 —— 跟正式 skin.css 完全同一組變數，
+         所以看到的顏色關係就是套用之後真正會長的樣子。 */
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: #f4f2ec;
+        font-family:
+          "Noto Sans TC",
+          system-ui,
+          -apple-system,
+          sans-serif;
+        color: #2b2a26;
+        padding: 0 0 4rem;
+      }
+      .head {
+        padding: 1.4rem 1rem 1rem;
+        max-width: 880px;
+        margin: 0 auto;
+      }
+      .head h1 {
+        font-size: 1.35rem;
+        margin: 0 0 0.5rem;
+      }
+      .head p {
+        margin: 0.35rem 0;
+        font-size: 0.9rem;
+        line-height: 1.75;
+        color: #55524b;
+      }
+      .head .why {
+        background: #fff;
+        border: 1.5px solid #e3e0d8;
+        border-radius: 12px;
+        padding: 0.8rem 1rem;
+        margin-top: 0.9rem;
+        font-size: 0.85rem;
+        line-height: 1.8;
+      }
+      .head .why b {
+        color: #6b21a8;
+      }
+
+      .cands {
+        max-width: 880px;
+        margin: 0 auto;
+        padding: 0 1rem;
+      }
+
+      /* ── 候選卡外框 ───────────────────────────────── */
+      .cand {
+        margin-top: 1.6rem;
+        border-radius: 18px;
+        overflow: hidden;
+        border: 1.5px solid #ddd9d0;
+        background: #fff;
+      }
+      .cand > .bar {
+        display: flex;
+        align-items: baseline;
+        gap: 0.6rem;
+        flex-wrap: wrap;
+        padding: 0.7rem 1rem;
+        background: #fff;
+        border-bottom: 1.5px solid #ece9e2;
+      }
+      .cand > .bar .tag {
+        font-weight: 900;
+        font-size: 0.95rem;
+        color: #2b2a26;
+      }
+      .cand > .bar .note {
+        font-size: 0.78rem;
+        color: #6b6862;
+      }
+      .swatches {
+        display: flex;
+        gap: 0.3rem;
+        padding: 0 1rem 0.7rem;
+        background: #fff;
+        flex-wrap: wrap;
+      }
+      .swatches i {
+        width: 26px;
+        height: 18px;
+        border-radius: 5px;
+        display: block;
+        border: 1px solid rgba(0, 0, 0, 0.18);
+      }
+
+      /* ── 模擬畫面本體：全部吃 --sk-* 變數 ───────────── */
+      .demo {
+        padding: 1rem;
+        background: var(--sk-bg);
+        background-image: var(--sk-bg-img, none);
+        color: var(--sk-ink);
+        font-family: var(--sk-font, inherit);
+      }
+      .demo .card {
+        background: var(--sk-card);
+        border: var(--sk-bw, 1px) solid var(--sk-line);
+        border-radius: var(--sk-radius, 14px);
+        padding: 0.85rem 1rem;
+        margin-bottom: 0.8rem;
+        box-shadow: var(--sk-shadow, none);
+      }
+      .demo .userbar {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+      }
+      .demo .avatar {
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        background: var(--sk-accent-solid, var(--sk-accent));
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 800;
+        font-size: 0.82rem;
+      }
+      .demo .uname {
+        font-weight: 800;
+        font-size: 0.88rem;
+        color: var(--sk-ink);
+      }
+      .demo .badge {
+        background: var(--sk-accent-soft);
+        color: var(--sk-accent);
+        border: 1px solid var(--sk-accent);
+        border-radius: 999px;
+        padding: 0.12rem 0.6rem;
+        font-size: 0.75rem;
+        font-weight: 800;
+      }
+      .demo .qno {
+        font-size: 0.75rem;
+        color: var(--sk-mute);
+        margin-bottom: 0.35rem;
+      }
+      .demo .qtext {
+        font-weight: 700;
+        line-height: 1.75;
+        font-size: 0.95rem;
+        margin-bottom: 0.7rem;
+      }
+      .demo .opt {
+        border: var(--sk-bw, 1px) solid var(--sk-line);
+        background: var(--sk-card);
+        color: var(--sk-ink);
+        border-radius: var(--sk-radius-s, 10px);
+        padding: 0.55rem 0.75rem;
+        margin-bottom: 0.4rem;
+        font-size: 0.9rem;
+        line-height: 1.6;
+      }
+      .demo .opt.correct {
+        background: var(--sk-ok-bg);
+        border-color: var(--sk-ok-line);
+        color: var(--sk-ok-ink);
+        font-weight: 700;
+      }
+      .demo .opt.wrong {
+        background: var(--sk-no-bg);
+        border-color: var(--sk-no-line);
+        color: var(--sk-no-ink);
+        font-weight: 700;
+      }
+      .demo .opt.mark {
+        background: var(--sk-hl-bg);
+        border-color: var(--sk-hl-line);
+        color: var(--sk-hl-ink);
+        font-weight: 700;
+      }
+      .demo .expl {
+        background: var(--sk-card2, var(--sk-card));
+        border: var(--sk-bw, 1px) solid var(--sk-line);
+        border-left: 3px solid var(--sk-accent);
+        border-radius: var(--sk-radius-s, 10px);
+        padding: 0.7rem 0.85rem;
+        font-size: 0.87rem;
+        line-height: 1.85;
+      }
+      .demo .expl .sec {
+        color: var(--sk-accent);
+        font-weight: 800;
+      }
+      .demo .expl .num {
+        color: var(--sk-num, var(--sk-accent));
+        font-weight: 800;
+      }
+      .demo .expl mark {
+        background: var(--sk-hl-bg);
+        color: var(--sk-hl-ink);
+        border-radius: 3px;
+        padding: 0 2px;
+      }
+      .demo .row {
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+        margin-bottom: 0.8rem;
+      }
+      .demo button {
+        font-family: inherit;
+        cursor: default;
+        font-weight: 800;
+        font-size: 0.82rem;
+        border-radius: var(--sk-radius-s, 10px);
+        padding: 0.45rem 0.9rem;
+      }
+      .demo .btn-p {
+        background: var(--sk-accent-solid, var(--sk-accent));
+        color: var(--sk-accent-ink-on-solid, #fff);
+        border: var(--sk-bw, 1px) solid var(--sk-accent-solid, var(--sk-accent));
+      }
+      .demo .btn-s {
+        background: var(--sk-card);
+        color: var(--sk-accent);
+        border: var(--sk-bw, 1px) solid var(--sk-line);
+      }
+      .demo label {
+        display: block;
+        font-size: 0.8rem;
+        font-weight: 700;
+        margin-bottom: 0.25rem;
+        color: var(--sk-ink);
+      }
+      .demo input {
+        width: 100%;
+        font-family: inherit;
+        font-size: 0.9rem;
+        padding: 0.5rem 0.7rem;
+        border-radius: var(--sk-radius-s, 10px);
+        background: var(--sk-input-bg, var(--sk-card));
+        border: var(--sk-bw, 1px) solid var(--sk-input-line, var(--sk-line));
+        color: var(--sk-ink);
+      }
+      .demo input::placeholder {
+        color: var(--sk-mute);
+      }
+      .demo .plans {
+        display: flex;
+        gap: 0.5rem;
+      }
+      .demo .plan {
+        flex: 1;
+        text-align: center;
+        padding: 0.7rem 0.4rem;
+        border-radius: var(--sk-radius-s, 10px);
+        border: var(--sk-bw, 1px) solid var(--sk-line);
+        background: var(--sk-card);
+      }
+      .demo .plan.sel {
+        background: var(--sk-accent-soft);
+        border-color: var(--sk-accent);
+        box-shadow: 0 0 0 2px var(--sk-accent) inset;
+      }
+      .demo .plan .nm {
+        font-size: 0.82rem;
+        font-weight: 800;
+        color: var(--sk-ink);
+      }
+      .demo .plan .pr {
+        font-size: 1.15rem;
+        font-weight: 900;
+        color: var(--sk-accent);
+      }
+      .demo .sub {
+        font-size: 0.78rem;
+        color: var(--sk-ink2);
+      }
+      .demo .mutetx {
+        font-size: 0.75rem;
+        color: var(--sk-mute);
+      }
+      .demo h3 {
+        margin: 0 0 0.4rem;
+        font-size: 0.95rem;
+        color: var(--sk-ink);
+      }
+
+      .cr {
+        padding: 0.6rem 1rem 0.9rem;
+        background: #fff;
+        font-size: 0.76rem;
+        color: #55524b;
+        line-height: 1.9;
+      }
+      .cr b {
+        color: #2b2a26;
+      }
+      .cr .ok {
+        color: #15803d;
+        font-weight: 800;
+      }
+      .cr .bad {
+        color: #b91c1c;
+        font-weight: 800;
+      }
+      .cr .warn {
+        color: #b45309;
+        font-weight: 800;
+      }
+
+      /* ─────────────────────────────────────────────
+         候選 0：目前線上的夜讀暗色（對照組）
+         ───────────────────────────────────────────── */
+      .sk-now {
+        --sk-bg: #17181d;
+        --sk-card: #22242b;
+        --sk-card2: #22242b;
+        --sk-ink: #e4e2dc;
+        --sk-ink2: #a9a79f;
+        --sk-mute: #7d7b74;
+        --sk-line: #34363f;
+        --sk-accent: #b39ddb;
+        --sk-accent-solid: #7d6e99;
+        --sk-accent-soft: #2e2a3d;
+        --sk-radius: 14px;
+        --sk-radius-s: 10px;
+        --sk-bw: 1px;
+        --sk-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+        --sk-ok-bg: #1e3a2b;
+        --sk-ok-line: #2f6b47;
+        --sk-ok-ink: #86d9a6;
+        --sk-no-bg: #3a1f24;
+        --sk-no-line: #7a3b45;
+        --sk-no-ink: #f0a5ae;
+        --sk-hl-bg: #e6c94f;
+        --sk-hl-line: #c9a227;
+        --sk-hl-ink: #17181d;
+        --sk-input-line: #34363f;
+      }
+      /* ─────────────────────────────────────────────
+         候選 A：iOS 夜色・純黑（OLED 真黑，最省電、最沉）
+         取自 Apple 深色模式系統色
+         ───────────────────────────────────────────── */
+      .sk-ios-black {
+        --sk-bg: #000000;
+        --sk-card: #1c1c1e;
+        --sk-card2: #2c2c2e;
+        --sk-ink: #ffffff;
+        --sk-ink2: #a8a8ae;
+        --sk-mute: #7c7c82;
+        --sk-line: #38383a;
+        --sk-accent: #bf5af2;
+        --sk-accent-solid: #9d4edd;
+        --sk-accent-soft: #2a1b3d;
+        --sk-accent-ink-on-solid: #ffffff;
+        --sk-num: #64d2ff;
+        --sk-radius: 14px;
+        --sk-radius-s: 10px;
+        --sk-bw: 1px;
+        --sk-shadow: none;
+        --sk-ok-bg: #12331f;
+        --sk-ok-line: #30d158;
+        --sk-ok-ink: #63e585;
+        --sk-no-bg: #3a1216;
+        --sk-no-line: #ff453a;
+        --sk-no-ink: #ff8078;
+        --sk-hl-bg: #ffd60a;
+        --sk-hl-line: #ffd60a;
+        --sk-hl-ink: #1c1c1e;
+        --sk-input-bg: #2c2c2e;
+        --sk-input-line: #7c7c82;
+      }
+      /* ─────────────────────────────────────────────
+         候選 B：iOS 夜色・深灰（不用純黑，長時間看比較不刺眼）← 我建議這個
+         ───────────────────────────────────────────── */
+      .sk-ios-grey {
+        --sk-bg: #0a0a0c;
+        --sk-card: #1f1f23;
+        --sk-card2: #2c2c31;
+        --sk-ink: #f5f5f7;
+        --sk-ink2: #adadb4;
+        --sk-mute: #83838b;
+        --sk-line: #44444c;
+        --sk-accent: #c77dff;
+        --sk-accent-solid: #8b5cf6;
+        --sk-accent-soft: #2d2140;
+        --sk-accent-ink-on-solid: #ffffff;
+        --sk-num: #5ac8fa;
+        --sk-radius: 14px;
+        --sk-radius-s: 10px;
+        --sk-bw: 1px;
+        --sk-shadow: none;
+        --sk-ok-bg: #14351f;
+        --sk-ok-line: #34c759;
+        --sk-ok-ink: #6ee787;
+        --sk-no-bg: #3b1418;
+        --sk-no-line: #ff6961;
+        --sk-no-ink: #ff938c;
+        --sk-hl-bg: #ffd60a;
+        --sk-hl-line: #e6b800;
+        --sk-hl-ink: #1a1a1c;
+        --sk-input-bg: #2c2c31;
+        --sk-input-line: #7e7e86;
+      }
+      /* ─────────────────────────────────────────────
+         候選 C：深夜紫（像妳貼的第 2 張：紫色系儀表板）
+         ───────────────────────────────────────────── */
+      .sk-violet {
+        --sk-bg: #120d24;
+        --sk-card: #241b45;
+        --sk-card2: #2e2356;
+        --sk-bg-img: radial-gradient(
+          1200px 500px at 80% -10%,
+          rgba(139, 92, 246, 0.22),
+          transparent 60%
+        );
+        --sk-ink: #f2eeff;
+        --sk-ink2: #b5aad6;
+        --sk-mute: #8b81ad;
+        --sk-line: #453a75;
+        --sk-accent: #d3a9ff;
+        --sk-accent-solid: #7c4dff;
+        --sk-accent-soft: #332257;
+        --sk-accent-ink-on-solid: #ffffff;
+        --sk-num: #7ee8fa;
+        --sk-radius: 16px;
+        --sk-radius-s: 12px;
+        --sk-bw: 1px;
+        --sk-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
+        --sk-ok-bg: #12352c;
+        --sk-ok-line: #2dd4a7;
+        --sk-ok-ink: #6ff0cd;
+        --sk-no-bg: #3d1730;
+        --sk-no-line: #ff5c9e;
+        --sk-no-ink: #ff9ac4;
+        --sk-hl-bg: #ffd166;
+        --sk-hl-line: #e0a92f;
+        --sk-hl-ink: #241a3d;
+        --sk-input-bg: #2e2356;
+        --sk-input-line: #8878c8;
+      }
+      /* ─────────────────────────────────────────────
+         候選 D：霓虹漸層（像妳貼的第 1 張：深藍黑底 + 鮮豔漸層）
+         ───────────────────────────────────────────── */
+      .sk-neon {
+        --sk-bg: #0a0318;
+        --sk-card: #1d1040;
+        --sk-card2: #271552;
+        --sk-bg-img:
+          radial-gradient(
+            900px 420px at 15% 0%,
+            rgba(255, 94, 120, 0.14),
+            transparent 62%
+          ),
+          radial-gradient(
+            900px 420px at 90% 30%,
+            rgba(56, 189, 248, 0.14),
+            transparent 62%
+          );
+        --sk-ink: #ffffff;
+        --sk-ink2: #c0b4e8;
+        --sk-mute: #8d81bd;
+        --sk-line: #463571;
+        --sk-accent: #ff7ae0;
+        --sk-accent-solid: #a855f7;
+        --sk-accent-soft: #2e1a5c;
+        --sk-accent-ink-on-solid: #ffffff;
+        --sk-num: #38e0ff;
+        --sk-radius: 18px;
+        --sk-radius-s: 999px;
+        --sk-bw: 1px;
+        --sk-shadow: 0 8px 26px rgba(0, 0, 0, 0.5);
+        --sk-ok-bg: #0e3a33;
+        --sk-ok-line: #2af0c0;
+        --sk-ok-ink: #6dffd9;
+        --sk-no-bg: #451232;
+        --sk-no-line: #ff6b9d;
+        --sk-no-ink: #ffa3c4;
+        --sk-hl-bg: #ffc94d;
+        --sk-hl-line: #ffb020;
+        --sk-hl-ink: #1b0f3a;
+        --sk-input-bg: #271552;
+        --sk-input-line: #9578e8;
+      }
+      .demo .opt.correct,
+      .demo .opt.wrong {
+        border-width: 1.5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="head">
+      <h1>🌙 夜讀暗色 — 改版候選</h1>
+      <p>
+        每一塊都是同一個畫面（答題 → 對錯 → 詳解 → 訂閱），只換配色。
+        <b>建議在晚上、關燈的房間用手機看</b>，白天在亮的地方看不出差別。
+      </p>
+      <div class="why">
+        <b>我實際量過現在這一版，問題出在這三個地方（不是憑感覺）</b><br />
+        1. <b>主色的飽和度只有 46%</b> —— #B39DDB 是很淡的薰衣草。
+        深色底會把顏色再「吃掉」一層，所以
+        <b>iPhone 的深色模式反而把顏色調得更鮮豔</b>（它的紫是 85% 飽和度）。
+        現在這版看起來灰灰糊糊的，主因就是這個。<br />
+        2. <b>輸入框根本看不出是輸入框</b> —— 框線對比只有 1.3（要 3 以上）。<br />
+        3. <b>白字偏米黃</b>（#E4E2DC）——
+        紙感風格很好看，但在深底上會少一截對比（12.0 → 可以到 15~17）。<br />
+        <span style="color: #6b6862"
+          >（卡片跟底色的層次其實還可以，5.9 剛好及格，所以下面的候選也只是再拉開一點。）</span
+        >
+      </div>
+      <p class="mutetx" style="color: #8a877f; font-size: 0.78rem">
+        這一頁只是預覽，還沒有套到網站上。妳挑好再跟我說，我才會動。
+      </p>
+    </div>
+
+    <div class="cands" id="cands"></div>
+
+    <script>
+      // 一份模板，套進每個候選的變數裡 —— 保證比較的是「顏色」而不是「版面」
+      const DEMO = `
+        <div class="card userbar">
+          <div class="avatar">H</div><span class="uname">HUA</span>
+          <span class="badge">✨ 終身會員</span>
+        </div>
+        <div class="card">
+          <div class="qno">牙三 · 112 年第 1 次 · 第 24 題</div>
+          <div class="qtext">下列何者最可能造成根管治療後持續性疼痛？</div>
+          <div class="opt">(A) 根管封填不足</div>
+          <div class="opt correct">(B) 遺漏的第二近心頰側根管　✓ 正確答案</div>
+          <div class="opt wrong">(C) 牙冠邊緣滲漏　✗ 你選的</div>
+          <div class="opt mark">(D) 咬合過高（畫了螢光筆）</div>
+        </div>
+        <div class="card expl">
+          <span class="sec">【出題者想考什麼】</span> 上顎第一大臼齒的
+          <span class="num">MB2</span> 根管出現率高達
+          <span class="num">95%</span>，是治療後疼痛<mark>最常見</mark>的原因。<br />
+          <span class="sec">【為何不選 C】</span> 邊緣滲漏通常造成的是遲發性再感染，不是持續性疼痛。
+        </div>
+        <div class="row">
+          <button class="btn-p">下一題</button>
+          <button class="btn-s">加入錯題本</button>
+          <button class="btn-s">🔍 找相似題</button>
+        </div>
+        <div class="card">
+          <h3>訂閱方案</h3>
+          <div class="plans">
+            <div class="plan"><div class="nm">月繳</div><div class="pr">$150</div></div>
+            <div class="plan sel"><div class="nm">半年</div><div class="pr">$400</div></div>
+            <div class="plan"><div class="nm">終身</div><div class="pr">$990</div></div>
+          </div>
+          <div style="margin-top:.7rem">
+            <label>推薦人 email（選填）</label>
+            <input placeholder="誰介紹妳來的？" />
+            <div class="sub" style="margin-top:.3rem">填了推薦人會收到 30 天免費序號</div>
+          </div>
+        </div>`;
+
+      const CANDS = [
+        {
+          cls: "sk-now",
+          tag: "目前線上的夜讀暗色",
+          note: "對照組 — 現在長這樣",
+          swat: ["#17181d", "#22242b", "#b39ddb", "#e4e2dc"],
+        },
+        {
+          cls: "sk-ios-grey",
+          tag: "B｜iOS 夜色・深灰",
+          note: "我建議這個：不用純黑，長時間讀比較不刺眼",
+          swat: ["#121214", "#1e1e21", "#c77dff", "#f5f5f7"],
+        },
+        {
+          cls: "sk-ios-black",
+          tag: "A｜iOS 夜色・純黑",
+          note: "OLED 真黑，最沉、最省電（iPhone 系統色）",
+          swat: ["#000000", "#1c1c1e", "#bf5af2", "#ffffff"],
+        },
+        {
+          cls: "sk-violet",
+          tag: "C｜深夜紫",
+          note: "像妳貼的第 2 張（紫色系儀表板）",
+          swat: ["#16112b", "#221a3f", "#d3a9ff", "#7c4dff"],
+        },
+        {
+          cls: "sk-neon",
+          tag: "D｜霓虹漸層",
+          note: "像妳貼的第 1 張（深藍黑底＋鮮豔漸層）",
+          swat: ["#0f0524", "#1b0f3a", "#ff7ae0", "#38e0ff"],
+        },
+      ];
+
+      // ── 量測 ──────────────────────────────────────────────
+      // 一般文字用 WCAG 對比度沒問題。
+      // 但「兩個深色面分不分得出來」**不能**用對比度:公式裡的 +0.05 在近黑時會把差距
+      // 壓扁,結果每一種深色主題都會被判成「不及格」,包括 iPhone 自己的深色模式。
+      // 正確工具是感知亮度 L* (CIELAB),兩個面差 5 以上人眼就分得出來。
+      function lin(hex) {
+        const n = hex.replace("#", "");
+        return [0, 2, 4].map((i) => {
+          const c = parseInt(n.substr(i, 2), 16) / 255;
+          return c <= 0.03928 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4);
+        });
+      }
+      function lum(hex) {
+        const v = lin(hex);
+        return 0.2126 * v[0] + 0.7152 * v[1] + 0.0722 * v[2];
+      }
+      function Lstar(hex) {
+        const y = lum(hex);
+        return y > 216 / 24389 ? 116 * Math.cbrt(y) - 16 : (y * 24389) / 27;
+      }
+      function ratio(a, b) {
+        const [x, y] = [lum(a), lum(b)].sort((p, q) => q - p);
+        return (x + 0.05) / (y + 0.05);
+      }
+      // 飽和度:HUA 說「現在的夜讀很多地方待加強,比如說飽和度」—— 這一項就是在量那個
+      function sat(hex) {
+        const [r, g, b] = hex.replace("#", "").match(/../g).map((x) => parseInt(x, 16) / 255);
+        const mx = Math.max(r, g, b), mn = Math.min(r, g, b), l = (mx + mn) / 2;
+        return mx === mn ? 0 : l > 0.5 ? (mx - mn) / (2 - mx - mn) : (mx - mn) / (mx + mn);
+      }
+      function rgbToHex(s) {
+        const m = s.match(/\d+/g);
+        if (!m) return "#000000";
+        return "#" + m.slice(0, 3).map((n) => (+n).toString(16).padStart(2, "0")).join("");
+      }
+      function mark(v, target, unit) {
+        const txt = v.toFixed(unit === "%" ? 0 : v < 20 ? 1 : 0) + (unit || "");
+        if (v >= target) return '<span class="ok">' + txt + " ✓</span>";
+        if (v >= target * 0.75) return '<span class="warn">' + txt + " △</span>";
+        return '<span class="bad">' + txt + " ✗</span>";
+      }
+
+      const wrap = document.getElementById("cands");
+      wrap.innerHTML = CANDS.map(
+        (c) => `
+        <div class="cand">
+          <div class="bar">
+            <span class="tag">${c.tag}</span>
+            <span class="note">${c.note}</span>
+          </div>
+          <div class="swatches">${c.swat.map((s) => `<i style="background:${s}"></i>`).join("")}</div>
+          <div class="demo ${c.cls}" id="d-${c.cls}">${DEMO}</div>
+          <div class="cr" id="cr-${c.cls}"></div>
+        </div>`,
+      ).join("");
+
+      // 量真實算完的顏色(不是我寫的變數值),避免我自己算錯
+      CANDS.forEach((c) => {
+        const root = document.getElementById("d-" + c.cls);
+        const g = (sel, prop) => rgbToHex(getComputedStyle(root.querySelector(sel))[prop]);
+        const bg = rgbToHex(getComputedStyle(root).backgroundColor);
+        const card = g(".card", "backgroundColor");
+        const line = g(".card", "borderTopColor");
+        const ink = rgbToHex(getComputedStyle(root).color);
+        const ink2 = g(".sub", "color");
+        const acc = g(".plan.sel .pr", "color");
+        const okInk = g(".opt.correct", "color"), okBg = g(".opt.correct", "backgroundColor");
+        const noInk = g(".opt.wrong", "color"), noBg = g(".opt.wrong", "backgroundColor");
+        const inpLine = g("input", "borderTopColor"), inpBg = g("input", "backgroundColor");
+        document.getElementById("cr-" + c.cls).innerHTML =
+          `<b>看得清楚嗎</b>（對比度，內文要 ≥ 4.5、框線這類要 ≥ 3）<br />` +
+          `內文字 ${mark(ratio(ink, card), 4.5)} ・ 次要灰字 ${mark(ratio(ink2, card), 4.5)} ・ ` +
+          `主色 ${mark(ratio(acc, card), 4.5)}<br />` +
+          `答對 ${mark(ratio(okInk, okBg), 4.5)} ・ 答錯 ${mark(ratio(noInk, noBg), 4.5)} ・ ` +
+          `輸入框框線 ${mark(ratio(inpLine, inpBg), 3)}<br />` +
+          `<b>層次分得出來嗎</b>（深色面之間用感知亮度 L*，差 5 以上就看得出來）<br />` +
+          `卡片浮不浮得起來 ${mark(Lstar(card) - Lstar(bg), 5)} ・ ` +
+          `卡片框線看不看得到 ${mark(Lstar(line) - Lstar(card), 8)}<br />` +
+          `<b>顏色夠不夠鮮</b>（HUA 說的飽和度）主色 ${mark(sat(acc) * 100, 60, "%")}` +
+          `<span style="color:#8a877f">（深底會把顏色再吃掉一層，所以要比淺色主題更鮮）</span>`;
+      });
+    </script>
+  </body>
+</html>
