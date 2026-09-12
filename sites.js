@@ -26,7 +26,7 @@ var SITES = [
     stage: "第一階段",
     years: "105～115 年",
     art: "tooth",
-    status: "soon",
+    status: "live",
     url: "/dental1/",
   },
   {

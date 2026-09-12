@@ -1,3 +1,0 @@
-# 牙醫一階暫不對外開放 (2026-09-12 HUA 指示)
-# 內容仍在 07_共用版/dist/dental1,要重新開放就:
-#   robocopy 07_共用版/dist/dental1 → 08_入口網站/dental1,並把 sites.js 的 status 改回 live
