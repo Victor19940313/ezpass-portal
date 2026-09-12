@@ -16,9 +16,9 @@
       href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap"
       rel="stylesheet"
     />
-    <script src="skin.js?v=v694"></script>
-    <link rel="stylesheet" href="skin.css?v=v694" />
-    <link rel="stylesheet" href="site.css?v=v694" />
+    <script src="skin.js?v=v695"></script>
+    <link rel="stylesheet" href="skin.css?v=v695" />
+    <link rel="stylesheet" href="site.css?v=v695" />
     <style>
       * {
         box-sizing: border-box;
@@ -676,7 +676,7 @@
         }
       }
     </style>
-    <link rel="stylesheet" href="skin.css?v=v694" />
+    <link rel="stylesheet" href="skin.css?v=v695" />
   </head>
   <body>
     <div class="wrap">
@@ -742,14 +742,12 @@
 
             <dt>付款方式</dt>
             <dd>
-              信用卡、ATM 虛擬帳號轉帳、超商代碼繳費（皆由綠界科技提供），或
-              LINE Pay。所有付款方式都在收到款項後自動開通，不需要人工處理。
+              信用卡、ATM 虛擬帳號轉帳、超商代碼繳費（皆由綠界科技提供）。所有付款方式都在收到款項後自動開通，不需要人工處理。
             </dd>
 
             <dt>開通時間與交付方式</dt>
             <dd>
-              本服務為線上服務，沒有實體商品，不需要寄送。 使用信用卡或 LINE Pay
-              付款完成後系統會自動開通，通常一分鐘內生效； ATM
+              本服務為線上服務，沒有實體商品，不需要寄送。 使用信用卡付款完成後系統會自動開通，通常一分鐘內生效； ATM
               虛擬帳號與超商代碼在收到款項後幾分鐘內自動開通。
               開通後直接用您原本的帳號登入網站即可使用。
             </dd>
@@ -920,16 +918,6 @@
         </div>
         <div class="ec-or">— 或是用下面的方式 —</div>
       </div>
-      <div class="lp-box" id="lp-box">
-        <h3>💚 LINE Pay 付款 (付完立刻開通)</h3>
-        <p>
-          按下去會跳到 LINE Pay,付款成功會<b>自動開通</b>。
-          要先勾選下方的服務條款。
-        </p>
-        <button class="lp-btn" id="lp-btn" onclick="payLinepay()">
-          用 LINE Pay 付 <span id="lp-amount">$400</span>
-        </button>
-      </div>
       <div class="form" id="form">
         <h3>📝 付款前先看這裡</h3>
         <div class="field" id="referrer-field">
@@ -974,8 +962,7 @@
             <h4>三、付款與開通</h4>
             <ol>
               <li>
-                本服務之付款由綠界科技或 LINE Pay
-                處理，付款完成後系統自動開通；ATM
+                本服務之付款由綠界科技處理，付款完成後系統自動開通；ATM
                 虛擬帳號與超商代碼繳費者，於收到款項後幾分鐘內自動開通。
               </li>
               <li>
@@ -1167,10 +1154,10 @@
     <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-database-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
-    <script src="auth.js?v=v694"></script>
-    <script src="subscription.js?v=v694"></script>
-    <script src="sites.js?v=v694"></script>
-    <script src="nav.js?v=v694"></script>
+    <script src="auth.js?v=v695"></script>
+    <script src="subscription.js?v=v695"></script>
+    <script src="sites.js?v=v695"></script>
+    <script src="nav.js?v=v695"></script>
     <script>
       // 目前開放的科目 (從 sites.js 來) — 2026-09-11 HUA 說「這是什麼服務」整塊刪掉,
       //   這段留著但先確認元素還在,免得日後有人把它放回來又忘了接
@@ -1250,14 +1237,7 @@
       // v611: LINE Pay — Worker 說有開才顯示;付完 LINE Pay 導回 ?linepay=ok|fail|cancel
       const LP_WORKER = "https://island-watch.seat-watch.workers.dev";
       let lpEnabled = false;
-      fetch(LP_WORKER + "/linepay/status")
-        .then((r) => r.json())
-        .then((j) => {
-          lpEnabled = !!(j && j.enabled);
-          if (lpEnabled && selectedPlan)
-            document.getElementById("lp-box").classList.add("show");
-        })
-        .catch(() => {});
+      // 2026-09-12 HUA:「line pay拿掉」→ 不再詢問、也不再顯示
       function lpSync() {
         const box = document.getElementById("lp-box");
         if (!box) return;
@@ -1429,7 +1409,7 @@
           form.submit();
         } catch (e) {
           alert(
-            "線上付款啟動失敗:" + e.message + "\n可以改用 LINE Pay,或稍後再試",
+            "線上付款啟動失敗:" + e.message + "\n可以改用 ATM 或超商,或稍後再試",
           );
           btns.forEach((b) => (b.disabled = false));
         }
