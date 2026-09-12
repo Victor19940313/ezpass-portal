@@ -4,10 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="noindex, nofollow" />
-    <title>夜讀暗色 改版候選 — ezpass</title>
+    <title>新風格候選 — ezpass</title>
     <link
       rel="icon"
-      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2224%22 fill=%22%230c0c0f%22/><text x=%2250%22 y=%2270%22 font-size=%2255%22 text-anchor=%22middle%22>🌙</text></svg>"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2224%22 fill=%22%230c0c0f%22/><text x=%2250%22 y=%2270%22 font-size=%2255%22 text-anchor=%22middle%22>🎨</text></svg>"
     />
     <style>
       /* 這一頁是「給 HUA 挑」的預覽頁，不是正式樣式。
@@ -321,243 +321,82 @@
       }
 
       /* ─────────────────────────────────────────────
-         候選 0：目前線上的夜讀暗色（對照組）
+         候選 1：復古俏皮（像妳貼的第 3 張）
+         深炭底 + 奶油色視窗 + 飽和平面色塊 + 硬邊陰影
          ───────────────────────────────────────────── */
-      .sk-now {
-        --sk-bg: #17181d;
-        --sk-card: #22242b;
-        --sk-card2: #22242b;
-        --sk-ink: #e4e2dc;
-        --sk-ink2: #a9a79f;
-        --sk-mute: #7d7b74;
-        --sk-line: #34363f;
-        --sk-accent: #b39ddb;
-        --sk-accent-solid: #7d6e99;
-        --sk-accent-soft: #2e2a3d;
+      .sk-retro {
+        --sk-bg: #23211f;
+        --sk-bg-img: radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.07) 1px, transparent 0);
+        --sk-card: #fdf3d8;
+        --sk-card2: #f7e9c4;
+        --sk-ink: #23211f;
+        --sk-ink2: #6b6153;
+        --sk-mute: #857b6c;
+        --sk-line: #23211f;
+        --sk-accent: #c8371f;
+        --sk-accent-solid: #ff5c43;
+        --sk-accent-soft: #ffe2d6;
+        --sk-accent-ink-on-solid: #ffffff;
+        --sk-num: #14619f;
         --sk-radius: 14px;
         --sk-radius-s: 10px;
-        --sk-bw: 1px;
-        --sk-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
-        --sk-ok-bg: #1e3a2b;
-        --sk-ok-line: #2f6b47;
-        --sk-ok-ink: #86d9a6;
-        --sk-no-bg: #3a1f24;
-        --sk-no-line: #7a3b45;
-        --sk-no-ink: #f0a5ae;
-        --sk-hl-bg: #e6c94f;
-        --sk-hl-line: #c9a227;
-        --sk-hl-ink: #17181d;
-        --sk-input-line: #34363f;
+        --sk-bw: 2.5px;
+        --sk-shadow: 4px 4px 0 #23211f;
+        --sk-ok-bg: #bdf0c8;
+        --sk-ok-line: #23211f;
+        --sk-ok-ink: #14512a;
+        --sk-no-bg: #ffc7bd;
+        --sk-no-line: #23211f;
+        --sk-no-ink: #8f2213;
+        --sk-hl-bg: #ffd53d;
+        --sk-hl-line: #23211f;
+        --sk-hl-ink: #23211f;
+        --sk-input-bg: #fffaf0;
+        --sk-input-line: #23211f;
       }
       /* ─────────────────────────────────────────────
-         候選 A：iOS 夜色・純黑（OLED 真黑，最省電、最沉）
-         取自 Apple 深色模式系統色
+         候選 2：柔和水彩（像妳貼的第 4 張）
+         薄荷→粉的暈染底 + 白卡片 + 湖水綠
          ───────────────────────────────────────────── */
-      .sk-ios-black {
-        --sk-bg: #000000;
-        --sk-card: #1c1c1e;
-        --sk-card2: #2c2c2e;
-        --sk-ink: #ffffff;
-        --sk-ink2: #a8a8ae;
-        --sk-mute: #7c7c82;
-        --sk-line: #38383a;
-        --sk-accent: #bf5af2;
-        --sk-accent-solid: #9d4edd;
-        --sk-accent-soft: #2a1b3d;
+      .sk-aquarelle {
+        --sk-bg: #e6f1ec;
+        --sk-bg-img: radial-gradient(900px 420px at 8% -8%, rgba(167, 226, 210, 0.75), transparent 62%),
+          radial-gradient(760px 400px at 96% 12%, rgba(255, 214, 214, 0.7), transparent 60%),
+          radial-gradient(700px 500px at 40% 105%, rgba(255, 240, 199, 0.75), transparent 62%);
+        --sk-card: #ffffff;
+        --sk-card2: #f7fbf9;
+        --sk-ink: #2f4a45;
+        --sk-ink2: #556f6a;
+        --sk-mute: #7d9793;
+        --sk-line: #cfe3dd;
+        --sk-accent: #146b5e;
+        --sk-accent-solid: #2a9d8f;
+        --sk-accent-soft: #e2f3ef;
         --sk-accent-ink-on-solid: #ffffff;
-        --sk-num: #64d2ff;
-        --sk-radius: 14px;
-        --sk-radius-s: 10px;
-        --sk-bw: 1px;
-        --sk-shadow: none;
-        --sk-ok-bg: #12331f;
-        --sk-ok-line: #30d158;
-        --sk-ok-ink: #63e585;
-        --sk-no-bg: #3a1216;
-        --sk-no-line: #ff453a;
-        --sk-no-ink: #ff8078;
-        --sk-hl-bg: #ffd60a;
-        --sk-hl-line: #ffd60a;
-        --sk-hl-ink: #1c1c1e;
-        --sk-input-bg: #2c2c2e;
-        --sk-input-line: #7c7c82;
+        --sk-num: #b04f6b;
+        --sk-radius: 20px;
+        --sk-radius-s: 14px;
+        --sk-bw: 1.5px;
+        --sk-shadow: 0 8px 24px rgba(47, 74, 69, 0.1);
+        --sk-ok-bg: #dff5e4;
+        --sk-ok-line: #5cb478;
+        --sk-ok-ink: #175c2e;
+        --sk-no-bg: #ffe6e6;
+        --sk-no-line: #e08b8b;
+        --sk-no-ink: #98302f;
+        --sk-hl-bg: #fff0b3;
+        --sk-hl-line: #ddc35f;
+        --sk-hl-ink: #46391a;
+        --sk-input-bg: #ffffff;
+        --sk-input-line: #6a958c;
       }
-      /* ─────────────────────────────────────────────
-         候選 B：iOS 夜色・深灰（不用純黑，長時間看比較不刺眼）← 我建議這個
-         ───────────────────────────────────────────── */
-      .sk-ios-grey {
-        --sk-bg: #0a0a0c;
-        --sk-card: #1f1f23;
-        --sk-card2: #2c2c31;
-        --sk-ink: #f5f5f7;
-        --sk-ink2: #adadb4;
-        --sk-mute: #83838b;
-        --sk-line: #44444c;
-        --sk-accent: #c77dff;
-        --sk-accent-solid: #8b5cf6;
-        --sk-accent-soft: #2d2140;
-        --sk-accent-ink-on-solid: #ffffff;
-        --sk-num: #5ac8fa;
-        --sk-radius: 14px;
-        --sk-radius-s: 10px;
-        --sk-bw: 1px;
-        --sk-shadow: none;
-        --sk-ok-bg: #14351f;
-        --sk-ok-line: #34c759;
-        --sk-ok-ink: #6ee787;
-        --sk-no-bg: #3b1418;
-        --sk-no-line: #ff6961;
-        --sk-no-ink: #ff938c;
-        --sk-hl-bg: #ffd60a;
-        --sk-hl-line: #e6b800;
-        --sk-hl-ink: #1a1a1c;
-        --sk-input-bg: #2c2c31;
-        --sk-input-line: #7e7e86;
-      }
-      /* ─────────────────────────────────────────────
-         候選 E：iOS 夜色・藍（HUA：「主色不能走藍色嗎」）
-         用 iPhone 深色模式的 systemBlue / systemTeal
-         ───────────────────────────────────────────── */
-      .sk-ios-blue {
-        --sk-bg: #0a0a0c;
-        --sk-card: #1f1f23;
-        --sk-card2: #2c2c31;
-        --sk-ink: #f5f5f7;
-        --sk-ink2: #adadb4;
-        --sk-mute: #83838b;
-        --sk-line: #44444c;
-        --sk-accent: #4da3ff;
-        --sk-accent-solid: #0a84ff;
-        --sk-accent-soft: #16283f;
-        --sk-accent-ink-on-solid: #ffffff;
-        --sk-num: #64d2ff;
-        --sk-radius: 14px;
-        --sk-radius-s: 10px;
-        --sk-bw: 1px;
-        --sk-shadow: none;
-        --sk-ok-bg: #14351f;
-        --sk-ok-line: #34c759;
-        --sk-ok-ink: #6ee787;
-        --sk-no-bg: #3b1418;
-        --sk-no-line: #ff6961;
-        --sk-no-ink: #ff938c;
-        --sk-hl-bg: #ffd60a;
-        --sk-hl-line: #e6b800;
-        --sk-hl-ink: #1a1a1c;
-        --sk-input-bg: #2c2c31;
-        --sk-input-line: #7e7e86;
-      }
-      /* ─────────────────────────────────────────────
-         候選 F：深海藍（連底色也偏藍，整體更冷一點）
-         ───────────────────────────────────────────── */
-      .sk-deepsea {
-        --sk-bg: #070e1a;
-        --sk-card: #102037;
-        --sk-card2: #162b49;
-        --sk-ink: #eef4fb;
-        --sk-ink2: #a8bdd4;
-        --sk-mute: #7d93ab;
-        --sk-line: #2b4568;
-        --sk-accent: #5ac8fa;
-        --sk-accent-solid: #0a84ff;
-        --sk-accent-soft: #123152;
-        --sk-accent-ink-on-solid: #ffffff;
-        --sk-num: #7ee8c0;
-        --sk-radius: 14px;
-        --sk-radius-s: 10px;
-        --sk-bw: 1px;
-        --sk-shadow: 0 4px 16px rgba(0, 0, 0, 0.45);
-        --sk-ok-bg: #0d3329;
-        --sk-ok-line: #2dd4a7;
-        --sk-ok-ink: #6ff0cd;
-        --sk-no-bg: #3a1526;
-        --sk-no-line: #ff6b9d;
-        --sk-no-ink: #ffa3c4;
-        --sk-hl-bg: #ffd166;
-        --sk-hl-line: #e0a92f;
-        --sk-hl-ink: #0f1d30;
-        --sk-input-bg: #162b49;
-        --sk-input-line: #5f86b5;
-      }
-      /* ─────────────────────────────────────────────
-         候選 C：深夜紫（像妳貼的第 2 張：紫色系儀表板）
-         ───────────────────────────────────────────── */
-      .sk-violet {
-        --sk-bg: #120d24;
-        --sk-card: #241b45;
-        --sk-card2: #2e2356;
-        --sk-bg-img: radial-gradient(
-          1200px 500px at 80% -10%,
-          rgba(139, 92, 246, 0.22),
-          transparent 60%
-        );
-        --sk-ink: #f2eeff;
-        --sk-ink2: #b5aad6;
-        --sk-mute: #8b81ad;
-        --sk-line: #453a75;
-        --sk-accent: #d3a9ff;
-        --sk-accent-solid: #7c4dff;
-        --sk-accent-soft: #332257;
-        --sk-accent-ink-on-solid: #ffffff;
-        --sk-num: #7ee8fa;
-        --sk-radius: 16px;
-        --sk-radius-s: 12px;
-        --sk-bw: 1px;
-        --sk-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
-        --sk-ok-bg: #12352c;
-        --sk-ok-line: #2dd4a7;
-        --sk-ok-ink: #6ff0cd;
-        --sk-no-bg: #3d1730;
-        --sk-no-line: #ff5c9e;
-        --sk-no-ink: #ff9ac4;
-        --sk-hl-bg: #ffd166;
-        --sk-hl-line: #e0a92f;
-        --sk-hl-ink: #241a3d;
-        --sk-input-bg: #2e2356;
-        --sk-input-line: #8878c8;
-      }
-      /* ─────────────────────────────────────────────
-         候選 D：霓虹漸層（像妳貼的第 1 張：深藍黑底 + 鮮豔漸層）
-         ───────────────────────────────────────────── */
-      .sk-neon {
-        --sk-bg: #0a0318;
-        --sk-card: #1d1040;
-        --sk-card2: #271552;
-        --sk-bg-img:
-          radial-gradient(
-            900px 420px at 15% 0%,
-            rgba(255, 94, 120, 0.14),
-            transparent 62%
-          ),
-          radial-gradient(
-            900px 420px at 90% 30%,
-            rgba(56, 189, 248, 0.14),
-            transparent 62%
-          );
-        --sk-ink: #ffffff;
-        --sk-ink2: #c0b4e8;
-        --sk-mute: #8d81bd;
-        --sk-line: #463571;
-        --sk-accent: #ff7ae0;
-        --sk-accent-solid: #a855f7;
-        --sk-accent-soft: #2e1a5c;
-        --sk-accent-ink-on-solid: #ffffff;
-        --sk-num: #38e0ff;
-        --sk-radius: 18px;
-        --sk-radius-s: 999px;
-        --sk-bw: 1px;
-        --sk-shadow: 0 8px 26px rgba(0, 0, 0, 0.5);
-        --sk-ok-bg: #0e3a33;
-        --sk-ok-line: #2af0c0;
-        --sk-ok-ink: #6dffd9;
-        --sk-no-bg: #451232;
-        --sk-no-line: #ff6b9d;
-        --sk-no-ink: #ffa3c4;
-        --sk-hl-bg: #ffc94d;
-        --sk-hl-line: #ffb020;
-        --sk-hl-ink: #1b0f3a;
-        --sk-input-bg: #271552;
-        --sk-input-line: #9578e8;
+      /* 復古風的按鈕/卡片也要有硬邊陰影，才看得出是同一套設計語言 */
+      .sk-retro .btn-p,
+      .sk-retro .btn-s,
+      .sk-retro .plan,
+      .sk-retro input,
+      .sk-retro .badge {
+        box-shadow: 3px 3px 0 #23211f;
       }
       .demo .opt.correct,
       .demo .opt.wrong {
@@ -567,27 +406,16 @@
   </head>
   <body>
     <div class="head">
-      <h1>🌙 夜讀暗色 — 改版候選</h1>
+      <h1>🎨 新風格候選</h1>
       <p>
-        每一塊都是同一個畫面（答題 → 對錯 → 詳解 → 訂閱），只換配色。
-        <b>建議在晚上、關燈的房間用手機看</b>，白天在亮的地方看不出差別。
+        妳貼的另外兩張圖，我做成兩個<b>新風格</b>。下面每一塊都是同一個畫面（答題 →
+        對錯 → 詳解 → 訂閱），只換風格。
       </p>
       <div class="why">
-        <b>我實際量過現在這一版，問題出在這三個地方（不是憑感覺）</b><br />
-        1. <b>主色的飽和度只有 46%</b> —— #B39DDB 是很淡的薰衣草。
-        深色底會把顏色再「吃掉」一層，所以
-        <b>iPhone 的深色模式反而把顏色調得更鮮豔</b>（它的紫是 85% 飽和度）。
-        現在這版看起來灰灰糊糊的，主因就是這個。<br />
-        2. <b>輸入框根本看不出是輸入框</b> —— 框線對比只有 1.3（要 3 以上）。<br />
-        3. <b>白字偏米黃</b>（#E4E2DC）——
-        紙感風格很好看，但在深底上會少一截對比（12.0 → 可以到 15~17）。<br />
-        <span style="color: #6b6862"
-          >（卡片跟底色的層次其實還可以，5.9 剛好及格，所以下面的候選也只是再拉開一點。）</span
-        >
+        <b>這兩個是「新增」不是「取代」</b> —— 風格選單會多這兩個，
+        現有的可愛風、動畫風、夜讀暗色…全部原封不動。<br />
+        每一個下面都附實際量到的數字。挑好再跟我說，我才會真的做進網站。
       </div>
-      <p class="mutetx" style="color: #8a877f; font-size: 0.78rem">
-        這一頁只是預覽，還沒有套到網站上。妳挑好再跟我說，我才會動。
-      </p>
     </div>
 
     <div class="cands" id="cands"></div>
@@ -634,46 +462,16 @@
 
       const CANDS = [
         {
-          cls: "sk-now",
-          tag: "目前線上的夜讀暗色",
-          note: "對照組 — 現在長這樣",
-          swat: ["#17181d", "#22242b", "#b39ddb", "#e4e2dc"],
+          cls: "sk-retro",
+          tag: "1｜復古俏皮",
+          note: "像妳貼的第 3 張：深炭底 + 奶油卡片 + 硬邊陰影",
+          swat: ["#23211f", "#fdf3d8", "#ff5c43", "#ffd53d"],
         },
         {
-          cls: "sk-ios-grey",
-          tag: "B｜iOS 夜色・深灰",
-          note: "我建議這個：不用純黑，長時間讀比較不刺眼",
-          swat: ["#121214", "#1e1e21", "#c77dff", "#f5f5f7"],
-        },
-        {
-          cls: "sk-ios-black",
-          tag: "A｜iOS 夜色・純黑",
-          note: "OLED 真黑，最沉、最省電（iPhone 系統色）",
-          swat: ["#000000", "#1c1c1e", "#bf5af2", "#ffffff"],
-        },
-        {
-          cls: "sk-ios-blue",
-          tag: "E｜iOS 夜色・藍",
-          note: "妳問的藍色主色 — 用 iPhone 的系統藍",
-          swat: ["#0a0a0c", "#1f1f23", "#4da3ff", "#64d2ff"],
-        },
-        {
-          cls: "sk-deepsea",
-          tag: "F｜深海藍",
-          note: "連底色也偏藍，整體更冷一點",
-          swat: ["#070e1a", "#102037", "#5ac8fa", "#0a84ff"],
-        },
-        {
-          cls: "sk-violet",
-          tag: "C｜深夜紫",
-          note: "像妳貼的第 2 張（紫色系儀表板）",
-          swat: ["#16112b", "#221a3f", "#d3a9ff", "#7c4dff"],
-        },
-        {
-          cls: "sk-neon",
-          tag: "D｜霓虹漸層",
-          note: "像妳貼的第 1 張（深藍黑底＋鮮豔漸層）",
-          swat: ["#0f0524", "#1b0f3a", "#ff7ae0", "#38e0ff"],
+          cls: "sk-aquarelle",
+          tag: "2｜柔和水彩",
+          note: "像妳貼的第 4 張：薄荷粉暈染 + 湖水綠",
+          swat: ["#e6f1ec", "#ffffff", "#2a9d8f", "#b04f6b"],
         },
       ];
 
