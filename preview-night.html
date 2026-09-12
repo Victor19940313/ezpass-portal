@@ -415,6 +415,71 @@
         --sk-input-line: #7e7e86;
       }
       /* ─────────────────────────────────────────────
+         候選 E：iOS 夜色・藍（HUA：「主色不能走藍色嗎」）
+         用 iPhone 深色模式的 systemBlue / systemTeal
+         ───────────────────────────────────────────── */
+      .sk-ios-blue {
+        --sk-bg: #0a0a0c;
+        --sk-card: #1f1f23;
+        --sk-card2: #2c2c31;
+        --sk-ink: #f5f5f7;
+        --sk-ink2: #adadb4;
+        --sk-mute: #83838b;
+        --sk-line: #44444c;
+        --sk-accent: #4da3ff;
+        --sk-accent-solid: #0a84ff;
+        --sk-accent-soft: #16283f;
+        --sk-accent-ink-on-solid: #ffffff;
+        --sk-num: #64d2ff;
+        --sk-radius: 14px;
+        --sk-radius-s: 10px;
+        --sk-bw: 1px;
+        --sk-shadow: none;
+        --sk-ok-bg: #14351f;
+        --sk-ok-line: #34c759;
+        --sk-ok-ink: #6ee787;
+        --sk-no-bg: #3b1418;
+        --sk-no-line: #ff6961;
+        --sk-no-ink: #ff938c;
+        --sk-hl-bg: #ffd60a;
+        --sk-hl-line: #e6b800;
+        --sk-hl-ink: #1a1a1c;
+        --sk-input-bg: #2c2c31;
+        --sk-input-line: #7e7e86;
+      }
+      /* ─────────────────────────────────────────────
+         候選 F：深海藍（連底色也偏藍，整體更冷一點）
+         ───────────────────────────────────────────── */
+      .sk-deepsea {
+        --sk-bg: #070e1a;
+        --sk-card: #102037;
+        --sk-card2: #162b49;
+        --sk-ink: #eef4fb;
+        --sk-ink2: #a8bdd4;
+        --sk-mute: #7d93ab;
+        --sk-line: #2b4568;
+        --sk-accent: #5ac8fa;
+        --sk-accent-solid: #0a84ff;
+        --sk-accent-soft: #123152;
+        --sk-accent-ink-on-solid: #ffffff;
+        --sk-num: #7ee8c0;
+        --sk-radius: 14px;
+        --sk-radius-s: 10px;
+        --sk-bw: 1px;
+        --sk-shadow: 0 4px 16px rgba(0, 0, 0, 0.45);
+        --sk-ok-bg: #0d3329;
+        --sk-ok-line: #2dd4a7;
+        --sk-ok-ink: #6ff0cd;
+        --sk-no-bg: #3a1526;
+        --sk-no-line: #ff6b9d;
+        --sk-no-ink: #ffa3c4;
+        --sk-hl-bg: #ffd166;
+        --sk-hl-line: #e0a92f;
+        --sk-hl-ink: #0f1d30;
+        --sk-input-bg: #162b49;
+        --sk-input-line: #5f86b5;
+      }
+      /* ─────────────────────────────────────────────
          候選 C：深夜紫（像妳貼的第 2 張：紫色系儀表板）
          ───────────────────────────────────────────── */
       .sk-violet {
@@ -585,6 +650,18 @@
           tag: "A｜iOS 夜色・純黑",
           note: "OLED 真黑，最沉、最省電（iPhone 系統色）",
           swat: ["#000000", "#1c1c1e", "#bf5af2", "#ffffff"],
+        },
+        {
+          cls: "sk-ios-blue",
+          tag: "E｜iOS 夜色・藍",
+          note: "妳問的藍色主色 — 用 iPhone 的系統藍",
+          swat: ["#0a0a0c", "#1f1f23", "#4da3ff", "#64d2ff"],
+        },
+        {
+          cls: "sk-deepsea",
+          tag: "F｜深海藍",
+          note: "連底色也偏藍，整體更冷一點",
+          swat: ["#070e1a", "#102037", "#5ac8fa", "#0a84ff"],
         },
         {
           cls: "sk-violet",
