@@ -342,8 +342,16 @@
       el = document.createElement("div");
       el.id = id;
       el.dataset.mode = "loading";
+      // v703 HUA:「不是說一天只確認一次,為什麼換頁還常跳出來?」
+      //   確認通常 1 秒內就好,但一出現就整頁蓋一張「確認訂閱狀態中」很煩。
+      //   改成:前 1.2 秒只默默擋住 (透明,不給點),1.2 秒還沒回來才把卡片顯示出來;過期的人一樣點不進去。
+      el.className = "sbo-quiet";
       el.innerHTML = `<div class="sbo-card" style="max-width:320px"><div class="sbo-emoji">⏳</div><p style="margin:0">確認訂閱狀態中…</p></div>`;
       document.body.appendChild(el);
+      setTimeout(function () {
+        var cur = document.getElementById(id);
+        if (cur === el && el.dataset.mode === "loading") el.classList.remove("sbo-quiet");
+      }, 1200);
       return;
     }
     const locked = isLocked();
@@ -435,6 +443,7 @@
       });
   }
 
+  let _toastTimer = null;
   function showWaitToast() {
     let t = document.getElementById("sub-wait-toast");
     if (!t) {
@@ -443,9 +452,12 @@
       t.textContent = "⏳ 確認訂閱狀態中…";
       document.body.appendChild(t);
     }
-    t.classList.add("show");
+    // v703: 狀態通常 1 秒內就回來 → 延遲 0.8 秒才顯示,回得快就完全不閃
+    clearTimeout(_toastTimer);
+    _toastTimer = setTimeout(function () { t.classList.add("show"); }, 800);
   }
   function hideWaitToast() {
+    clearTimeout(_toastTimer);
     const t = document.getElementById("sub-wait-toast");
     if (t) t.classList.remove("show");
   }
@@ -665,6 +677,8 @@ body.sub-locked details.expl-block > div::after {
   background: rgba(30, 20, 10, .78); backdrop-filter: blur(6px);
   display: flex; align-items: center; justify-content: center; padding: 1rem;
 }
+#sub-block-overlay.sbo-quiet { background: transparent; backdrop-filter: none; }
+#sub-block-overlay.sbo-quiet .sbo-card { display: none; }
 #sub-block-overlay .sbo-card {
   background: #fff; border-radius: 14px; padding: 2rem 1.5rem; max-width: 440px;
   text-align: center; box-shadow: 0 20px 60px rgba(0,0,0,.4);
