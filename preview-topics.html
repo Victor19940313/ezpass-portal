@@ -10,18 +10,18 @@ h3{font-size:1rem;margin:1.2rem 0 .4rem}h3 small{font-weight:500;color:#6b7280;m
 table{border-collapse:collapse;width:100%;font-size:.9rem}th,td{padding:.5rem .7rem;border-bottom:1px solid #f1f5f9;text-align:left;vertical-align:top}
 th{background:#f8fafc;color:#475569;font-size:.8rem}td.n,th.n{text-align:right;white-space:nowrap}
 tr.keep td{color:#94a3b8}tr.split td:first-child{font-weight:700}tr.merge td:first-child{font-weight:700}
-.tag{display:inline-block;padding:.1rem .5rem;border-radius:999px;font-size:.75rem;font-weight:800}
-.tag-split{background:#fee2e2;color:#991b1b}.tag-merge{background:#fef3c7;color:#92400e}.tag-keep{background:#f1f5f9;color:#94a3b8}
+.tag{display:inline-block;padding:.1rem .5rem;border-radius:999px;font-size:.75rem;font-weight:800;white-space:nowrap}
+.tag-split{background:#fee2e2;color:#991b1b}.tag-merge{background:#fef3c7;color:#92400e}.tag-keep{background:#f1f5f9;color:#94a3b8}.tag-done{background:#dcfce7;color:#166534;font-size:.8rem;vertical-align:middle}.tag-wait{background:#fef3c7;color:#92400e;font-size:.8rem;vertical-align:middle}
 .mute{color:#94a3b8;font-size:.8rem}
 .sum{display:flex;gap:.8rem;flex-wrap:wrap;margin:.6rem 0 1rem}.sum div{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:.6rem 1rem;min-width:120px}.sum b{font-size:1.4rem;display:block}
 </style></head><body>
 <h1>考點清單調整提案</h1>
 <div class="lead">規則:<b>超過 150 題的考點拆成 2~4 個</b>(翻得完)、<b>不到 10 題的併進最接近的考點</b>(不再有孤兒)。
 拆出來的題數是 AI 真的一題一題分過的結果,不是估的。<b>這一頁只是提案,題庫還沒動</b>;妳看完說哪些要改,我再套用。
-灰色「不動」的列是現在大小剛好的考點。</div>
-<div class="sum"><div>建議拆<b>3</b>個考點</div><div>建議併<b>2</b>個考點</div></div>
-<div class="nav"><a href="#dental1">牙醫一階</a></div>
-<h2 id="dental1">牙醫一階</h2>
+灰色「不動」的列是現在大小剛好的考點。<br>標「✅ 已套用」的站 (牙一、醫一、醫二) 已經照這張表改好上線,列出來給妳對照;標「等妳決定」的還沒動。</div>
+<div class="sum"><div>建議拆<b>78</b>個考點</div><div>建議併<b>14</b>個考點</div></div>
+<div class="nav"><a href="#dental1">牙醫一階 ✅</a><a href="#dental">牙醫二階</a><a href="#nursing">護理師</a><a href="#physician1">醫師一階 ✅</a><a href="#physician2">醫師二階 ✅</a><a href="#pharm1">藥師一階</a><a href="#pharm2">藥師二階</a></div>
+<h2 id="dental1">牙醫一階 <span class="tag tag-done">✅ 09-13 已套用</span></h2>
 <h3>牙一 <small>20 個考點 → 約 22 個(拆 1、併 1)</small></h3>
 <div class="wrap"><table><thead><tr><th>現在的考點</th><th class="n">題數</th><th>建議</th><th>新的考點(題數)</th></tr></thead><tbody>
 <tr class="split"><td>恆牙形態</td><td class="n">264</td><td><span class="tag tag-split">拆</span></td><td>→ 前牙形態 <b>101</b><br>→ 小臼齒形態 <b>66</b><br>→ 大臼齒形態 <b>55</b><br>→ 牙齒識別與命名 <b>42</b></td></tr>
@@ -71,5 +71,429 @@ tr.keep td{color:#94a3b8}tr.split td:first-child{font-weight:700}tr.merge td:fir
 <tr class="keep"><td>局部麻醉劑</td><td class="n">10</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
 <tr class="keep"><td>牙周病變</td><td class="n">7</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
 <tr class="merge"><td>齲齒與牙髓病變</td><td class="n">6</td><td><span class="tag tag-merge">併</span></td><td>→ 併進「骨病變與全身疾病口腔表徵」</td></tr>
+</tbody></table></div>
+<h2 id="dental">牙醫二階 <span class="tag tag-wait">等妳決定</span></h2>
+<h3>牙三 <small>15 個考點 → 約 28 個(拆 5、併 0)</small></h3>
+<div class="wrap"><table><thead><tr><th>現在的考點</th><th class="n">題數</th><th>建議</th><th>新的考點(題數)</th></tr></thead><tbody>
+<tr class="split"><td>牙髓診斷與病理</td><td class="n">214</td><td><span class="tag tag-split">拆</span></td><td>→ 牙髓與根尖周圍組織生理病理 <b>99</b><br>→ 牙髓病診斷與臨床檢查 <b>64</b><br>→ 根管感染與牙髓免疫機制 <b>27</b><br>→ 牙髓與牙周合併病灶診斷 <b>24</b></td></tr>
+<tr class="split"><td>牙周疾病與診斷</td><td class="n">206</td><td><span class="tag tag-split">拆</span></td><td>→ 牙周疾病病因與致病機轉 <b>72</b><br>→ 牙周疾病分類與臨床診斷 <b>67</b><br>→ 牙周解剖構造與生理 <b>35</b><br>→ 牙周流行病學與風險評估 <b>32</b></td></tr>
+<tr class="split"><td>牙科解剖與生理</td><td class="n">199</td><td><span class="tag tag-split">拆</span></td><td>→ 口腔組織發育與構造 <b>78</b><br>→ 牙科臨床病理與藥理 <b>66</b><br>→ 口腔生理與免疫學 <b>55</b></td></tr>
+<tr class="split"><td>窩洞設計與分類</td><td class="n">166</td><td><span class="tag tag-split">拆</span></td><td>→ 窩洞分類與設計原則 <b>68</b><br>→ 齲齒病理與風險評估 <b>41</b><br>→ 復形材料與修形技術 <b>38</b><br>→ 根管後牙齒修復設計 <b>19</b></td></tr>
+<tr class="split"><td>牙周手術與再生</td><td class="n">153</td><td><span class="tag tag-split">拆</span></td><td>→ 牙周切除性與整形手術 <b>55</b><br>→ 牙周手術基本原則與癒合 <b>53</b><br>→ 牙周再生與骨移植手術 <b>45</b></td></tr>
+<tr class="keep"><td>黏著與美學修復</td><td class="n">139</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>根管治療程序</td><td class="n">136</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>複合樹脂與材料</td><td class="n">97</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>牙體修形程序</td><td class="n">91</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>植牙學</td><td class="n">91</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>牙齒外傷處理</td><td class="n">70</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>牙周非手術治療</td><td class="n">66</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>根尖手術與再治療</td><td class="n">57</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>根管器械</td><td class="n">46</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>醫學倫理與法規</td><td class="n">29</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+</tbody></table></div>
+<h3>牙四 <small>16 個考點 → 約 28 個(拆 4、併 0)</small></h3>
+<div class="wrap"><table><thead><tr><th>現在的考點</th><th class="n">題數</th><th>建議</th><th>新的考點(題數)</th></tr></thead><tbody>
+<tr class="split"><td>放射影像診斷</td><td class="n">209</td><td><span class="tag tag-split">拆</span></td><td>→ 顎骨病變放射影像 <b>84</b><br>→ 口腔放射線解剖構造 <b>62</b><br>→ 牙科放射線攝影技術 <b>46</b><br>→ 唾液腺與軟組織影像 <b>17</b></td></tr>
+<tr class="split"><td>口腔病理基礎</td><td class="n">202</td><td><span class="tag tag-split">拆</span></td><td>→ 顎骨囊腫與病灶診斷 <b>99</b><br>→ 臨床診斷與手術處置 <b>43</b><br>→ 齒源性腫瘤病理學 <b>37</b><br>→ 口腔黏膜病變與疾病 <b>23</b></td></tr>
+<tr class="split"><td>放射線原理與技術</td><td class="n">182</td><td><span class="tag tag-split">拆</span></td><td>→ 口內放射線攝影技術 <b>56</b><br>→ 放射線物理與生物效應 <b>52</b><br>→ 口外與進階影像技術 <b>42</b><br>→ 放射線防護與安全規範 <b>32</b></td></tr>
+<tr class="split"><td>口腔外科基礎</td><td class="n">153</td><td><span class="tag tag-split">拆</span></td><td>→ 口腔外科手術原則與傷口癒合 <b>71</b><br>→ 口腔外科手術術式與補綴前手術 <b>43</b><br>→ 口腔外科解剖與神經損傷處理 <b>23</b><br>→ 口腔外科倫理與醫療法律規範 <b>16</b></td></tr>
+<tr class="keep"><td>顳顎關節與顏面疼痛</td><td class="n">122</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>拔牙學與併發症</td><td class="n">120</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>全身性疾病與急症</td><td class="n">120</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>唇顎裂與正顎手術</td><td class="n">110</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>顎顏面外傷與骨折</td><td class="n">103</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>局部與全身麻醉</td><td class="n">89</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>齒源性感染與藥物</td><td class="n">88</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>口腔腫瘤與癌症</td><td class="n">86</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>唾液腺疾病</td><td class="n">61</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>植牙外科</td><td class="n">54</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>骨骼代謝與發育疾病</td><td class="n">40</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>錐狀束 CT 與電腦影像</td><td class="n">21</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+</tbody></table></div>
+<h3>牙五 <small>13 個考點 → 約 31 個(拆 6、併 0)</small></h3>
+<div class="wrap"><table><thead><tr><th>現在的考點</th><th class="n">題數</th><th>建議</th><th>新的考點(題數)</th></tr></thead><tbody>
+<tr class="split"><td> 排牙美觀與臨床</td><td class="n">226</td><td><span class="tag tag-split">拆</span></td><td>→  診斷評估與病理 <b>93</b><br>→  人工牙選擇與排列 <b>56</b><br>→  咬合模式與平衡調整 <b>49</b><br>→  即裝與特殊義齒設計 <b>27</b><br><span class="mute">(1 題 AI 沒挑到,套用時會用最接近的)</span></td></tr>
+<tr class="split"><td>顳顎關節疾患</td><td class="n">192</td><td><span class="tag tag-split">拆</span></td><td>→ 顳顎障礙症病因與診斷 <b>69</b><br>→ 顳顎障礙症治療與咬合板 <b>51</b><br>→ 顳顎關節與咀嚼肌解剖生理 <b>44</b><br>→ 下顎運動與咬合功能學 <b>28</b></td></tr>
+<tr class="split"><td> 印模與製作</td><td class="n">189</td><td><span class="tag tag-split">拆</span></td><td>→  義齒製作與維護 <b>74</b><br>→  模型分析與設計 <b>56</b><br>→  印模技術與材料 <b>30</b><br>→  金屬支架製作 <b>29</b></td></tr>
+<tr class="split"><td>咬合學基礎</td><td class="n">179</td><td><span class="tag tag-split">拆</span></td><td>→ 下顎運動與生理機制 <b>66</b><br>→ 咬合關係與咬合學概念 <b>57</b><br>→ 咬合器與臨床咬合紀錄 <b>34</b><br>→ 咬合干擾與咬合調整 <b>22</b></td></tr>
+<tr class="split"><td> 印模與咬合記錄</td><td class="n">170</td><td><span class="tag tag-split">拆</span></td><td>→  義齒製作與臨床調整 <b>51</b><br>→  咬合記錄與垂直高度 <b>48</b><br>→  解剖構造與黏膜生理 <b>41</b><br>→  印模技術與邊緣成形 <b>30</b></td></tr>
+<tr class="split"><td> 假牙冠與牙橋設計</td><td class="n">158</td><td><span class="tag tag-split">拆</span></td><td>→  金屬瓷與全瓷修復 <b>45</b><br>→  橋體設計與美觀 <b>44</b><br>→  支柱牙修形與設計 <b>38</b><br>→  黏著技術與臨床操作 <b>31</b></td></tr>
+<tr class="keep"><td>牙科材料學</td><td class="n">150</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td> 牙體修形與印模</td><td class="n">103</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td> 鉤環與支托</td><td class="n">97</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td> Kennedy 設計原則</td><td class="n">93</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>臨床基礎與倫理</td><td class="n">74</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>植牙贋復</td><td class="n">71</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td> 主副連接體</td><td class="n">58</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+</tbody></table></div>
+<h3>牙六 <small>16 個考點 → 約 25 個(拆 3、併 0)</small></h3>
+<div class="wrap"><table><thead><tr><th>現在的考點</th><th class="n">題數</th><th>建議</th><th>新的考點(題數)</th></tr></thead><tbody>
+<tr class="split"><td>牙齒萌發與交替</td><td class="n">229</td><td><span class="tag tag-split">拆</span></td><td>→ 兒童牙科病患之生理與病理 <b>98</b><br>→ 牙齒萌發與齒列發育 <b>73</b><br>→ 顱顏面部生長與發育 <b>35</b><br>→ 兒童口腔習癖與咬合異常 <b>23</b></td></tr>
+<tr class="split"><td>咬合分類與診斷</td><td class="n">190</td><td><span class="tag tag-split">拆</span></td><td>→ 空間分析與萌發異常 <b>58</b><br>→ 齒列發育與咬合分類 <b>47</b><br>→ 顏面美學與功能診斷 <b>45</b><br>→ 矯正診斷與治療計畫 <b>40</b></td></tr>
+<tr class="split"><td>矯正裝置與治療</td><td class="n">176</td><td><span class="tag tag-split">拆</span></td><td>→ 生長調控與早期治療 <b>56</b><br>→ 矯正裝置與功能治療 <b>48</b><br>→ 矯正治療程序與維持 <b>42</b><br>→ 矯正材料與生物力學 <b>30</b></td></tr>
+<tr class="keep"><td>行為管理與麻醉</td><td class="n">146</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>衛生政策與制度</td><td class="n">134</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>口腔衛生教育與行為</td><td class="n">126</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>兒童齲齒與牙髓治療</td><td class="n">111</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>流行病學與統計方法</td><td class="n">111</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>齲齒預防與氟化物</td><td class="n">108</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>全身性疾病與牙科考量</td><td class="n">91</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>顱顏發育與生長</td><td class="n">90</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>矯正力學與牙齒移動</td><td class="n">90</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>兒童贋復與空間維持</td><td class="n">58</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>齒列發育異常</td><td class="n">51</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>頭影測量與 X 光分析</td><td class="n">31</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>正顎手術</td><td class="n">18</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+</tbody></table></div>
+<h2 id="nursing">護理師 <span class="tag tag-wait">等妳決定</span></h2>
+<h3>護一 <small>17 個考點 → 約 22 個(拆 2、併 0)</small></h3>
+<div class="wrap"><table><thead><tr><th>現在的考點</th><th class="n">題數</th><th>建議</th><th>新的考點(題數)</th></tr></thead><tbody>
+<tr class="split"><td>各系統疾病</td><td class="n">203</td><td><span class="tag tag-split">拆</span></td><td>→ 循環與呼吸系統疾病 <b>56</b><br>→ 消化與內分泌系統疾病 <b>53</b><br>→ 骨骼、神經與其他系統疾病 <b>49</b><br>→ 泌尿與生殖系統疾病 <b>45</b></td></tr>
+<tr class="split"><td>細菌黴菌寄生蟲</td><td class="n">175</td><td><span class="tag tag-split">拆</span></td><td>→ 臨床細菌感染症 <b>72</b><br>→ 細菌學基礎與致病機制 <b>54</b><br>→ 真菌與寄生蟲學 <b>49</b></td></tr>
+<tr class="keep"><td>消化泌尿生殖</td><td class="n">125</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>心血管呼吸腸胃</td><td class="n">112</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>神經內分泌皮膚</td><td class="n">106</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>細胞肌肉神經</td><td class="n">98</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>發炎修復免疫腫瘤</td><td class="n">97</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>免疫學</td><td class="n">94</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>內分泌免疫化療</td><td class="n">92</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>病毒</td><td class="n">90</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>總論與自主神經</td><td class="n">69</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>中樞神經</td><td class="n">69</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>循環呼吸</td><td class="n">68</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>內分泌生殖</td><td class="n">67</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>消化泌尿</td><td class="n">65</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>循環呼吸</td><td class="n">57</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>骨骼肌肉</td><td class="n">53</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+</tbody></table></div>
+<h3>護二 <small>18 個考點 → 約 25 個(拆 3、併 0)</small></h3>
+<div class="wrap"><table><thead><tr><th>現在的考點</th><th class="n">題數</th><th>建議</th><th>新的考點(題數)</th></tr></thead><tbody>
+<tr class="split"><td>給藥與劑量計算</td><td class="n">158</td><td><span class="tag tag-split">拆</span></td><td>→ 醫囑判讀與用藥指導 <b>53</b><br>→ 給藥途徑與執行技術 <b>43</b><br>→ 給藥原則與安全規範 <b>33</b><br>→ 藥物劑量與流速計算 <b>29</b></td></tr>
+<tr class="split"><td>組織與人力資源</td><td class="n">156</td><td><span class="tag tag-split">拆</span></td><td>→ 人力資源規劃與管理 <b>65</b><br>→ 組織結構與設計 <b>49</b><br>→ 護理照護模式與生產力 <b>42</b></td></tr>
+<tr class="split"><td>溝通記錄與護理過程</td><td class="n">155</td><td><span class="tag tag-split">拆</span></td><td>→ 護理過程與臨床評估 <b>69</b><br>→ 專業性護病關係與溝通 <b>50</b><br>→ 護理紀錄與醫囑規範 <b>36</b></td></tr>
+<tr class="keep"><td>舒適與活動(姿勢移位約束)</td><td class="n">139</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>領導與控制品質</td><td class="n">135</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>規劃與決策</td><td class="n">133</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>生命徵象</td><td class="n">130</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>排泄護理</td><td class="n">109</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>冷熱療法</td><td class="n">81</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>體液供給與輸血</td><td class="n">76</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>感染控制與無菌技術</td><td class="n">74</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>營養與管灌</td><td class="n">65</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>護理倫理與法規</td><td class="n">64</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>出入院與標本收集</td><td class="n">63</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>臨終護理與安寧</td><td class="n">62</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>病人安全與醫療環境</td><td class="n">60</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>護理概論與護理理論</td><td class="n">42</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>繃帶束帶與傷口</td><td class="n">28</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+</tbody></table></div>
+<h3>護三 <small>15 個考點 → 約 31 個(拆 6、併 0)</small></h3>
+<div class="wrap"><table><thead><tr><th>現在的考點</th><th class="n">題數</th><th>建議</th><th>新的考點(題數)</th></tr></thead><tbody>
+<tr class="split"><td>血液與腫瘤</td><td class="n">201</td><td><span class="tag tag-split">拆</span></td><td>→ 血液疾病與輸血護理 <b>64</b><br>→ 化學治療與放射治療 <b>51</b><br>→ 癌症病理與診斷分期 <b>48</b><br>→ 腫瘤併發症與安寧護理 <b>38</b></td></tr>
+<tr class="split"><td>心臟血管系統</td><td class="n">178</td><td><span class="tag tag-split">拆</span></td><td>→ 心臟衰竭與瓣膜性心臟病 <b>58</b><br>→ 冠狀動脈疾病與心肌梗塞 <b>56</b><br>→ 周邊血管疾病與心包膜炎 <b>41</b><br>→ 心律不整與心臟節律器 <b>23</b></td></tr>
+<tr class="split"><td>消化系統</td><td class="n">175</td><td><span class="tag tag-split">拆</span></td><td>→ 上消化道疾病 <b>63</b><br>→ 肝膽胰系統疾病 <b>59</b><br>→ 下消化道與腹膜疾病 <b>53</b></td></tr>
+<tr class="split"><td>腦神經系統</td><td class="n">163</td><td><span class="tag tag-split">拆</span></td><td>→ 腦神經系統疾病護理 <b>74</b><br>→ 顱內壓與腦部創傷 <b>38</b><br>→ 神經系統檢查與評估 <b>34</b><br>→ 脊髓損傷與自主神經 <b>17</b></td></tr>
+<tr class="split"><td>內分泌系統</td><td class="n">162</td><td><span class="tag tag-split">拆</span></td><td>→ 糖尿病與血糖代謝異常 <b>67</b><br>→ 腦下垂體與腎上腺疾病 <b>54</b><br>→ 甲狀腺與副甲狀腺疾病 <b>41</b></td></tr>
+<tr class="split"><td>腎臟泌尿系統</td><td class="n">157</td><td><span class="tag tag-split">拆</span></td><td>→ 腎衰竭與透析護理 <b>55</b><br>→ 尿路結石與排尿功能障礙 <b>41</b><br>→ 腎臟與泌尿道感染及腫瘤 <b>39</b><br>→ 腎絲球腎炎與腎病症候群 <b>22</b></td></tr>
+<tr class="keep"><td>呼吸系統</td><td class="n">130</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>肌肉骨骼系統</td><td class="n">107</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>急症護理(CPR休克中毒)</td><td class="n">93</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>眼耳鼻喉</td><td class="n">86</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>皮膚與燒傷</td><td class="n">74</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>傳染病護理</td><td class="n">74</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>免疫系統</td><td class="n">63</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>體液電解質酸鹼</td><td class="n">44</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>手術前後護理</td><td class="n">23</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+</tbody></table></div>
+<h3>護四 <small>16 個考點 → 約 24 個(拆 3、併 0)</small></h3>
+<div class="wrap"><table><thead><tr><th>現在的考點</th><th class="n">題數</th><th>建議</th><th>新的考點(題數)</th></tr></thead><tbody>
+<tr class="split"><td>待產與分娩</td><td class="n">199</td><td><span class="tag tag-split">拆</span></td><td>→ 待產評估與護理 <b>59</b><br>→ 胎兒監測與產痛緩解 <b>58</b><br>→ 分娩機轉與產程進展 <b>51</b><br>→ 生產併發症與特殊處置 <b>31</b></td></tr>
+<tr class="split"><td>產後照護</td><td class="n">176</td><td><span class="tag tag-split">拆</span></td><td>→ 產後生理復舊與照護 <b>71</b><br>→ 產後併發症與避孕指導 <b>39</b><br>→ 產後母乳哺餵與指導 <b>36</b><br>→ 產後心理適應與情緒 <b>30</b></td></tr>
+<tr class="split"><td>神經內分泌腎泌尿</td><td class="n">155</td><td><span class="tag tag-split">拆</span></td><td>→ 神經系統疾病與發展障礙 <b>72</b><br>→ 內分泌與代謝系統疾病 <b>46</b><br>→ 腎臟與泌尿系統疾病 <b>37</b></td></tr>
+<tr class="keep"><td>呼吸消化疾病</td><td class="n">130</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>心血管血液腫瘤</td><td class="n">130</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>孕期生理與評估</td><td class="n">123</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>婦女健康</td><td class="n">122</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>新生兒護理</td><td class="n">116</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>高危險妊娠</td><td class="n">105</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>住院兒童與家庭</td><td class="n">86</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>感染免疫與傳染病</td><td class="n">85</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>意外事故與急症</td><td class="n">74</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>兒童評估與溝通</td><td class="n">60</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>生長發展</td><td class="n">59</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>高危險新生兒</td><td class="n">58</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>遺傳諮詢與胎兒發育</td><td class="n">52</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+</tbody></table></div>
+<h3>護五 <small>18 個考點 → 約 21 個(拆 1、併 0)</small></h3>
+<div class="wrap"><table><thead><tr><th>現在的考點</th><th class="n">題數</th><th>建議</th><th>新的考點(題數)</th></tr></thead><tbody>
+<tr class="split"><td>健康促進與衛生教育</td><td class="n">196</td><td><span class="tag tag-split">拆</span></td><td>→ 健康促進理論與模式 <b>59</b><br>→ 慢性病防治與健康管理 <b>52</b><br>→ 衛生教育策略與評價 <b>43</b><br>→ 預防保健與篩檢服務 <b>41</b><br><span class="mute">(1 題 AI 沒挑到,套用時會用最接近的)</span></td></tr>
+<tr class="keep"><td>社區衛生概論與政策</td><td class="n">145</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>治療性人際關係與溝通</td><td class="n">131</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>傳染病防治與環境</td><td class="n">131</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>長期照護與老人</td><td class="n">131</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>兒童青少年與老年精神</td><td class="n">90</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>思覺失調症</td><td class="n">88</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>流行病學與生命統計</td><td class="n">82</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>學校與職業衛生</td><td class="n">78</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>社區精神復健</td><td class="n">77</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>家庭護理與訪視</td><td class="n">77</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>情感性疾患</td><td class="n">76</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>精神藥物與治療</td><td class="n">75</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>危機處理與自殺防治</td><td class="n">67</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>焦慮強迫創傷</td><td class="n">56</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>精神衛生概論與法規</td><td class="n">54</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>人格與身體症狀障礙</td><td class="n">50</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>物質相關障礙</td><td class="n">46</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+</tbody></table></div>
+<h2 id="physician1">醫師一階 <span class="tag tag-done">✅ 09-13 已套用</span></h2>
+<h3>醫一 <small>30 個考點 → 約 42 個(拆 6、併 5)</small></h3>
+<div class="wrap"><table><thead><tr><th>現在的考點</th><th class="n">題數</th><th>建議</th><th>新的考點(題數)</th></tr></thead><tbody>
+<tr class="split"><td>胸腹骨盆</td><td class="n">253</td><td><span class="tag tag-split">拆</span></td><td>→ 胸腔構造 <b>103</b><br>→ 骨盆與會陰構造 <b>81</b><br>→ 腹部臟器與血管 <b>69</b></td></tr>
+<tr class="split"><td>組織學</td><td class="n">198</td><td><span class="tag tag-split">拆</span></td><td>→ 器官系統組織學 <b>96</b><br>→ 上皮與結締組織 <b>53</b><br>→ 神經與肌肉組織 <b>28</b><br>→ 細胞與組織基礎 <b>21</b></td></tr>
+<tr class="split"><td>核酸與基因表現</td><td class="n">174</td><td><span class="tag tag-split">拆</span></td><td>→ DNA複製與修復 <b>65</b><br>→ 核酸技術與應用 <b>40</b><br>→ 基因轉錄與調控 <b>38</b><br>→ 蛋白質轉譯與合成 <b>31</b></td></tr>
+<tr class="split"><td>神經解剖</td><td class="n">168</td><td><span class="tag tag-split">拆</span></td><td>→ 大腦皮質與邊緣系統 <b>54</b><br>→ 神經系統傳導與功能 <b>45</b><br>→ 腦幹與小腦構造 <b>42</b><br>→ 神經血管與脊髓構造 <b>27</b></td></tr>
+<tr class="split"><td>頭頸部</td><td class="n">156</td><td><span class="tag tag-split">拆</span></td><td>→ 頭頸部血管與神經 <b>82</b><br>→ 頭頸部肌肉與筋膜 <b>31</b><br>→ 頭頸部骨骼與腔室 <b>26</b><br>→ 頭頸部器官與感覺器 <b>17</b></td></tr>
+<tr class="split"><td>蛋白質酵素醣脂維生素</td><td class="n">155</td><td><span class="tag tag-split">拆</span></td><td>→ 胺基酸與蛋白質結構 <b>59</b><br>→ 醣類與脂質代謝基礎 <b>39</b><br>→ 維生素與輔酶功能 <b>33</b><br>→ 酵素動力學與機制 <b>24</b></td></tr>
+<tr class="keep"><td>中間代謝與調控</td><td class="n">133</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>細胞神經肌肉</td><td class="n">132</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>胚胎及發育生物學</td><td class="n">124</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>上下肢</td><td class="n">112</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>內分泌代謝</td><td class="n">96</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>心臟血管</td><td class="n">74</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>訊息傳遞荷爾蒙細胞週期</td><td class="n">58</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>腎臟</td><td class="n">44</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>呼吸</td><td class="n">43</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>消化</td><td class="n">41</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>免疫學</td><td class="n">38</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>生殖</td><td class="n">35</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>細菌學</td><td class="n">30</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>血液</td><td class="n">26</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>寄生蟲學</td><td class="n">25</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>生物統計與流行病學</td><td class="n">22</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>病毒學</td><td class="n">21</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>環境職業預防醫學</td><td class="n">21</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>衛生行政法規倫理</td><td class="n">10</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="merge"><td>真菌學</td><td class="n">4</td><td><span class="tag tag-merge">併</span></td><td>→ 併進「細菌學」</td></tr>
+<tr class="merge"><td>化學治療</td><td class="n">4</td><td><span class="tag tag-merge">併</span></td><td>→ 併進「病毒學」</td></tr>
+<tr class="merge"><td>內分泌腸胃呼吸發炎</td><td class="n">1</td><td><span class="tag tag-merge">併</span></td><td>→ 併進「內分泌代謝」</td></tr>
+<tr class="merge"><td>呼吸消化</td><td class="n">1</td><td><span class="tag tag-merge">併</span></td><td>→ 併進「頭頸部」</td></tr>
+<tr class="merge"><td>神經肌骨皮膚</td><td class="n">1</td><td><span class="tag tag-merge">併</span></td><td>→ 併進「神經解剖」</td></tr>
+</tbody></table></div>
+<h3>醫二 <small>32 個考點 → 約 33 個(拆 3、併 6)</small></h3>
+<div class="wrap"><table><thead><tr><th>現在的考點</th><th class="n">題數</th><th>建議</th><th>新的考點(題數)</th></tr></thead><tbody>
+<tr class="split"><td>免疫學</td><td class="n">200</td><td><span class="tag tag-split">拆</span></td><td>→ 適應性免疫與淋巴球發育 <b>77</b><br>→ 免疫系統組成與先天免疫 <b>45</b><br>→ 免疫調節與自體免疫 <b>39</b><br>→ 過敏反應與腫瘤免疫 <b>39</b></td></tr>
+<tr class="split"><td>內分泌腸胃呼吸發炎</td><td class="n">174</td><td><span class="tag tag-split">拆</span></td><td>→ 內分泌與代謝系統 <b>77</b><br>→ 呼吸系統與發炎反應 <b>59</b><br>→ 腸胃道與自泌素藥物 <b>38</b></td></tr>
+<tr class="split"><td>細菌學</td><td class="n">151</td><td><span class="tag tag-split">拆</span></td><td>→ 臨床細菌學與感染症 <b>89</b><br>→ 細菌生理與遺傳 <b>31</b><br>→ 細菌致病機轉與免疫 <b>30</b><br><span class="mute">(1 題 AI 沒挑到,套用時會用最接近的)</span></td></tr>
+<tr class="keep"><td>化學治療</td><td class="n">145</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>呼吸消化</td><td class="n">134</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>寄生蟲學</td><td class="n">134</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>腎泌尿內分泌生殖</td><td class="n">128</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>生物統計與流行病學</td><td class="n">125</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>病毒學</td><td class="n">112</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>心血管腎臟血液</td><td class="n">107</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>中樞神經與麻醉</td><td class="n">96</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>環境職業預防醫學</td><td class="n">89</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>細胞傷害發炎腫瘤</td><td class="n">83</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>衛生行政法規倫理</td><td class="n">73</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>心血管血液</td><td class="n">72</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>總論與自主神經</td><td class="n">67</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>神經肌骨皮膚</td><td class="n">66</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>免疫感染遺傳</td><td class="n">63</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>真菌學</td><td class="n">34</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>中間代謝與調控</td><td class="n">24</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>蛋白質酵素醣脂維生素</td><td class="n">23</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>核酸與基因表現</td><td class="n">21</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>細胞神經肌肉</td><td class="n">15</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>內分泌代謝</td><td class="n">11</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>訊息傳遞荷爾蒙細胞週期</td><td class="n">11</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>心臟血管</td><td class="n">10</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="merge"><td>消化</td><td class="n">8</td><td><span class="tag tag-merge">併</span></td><td>→ 併進「呼吸消化」</td></tr>
+<tr class="merge"><td>腎臟</td><td class="n">8</td><td><span class="tag tag-merge">併</span></td><td>→ 併進「內分泌代謝」</td></tr>
+<tr class="merge"><td>呼吸</td><td class="n">7</td><td><span class="tag tag-merge">併</span></td><td>→ 併進「內分泌腸胃呼吸發炎」</td></tr>
+<tr class="merge"><td>血液</td><td class="n">4</td><td><span class="tag tag-merge">併</span></td><td>→ 併進「心血管血液」</td></tr>
+<tr class="merge"><td>生殖</td><td class="n">3</td><td><span class="tag tag-merge">併</span></td><td>→ 併進「腎泌尿內分泌生殖」</td></tr>
+<tr class="merge"><td>神經解剖</td><td class="n">2</td><td><span class="tag tag-merge">併</span></td><td>→ 併進「細胞神經肌肉」</td></tr>
+</tbody></table></div>
+<h2 id="physician2">醫師二階 <span class="tag tag-done">✅ 09-13 已套用</span></h2>
+<h3>醫三 <small>16 個考點 → 約 30 個(拆 5、併 0)</small></h3>
+<div class="wrap"><table><thead><tr><th>現在的考點</th><th class="n">題數</th><th>建議</th><th>新的考點(題數)</th></tr></thead><tbody>
+<tr class="split"><td>消化肝膽胰</td><td class="n">231</td><td><span class="tag tag-split">拆</span></td><td>→ 肝臟與膽道疾病 <b>114</b><br>→ 食道與胃腸道疾病 <b>92</b><br>→ 胰臟與腹膜疾病 <b>25</b></td></tr>
+<tr class="split"><td>心臟血管</td><td class="n">191</td><td><span class="tag tag-split">拆</span></td><td>→ 缺血性心臟病 <b>55</b><br>→ 瓣膜性與心包膜疾病 <b>51</b><br>→ 心律不整與傳導異常 <b>45</b><br>→ 心臟衰竭與心肌病變 <b>40</b></td></tr>
+<tr class="split"><td>內分泌代謝</td><td class="n">184</td><td><span class="tag tag-split">拆</span></td><td>→ 糖尿病與代謝症候群 <b>58</b><br>→ 甲狀腺與副甲狀腺疾病 <b>50</b><br>→ 腦下垂體與腎上腺疾病 <b>48</b><br>→ 營養與脂質代謝異常 <b>28</b></td></tr>
+<tr class="split"><td>感染</td><td class="n">173</td><td><span class="tag tag-split">拆</span></td><td>→ 感染症診斷與病原學 <b>85</b><br>→ 抗微生物製劑與治療 <b>42</b><br>→ 感染管制與預防醫學 <b>25</b><br>→ 免疫不全與伺機性感染 <b>21</b></td></tr>
+<tr class="split"><td>腎臟</td><td class="n">163</td><td><span class="tag tag-split">拆</span></td><td>→ 急性腎損傷與慢性腎病 <b>59</b><br>→ 腎絲球與腎小管疾病 <b>44</b><br>→ 水電解質與酸鹼平衡 <b>37</b><br>→ 透析治療與腎臟移植 <b>23</b></td></tr>
+<tr class="keep"><td>胸腔</td><td class="n">138</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>腫瘤</td><td class="n">121</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>風濕免疫過敏</td><td class="n">119</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>家庭醫業與預防醫學</td><td class="n">98</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>血液</td><td class="n">85</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>急診醫學</td><td class="n">53</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>行為與社區醫學</td><td class="n">52</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>醫學倫理與法規</td><td class="n">48</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>症狀診斷治療概論</td><td class="n">46</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>影像醫學</td><td class="n">34</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>緩和醫學</td><td class="n">24</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+</tbody></table></div>
+<h3>醫四 <small>20 個考點 → 約 22 個(拆 1、併 0)</small></h3>
+<div class="wrap"><table><thead><tr><th>現在的考點</th><th class="n">題數</th><th>建議</th><th>新的考點(題數)</th></tr></thead><tbody>
+<tr class="split"><td>消化腎臟</td><td class="n">161</td><td><span class="tag tag-split">拆</span></td><td>→ 消化系統疾病 <b>88</b><br>→ 泌尿系統疾病 <b>47</b><br>→ 體液電解質與腎功能 <b>26</b></td></tr>
+<tr class="keep"><td>心血管呼吸</td><td class="n">142</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>感染神經</td><td class="n">119</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>一般兒科與新生兒</td><td class="n">119</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>內分泌遺傳</td><td class="n">114</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>器質性與物質使用</td><td class="n">109</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>自體免疫色素角化</td><td class="n">105</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>血液腫瘤免疫</td><td class="n">99</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>中風</td><td class="n">84</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>精神病</td><td class="n">82</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>失智退化運動障礙</td><td class="n">81</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>癲癇頭痛睡眠</td><td class="n">80</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>脊髓周邊神經肌肉</td><td class="n">77</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>精神官能症</td><td class="n">72</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>脫髓鞘感染腫瘤</td><td class="n">63</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>濕疹與皮膚炎</td><td class="n">57</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>兒童青少年自殺其他</td><td class="n">55</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>感染</td><td class="n">52</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>醫學倫理與法規</td><td class="n">51</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>腫瘤</td><td class="n">38</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+</tbody></table></div>
+<h3>醫五 <small>19 個考點 → 約 24 個(拆 2、併 0)</small></h3>
+<div class="wrap"><table><thead><tr><th>現在的考點</th><th class="n">題數</th><th>建議</th><th>新的考點(題數)</th></tr></thead><tbody>
+<tr class="split"><td>消化器外科</td><td class="n">256</td><td><span class="tag tag-split">拆</span></td><td>→ 肝膽胰外科 <b>112</b><br>→ 胃腸道外科 <b>102</b><br>→ 腹壁疝氣與微創手術 <b>41</b><br><span class="mute">(1 題 AI 沒挑到,套用時會用最接近的)</span></td></tr>
+<tr class="split"><td>內分泌與乳房外科</td><td class="n">152</td><td><span class="tag tag-split">拆</span></td><td>→ 甲狀腺與副甲狀腺疾病 <b>54</b><br>→ 乳房疾病診斷與篩檢 <b>40</b><br>→ 乳癌手術與治療策略 <b>35</b><br>→ 腎上腺與胰臟內分泌瘤 <b>23</b></td></tr>
+<tr class="keep"><td>神經外科</td><td class="n">134</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>腫瘤小兒手脊椎</td><td class="n">132</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>休克創傷傷口</td><td class="n">130</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>心臟血管外科</td><td class="n">114</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>胸腔外科</td><td class="n">105</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>小兒外科</td><td class="n">102</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>併發症輸液營養感染</td><td class="n">90</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>整形重建外科</td><td class="n">87</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>大腸直腸與內視鏡外科</td><td class="n">78</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>排尿障礙與男性學</td><td class="n">68</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>醫學倫理與法規</td><td class="n">67</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>骨折與運動醫學</td><td class="n">65</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>腫瘤</td><td class="n">53</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>移植與外科腫瘤學</td><td class="n">43</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>結石與感染</td><td class="n">40</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>先天移植婦女泌尿</td><td class="n">25</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>關節重建</td><td class="n">19</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+</tbody></table></div>
+<h3>醫六 <small>19 個考點 → 約 25 個(拆 2、併 0)</small></h3>
+<div class="wrap"><table><thead><tr><th>現在的考點</th><th class="n">題數</th><th>建議</th><th>新的考點(題數)</th></tr></thead><tbody>
+<tr class="split"><td>一般婦科</td><td class="n">159</td><td><span class="tag tag-split">拆</span></td><td>→ 手術學與診斷技術 <b>45</b><br>→ 良性腫瘤與內膜異位 <b>43</b><br>→ 生殖道感染與先天異常 <b>39</b><br>→ 尿失禁與骨盆腔脫垂 <b>32</b></td></tr>
+<tr class="split"><td>骨關節心肺</td><td class="n">155</td><td><span class="tag tag-split">拆</span></td><td>→ 骨骼肌肉損傷與疾患 <b>85</b><br>→ 心肺復健與運動處方 <b>40</b><br>→ 截肢與義肢輔具 <b>19</b><br>→ 物理因子治療與評估 <b>11</b></td></tr>
+<tr class="keep"><td>一般產科</td><td class="n">148</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>腫瘤</td><td class="n">148</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>神經復健</td><td class="n">137</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>生殖內分泌</td><td class="n">131</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>高危險妊娠</td><td class="n">126</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>喉科學與頭頸腫瘤</td><td class="n">108</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>呼吸道與監視</td><td class="n">100</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>角膜結膜眼瞼眼窩</td><td class="n">82</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>兒童與一般復健</td><td class="n">69</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>耳科學</td><td class="n">60</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>醫學倫理與法規</td><td class="n">60</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>麻醉藥理</td><td class="n">53</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>鼻科學</td><td class="n">51</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>特殊麻醉與疼痛</td><td class="n">49</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>視網膜葡萄膜</td><td class="n">48</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>屈光斜弱視</td><td class="n">39</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>水晶體青光眼</td><td class="n">37</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+</tbody></table></div>
+<h2 id="pharm1">藥師一階 <span class="tag tag-wait">等妳決定</span></h2>
+<h3>藥一 <small>16 個考點 → 約 24 個(拆 3、併 0)</small></h3>
+<div class="wrap"><table><thead><tr><th>現在的考點</th><th class="n">題數</th><th>建議</th><th>新的考點(題數)</th></tr></thead><tbody>
+<tr class="split"><td>中樞神經與麻醉</td><td class="n">211</td><td><span class="tag tag-split">拆</span></td><td>→ 鎮靜安眠與麻醉劑 <b>73</b><br>→ 癲癇與神經退化藥 <b>59</b><br>→ 精神疾患用藥 <b>45</b><br>→ 鴉片類與成癮藥物 <b>34</b></td></tr>
+<tr class="split"><td>化學治療</td><td class="n">171</td><td><span class="tag tag-split">拆</span></td><td>→ 抗感染藥物 <b>112</b><br>→ 抗腫瘤藥物 <b>50</b><br>→ 免疫調節藥物 <b>9</b></td></tr>
+<tr class="split"><td>腎臟與心血管用藥</td><td class="n">164</td><td><span class="tag tag-split">拆</span></td><td>→ 利尿劑 <b>56</b><br>→ 心衰竭與心絞痛用藥 <b>43</b><br>→ 抗高血壓藥 <b>40</b><br>→ 抗心律不整藥 <b>25</b></td></tr>
+<tr class="keep"><td>抗感染與抗癌藥</td><td class="n">150</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>中樞神經用藥</td><td class="n">134</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>荷爾蒙及拮抗劑</td><td class="n">120</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>血液系統與抗凝血降血脂</td><td class="n">107</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>心血管用藥</td><td class="n">101</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>藥理概論與藥物動力學</td><td class="n">98</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>荷爾蒙與生技製藥</td><td class="n">96</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>藥物設計與構效關係</td><td class="n">92</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>自主神經用藥</td><td class="n">86</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>自泌素與抗發炎</td><td class="n">80</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>胃腸道與呼吸道用藥</td><td class="n">67</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>毒物解毒劑與其他</td><td class="n">55</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>神經傳遞與局部麻醉</td><td class="n">28</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+</tbody></table></div>
+<h3>藥二 <small>13 個考點 → 約 30 個(拆 6、併 1)</small></h3>
+<div class="wrap"><table><thead><tr><th>現在的考點</th><th class="n">題數</th><th>建議</th><th>新的考點(題數)</th></tr></thead><tbody>
+<tr class="split"><td>層析分析</td><td class="n">275</td><td><span class="tag tag-split">拆</span></td><td>→ 液相層析法 <b>117</b><br>→ 毛細管電泳與萃取 <b>61</b><br>→ 層析理論與參數 <b>54</b><br>→ 氣相層析法 <b>43</b></td></tr>
+<tr class="split"><td>光譜分析</td><td class="n">270</td><td><span class="tag tag-split">拆</span></td><td>→ 紫外可見光與螢光光譜 <b>94</b><br>→ 核磁共振光譜 <b>82</b><br>→ 原子光譜與旋光度 <b>47</b><br>→ 紅外光與拉曼光譜 <b>47</b></td></tr>
+<tr class="split"><td>醣類配醣體與萜類</td><td class="n">233</td><td><span class="tag tag-split">拆</span></td><td>→ 配醣體與皂苷 <b>124</b><br>→ 苯丙烷類與其他次級代謝物 <b>42</b><br>→ 萜類與揮發性成分 <b>38</b><br>→ 醣類與多醣類 <b>29</b></td></tr>
+<tr class="split"><td>精油樹脂與其他成分</td><td class="n">192</td><td><span class="tag tag-split">拆</span></td><td>→ 揮發油 <b>69</b><br>→ 鞣質與苯丙素類 <b>55</b><br>→ 脂質與蠟 <b>35</b><br>→ 樹脂與香膠 <b>33</b></td></tr>
+<tr class="split"><td>生物鹼</td><td class="n">191</td><td><span class="tag tag-split">拆</span></td><td>→ 生物鹼基原與藥理用途 <b>81</b><br>→ 生物鹼分類與結構 <b>77</b><br>→ 生物鹼生合成與前驅物 <b>18</b><br>→ 生物鹼檢測與分析方法 <b>15</b></td></tr>
+<tr class="split"><td>滴定與容量分析</td><td class="n">152</td><td><span class="tag tag-split">拆</span></td><td>→ 酸鹼與非水滴定 <b>74</b><br>→ 水分測定與重量分析 <b>34</b><br>→ 油脂分析與電位滴定 <b>25</b><br>→ 氧化還原與錯合物滴定 <b>19</b></td></tr>
+<tr class="keep"><td>常用單味中藥</td><td class="n">123</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>生藥概論與鑑定</td><td class="n">100</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>質譜與聯用技術</td><td class="n">92</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>中華藥典與品質規範</td><td class="n">64</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>中藥藥性與方劑</td><td class="n">41</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>生物檢定與雜質確認</td><td class="n">22</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="merge"><td>中藥安全與交互作用</td><td class="n">5</td><td><span class="tag tag-merge">併</span></td><td>→ 併進「常用單味中藥」</td></tr>
+</tbody></table></div>
+<h3>藥三 <small>13 個考點 → 約 23 個(拆 4、併 0)</small></h3>
+<div class="wrap"><table><thead><tr><th>現在的考點</th><th class="n">題數</th><th>建議</th><th>新的考點(題數)</th></tr></thead><tbody>
+<tr class="split"><td>藥動模式與參數</td><td class="n">382</td><td><span class="tag tag-split">拆</span></td><td>→ 單室與多室藥動模式 <b>146</b><br>→ 輸注給藥與劑量調整 <b>96</b><br>→ 多劑量給藥與穩定狀態 <b>85</b><br>→ 非線性藥物動力學 <b>55</b></td></tr>
+<tr class="split"><td>液體與半固體劑型</td><td class="n">273</td><td><span class="tag tag-split">拆</span></td><td>→ 液體劑型製備與特性 <b>127</b><br>→ 半固體基劑與軟膏劑 <b>87</b><br>→ 眼用與栓劑劑型 <b>48</b><br>→ 皮膚給藥與經皮吸收 <b>11</b></td></tr>
+<tr class="split"><td>固體劑型</td><td class="n">259</td><td><span class="tag tag-split">拆</span></td><td>→ 粉體學與固體製劑評估 <b>93</b><br>→ 錠劑設計與製程 <b>92</b><br>→ 膠囊與栓劑劑型 <b>74</b></td></tr>
+<tr class="split"><td>無菌製劑與注射劑</td><td class="n">182</td><td><span class="tag tag-split">拆</span></td><td>→ 無菌製劑配方與容器 <b>95</b><br>→ 無菌檢測與品質管制 <b>56</b><br>→ 滅菌方法與確效 <b>31</b></td></tr>
+<tr class="keep"><td>吸收與生體可用率</td><td class="n">139</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>分布代謝排泄</td><td class="n">132</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>界面現象與流變學</td><td class="n">110</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>物理化學原理</td><td class="n">71</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>緩釋與標的傳輸系統</td><td class="n">71</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>生技藥品劑型</td><td class="n">45</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>生體相等性</td><td class="n">37</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>溶解度與分配</td><td class="n">31</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>安定性與動力學</td><td class="n">28</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+</tbody></table></div>
+<h2 id="pharm2">藥師二階 <span class="tag tag-wait">等妳決定</span></h2>
+<h3>藥四 <small>10 個考點 → 約 23 個(拆 5、併 0)</small></h3>
+<div class="wrap"><table><thead><tr><th>現在的考點</th><th class="n">題數</th><th>建議</th><th>新的考點(題數)</th></tr></thead><tbody>
+<tr class="split"><td>處方判讀與調劑作業</td><td class="n">352</td><td><span class="tag tag-split">拆</span></td><td>→ 藥品調製與計量計算 <b>128</b><br>→ 處方判讀與法規管理 <b>76</b><br>→ 給藥途徑與劑型特性 <b>75</b><br>→ 用藥安全與風險管理 <b>73</b></td></tr>
+<tr class="split"><td>藥物不良反應與交互作用</td><td class="n">318</td><td><span class="tag tag-split">拆</span></td><td>→ 藥物交互作用機制與臨床應用 <b>197</b><br>→ 藥物不良反應機轉與處置 <b>89</b><br>→ 藥物不良反應評估與通報 <b>32</b></td></tr>
+<tr class="split"><td>藥事照護與用藥評估</td><td class="n">234</td><td><span class="tag tag-split">拆</span></td><td>→ 藥物治療評估與監測 <b>104</b><br>→ 藥事照護與用藥安全 <b>61</b><br>→ 靜脈營養與代謝支持 <b>43</b><br>→ 臨床試驗與實證醫學 <b>26</b></td></tr>
+<tr class="split"><td>無菌調配與化療調配</td><td class="n">208</td><td><span class="tag tag-split">拆</span></td><td>→ 化療藥品調配與防護 <b>70</b><br>→ 全靜脈營養輸液調配 <b>51</b><br>→ 無菌製劑調配與環境規範 <b>51</b><br>→ 注射劑安定性與配伍禁忌 <b>36</b></td></tr>
+<tr class="split"><td>特殊族群用藥</td><td class="n">167</td><td><span class="tag tag-split">拆</span></td><td>→ 孕婦與哺乳用藥 <b>75</b><br>→ 老年人用藥安全 <b>46</b><br>→ 小兒用藥與營養 <b>46</b></td></tr>
+<tr class="keep"><td>用藥諮詢與衛教</td><td class="n">167</td><td><span class="tag tag-keep">不動</span></td><td class="mute">AI 提不出子考點</td></tr>
+<tr class="keep"><td>藥品包裝標示與儲存</td><td class="n">145</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>治療藥物監測</td><td class="n">77</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>劑量調整與腎肝功能</td><td class="n">69</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>個別化給藥</td><td class="n">23</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+</tbody></table></div>
+<h3>藥五 <small>13 個考點 → 約 22 個(拆 3、併 0)</small></h3>
+<div class="wrap"><table><thead><tr><th>現在的考點</th><th class="n">題數</th><th>建議</th><th>新的考點(題數)</th></tr></thead><tbody>
+<tr class="split"><td>心血管疾病</td><td class="n">303</td><td><span class="tag tag-split">拆</span></td><td>→ 心律不整與脂質異常 <b>77</b><br>→ 高血壓與心絞痛 <b>76</b><br>→ 心肌梗塞與抗血栓 <b>75</b><br>→ 心衰竭與強心劑 <b>50</b><br><span class="mute">(25 題 AI 沒挑到,套用時會用最接近的)</span></td></tr>
+<tr class="split"><td>感染疾病</td><td class="n">299</td><td><span class="tag tag-split">拆</span></td><td>→ 全身性、骨關節與皮膚感染 <b>97</b><br>→ 呼吸道與中樞神經感染 <b>78</b><br>→ 泌尿生殖與腹腔感染 <b>51</b><br>→ 病毒性肝炎與愛滋感染 <b>43</b><br><span class="mute">(30 題 AI 沒挑到,套用時會用最接近的)</span></td></tr>
+<tr class="split"><td>內分泌與代謝</td><td class="n">189</td><td><span class="tag tag-split">拆</span></td><td>→ 糖尿病與代謝症候群 <b>69</b><br>→ 骨質疏鬆與痛風 <b>52</b><br>→ 生殖與肥胖荷爾蒙 <b>34</b><br>→ 甲狀腺與腎上腺疾病 <b>34</b></td></tr>
+<tr class="keep"><td>血液與腫瘤</td><td class="n">173</td><td><span class="tag tag-keep">不動</span></td><td class="mute">AI 提不出子考點</td></tr>
+<tr class="keep"><td>呼吸系統疾病</td><td class="n">140</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>精神疾病</td><td class="n">139</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>腎臟與電解質</td><td class="n">115</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>神經系統疾病</td><td class="n">108</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>腸胃與肝膽疾病</td><td class="n">105</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>免疫風濕與皮膚</td><td class="n">98</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>疼痛與重症照護</td><td class="n">46</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>婦幼與老年用藥</td><td class="n">27</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>非處方藥與自我照護</td><td class="n">18</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+</tbody></table></div>
+<h3>藥六 <small>10 個考點 → 約 15 個(拆 2、併 0)</small></h3>
+<div class="wrap"><table><thead><tr><th>現在的考點</th><th class="n">題數</th><th>建議</th><th>新的考點(題數)</th></tr></thead><tbody>
+<tr class="split"><td>藥事法及子法</td><td class="n">237</td><td><span class="tag tag-split">拆</span></td><td>→ 藥物管理與查驗登記 <b>71</b><br>→ 藥商管理與藥局規範 <b>55</b><br>→ 偽禁劣藥與行政處分 <b>50</b><br>→ 藥品製造與優良規範 <b>46</b><br><span class="mute">(15 題 AI 沒挑到,套用時會用最接近的)</span></td></tr>
+<tr class="split"><td>藥師法與執業管理</td><td class="n">183</td><td><span class="tag tag-split">拆</span></td><td>→ 藥師業務與調劑 <b>54</b><br>→ 藥師執業與管理 <b>48</b><br>→ 藥師懲戒與教育 <b>21</b><br><span class="mute">(60 題 AI 沒挑到,套用時會用最接近的)</span></td></tr>
+<tr class="keep"><td>全民健康保險與藥事作業</td><td class="n">146</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>新藥臨床試驗與安全監視</td><td class="n">89</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>醫療器材管理法</td><td class="n">88</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>管制藥品與毒品危害防制</td><td class="n">88</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>藥政管理組織與衛生行政</td><td class="n">82</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>藥害救濟與罕見疾病</td><td class="n">76</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>藥物廣告與稽查</td><td class="n">62</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
+<tr class="keep"><td>化粧品衛生安全管理法</td><td class="n">49</td><td><span class="tag tag-keep">不動</span></td><td class="mute"></td></tr>
 </tbody></table></div>
 </body></html>
