@@ -53,8 +53,8 @@ var SITES = [
     stage: "第一階段",
     years: "105～115 年",
     art: "pill",
-    status: "soon",
-    url: "",
+    status: "live",
+    url: "/pharm1/",
   },
   {
     id: "pharm2",
@@ -62,8 +62,8 @@ var SITES = [
     stage: "第二階段",
     years: "105～115 年",
     art: "pill",
-    status: "soon",
-    url: "",
+    status: "live",
+    url: "/pharm2/",
   },
 ];
 
