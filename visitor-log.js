@@ -9,7 +9,7 @@
 //   IP 改先問同網域的 Cloudflare trace (不跨網域、不會被擋),失敗再退回 ipify。多記 host,入口網站跟牙醫站才分得開。
 (function () {
   if (typeof firebase === "undefined" || !firebase.database) return;
-  // 多站共用版:本地開發 (localhost) 不寫 traffic_log,免得本地牙醫版把測試流量寫進線上資料庫
+  // 入口網站版 (跟牙醫原始碼同一份,由 patch 抄過來):本地開發不寫線上資料庫
   if (/^(localhost|127\.0\.0\.1)$/.test(location.hostname)) return;
   var BOT_PATTERNS =
     /bot|crawler|spider|scraper|GPTBot|ChatGPT|Claude|anthropic|Perplexity|Bytespider|CCBot|Amazonbot|SemrushBot|AhrefsBot|MJ12bot|DotBot|Diffbot|python-requests|python-urllib|libwww-perl|curl\/|wget\/|Java\/|Go-http|okhttp\/|node-fetch|axios\/|Headless|PhantomJS|Selenium|puppeteer|playwright/i;
