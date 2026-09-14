@@ -8,8 +8,8 @@
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title data-site-title="{practiceIcon} {practiceName}"></title>
-    <script src="../site-config.js?v=v707"></script>
-    <script src="../site.js?v=v707"></script>
+    <script src="../site-config.js?v=v708"></script>
+    <script src="../site.js?v=v708"></script>
     <script>
       // 從首頁直接連到筆記本(#notebook):在頁面 paint 前就先隱藏考試 home,
       // 避免閃一下「考試首頁」再跳到筆記本
@@ -6460,8 +6460,8 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-tc-webfont@1.1.0/style.css"
     />
-      <script src="../skin.js?v=v707"></script>
-    <link rel="stylesheet" href="../skin.css?v=v707" />
+      <script src="../skin.js?v=v708"></script>
+    <link rel="stylesheet" href="../skin.css?v=v708" />
   </head>
   <body>
     <!-- HEADER -->
@@ -9206,7 +9206,7 @@
         } catch (e) {}
         if (!codes || !codes.length) codes = SITE.SUBJ_CODES;
         for (var i = 0; i < codes.length; i++)
-          document.write('<script src="q-' + codes[i] + '.js?v=v707"><\/script>');
+          document.write('<script src="q-' + codes[i] + '.js?v=v708"><\/script>');
       })();
     </script>
     <script>
@@ -20146,16 +20146,38 @@ ${markBtn("learning", "❓", "一知半解", "#fef9c3", "#eab308")}
               }
               continue;
             }
+            // v708: 分隔線寫在第三行以後 (表頭跟分隔線中間夾了幾列資料) —— 整張表會被當純文字。
+            //   往上找這一疊連續的 row;上面沒有別的分隔線 (= 這疊還沒有表) 才把分隔線搬到第一列後面。
+            //   上面已經有分隔線的話,這疊可能是「前一張表的資料列 + 新表的表頭」,分不清就不動。
+            let start = out.length - 1;
+            while (start > 0 && isRow(out[start - 1])) start--;
+            if (out.length - start >= 2 && !(start > 0 && isSep(out[start - 1]))) {
+              const cols = out[start].trim().replace(/^\||\|$/g, "").split("|").length;
+              out.splice(start + 1, 0, "|" + "---|".repeat(Math.max(cols, 1)));
+              continue;
+            }
           }
           out.push(l);
         }
         return out.join("\n");
       }
+      // v708: 標題開頭的 emoji 壞掉 (�� 或落單的半個 surrogate) 就把它拿掉,不要在畫面上秀亂碼
+      function _stripBrokenHeadingEmoji(md) {
+        if (!md) return md;
+        return md.replace(
+          // (不用 lookbehind:舊 iPhone Safari 不支援,整個 script 會爆。開頭的低位 surrogate 一定是落單的)
+          /^(#{1,6}[ \t]+)(?:�|[\uD800-\uDBFF](?![\uDC00-\uDFFF])|[\uDC00-\uDFFF])+[ \t]*/gm,
+          "$1",
+        );
+      }
+      window._fixOrphanTableSep = _fixOrphanTableSep;
+      window._stripBrokenHeadingEmoji = _stripBrokenHeadingEmoji;
       function _normalizeDeltaMd(md) {
         let t = _collapseSpaces(_fixLiteralNewlines(md || ""));
         t = t.replace(/^\s*#\s+/gm, "### ").replace(/^\s*##\s+(?!#)/gm, "### "); // delta 不准有 # / ## 主標題
         t = t.replace(/^\s*#{5,}\s+/gm, "#### ");
         t = _fixOrphanTableSep(t);
+        t = _stripBrokenHeadingEmoji(t);
         return t;
       }
       window._normalizeDeltaMd = _normalizeDeltaMd;
@@ -24752,7 +24774,7 @@ ${markBtn("learning", "❓", "一知半解", "#fef9c3", "#eab308")}
 
       function renderMarkdown(md) {
         // v617: 舊資料修補 — 以前存進去的字面 \n 跟沒表頭的表格,渲染時順手修 (不改存檔)
-        if (typeof _fixLiteralNewlines === "function") md = _fixOrphanTableSep(_collapseSpaces(_fixLiteralNewlines(md || "")));
+        if (typeof _fixLiteralNewlines === "function") md = _stripBrokenHeadingEmoji(_fixOrphanTableSep(_collapseSpaces(_fixLiteralNewlines(md || ""))));
         if (!md) return '<p style="color:#9ca3af">（章節內容是空的）</p>';
         // 清掉 LaTeX 標記(網站不支援數學渲染，只轉成 Unicode 顯示)
         md = _stripLatex(md);
@@ -30001,15 +30023,15 @@ ${markBtn("learning", "❓", "一知半解", "#fef9c3", "#eab308")}
     </script>
     <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-database-compat.js"></script>
-    <script src="../visitor-log.js?v=v707"></script>
+    <script src="../visitor-log.js?v=v708"></script>
     <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
-    <script src="../sync.js?v=v707"></script>
-    <script src="comment-system.js?v=v707"></script>
-    <script src="../auth.js?v=v707"></script>
-    <script src="../keysync.js?v=v707"></script>
-    <script src="../migration.js?v=v707"></script>
-    <script src="../subscription.js?v=v707"></script>
-    <script src="../device-guard.js?v=v707"></script>
+    <script src="../sync.js?v=v708"></script>
+    <script src="comment-system.js?v=v708"></script>
+    <script src="../auth.js?v=v708"></script>
+    <script src="../keysync.js?v=v708"></script>
+    <script src="../migration.js?v=v708"></script>
+    <script src="../subscription.js?v=v708"></script>
+    <script src="../device-guard.js?v=v708"></script>
     <script>
       if (typeof DentalSync !== "undefined") {
         // v413:等 loadState 從 IDB hydrate 完才 init sync,不然 sync 拉 remote 寫進 qState 後會被 loadState 用 IDB 舊版蓋掉
@@ -30512,7 +30534,7 @@ ${markBtn("learning", "❓", "一知半解", "#fef9c3", "#eab308")}
       © 2026 <span data-site="fullName"></span> · <strong>版權所有翻印必究</strong> ·
       未經授權禁止轉載、複製、爬取內容
     </footer>
-      <script src="../tour.js?v=v707" defer></script>
-    <script src="../update.js?v=v707" defer></script>
+      <script src="../tour.js?v=v708" defer></script>
+    <script src="../update.js?v=v708" defer></script>
 </body>
 </html>
