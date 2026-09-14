@@ -6,6 +6,49 @@
 //   3. 填 <title data-site-title="{practiceIcon} {practiceName}"> 與 [data-site="欄位"] 的文字
 //   4. 提供 Site.here(html) 讓頁面在原位同步渲染科目按鈕 (DOM 結構跟原本寫死的一樣)
 (function () {
+  // ── v716 (2026-09-14) 🔴 同網域樹枝的本機資料要分站 ──────────────────────────────
+  //  ezpass-exam.com/nursing、/dental1、/pharm2… 是同一個網域,瀏覽器的 localStorage / IndexedDB 是共用的。
+  //  雲端早就分站 (users/<uid>/x/<站>),但本機的 "<uid>_notebook"、"<uid>_examHistory"… 沒分 →
+  //  HUA 在藥二的筆記本看到牙一的筆記,而且同步還會把別站的資料推上這一站的雲端路徑。
+  //  修法:有 dataPath 的樹枝站,凡是 "<uid>_…" 開頭的鍵一律改成 "<uid>_<站id>:…" (讀寫刪都透明轉換)。
+  //  牙醫二階 (ezpass-dental.com,自己一個網域,dataPath 空) 不動。IndexedDB 名稱在 sync.js 另外分站。
+  try {
+    var _S0 = window.SITE;
+    if (_S0 && _S0.dataPath && _S0.id && window.localStorage) {
+      var _P = _S0.id + ":";
+      var _raw = {
+        get: Storage.prototype.getItem,
+        set: Storage.prototype.setItem,
+        rm: Storage.prototype.removeItem,
+      };
+      var _cur = function () {
+        try {
+          return _raw.get.call(window.localStorage, "dental_cur_user") || "";
+        } catch (e) {
+          return "";
+        }
+      };
+      var _map = function (k) {
+        k = String(k);
+        var u = _cur();
+        if (!u) return k;
+        var pre = u + "_";
+        if (k.indexOf(pre) !== 0 || k.indexOf(pre + _P) === 0) return k;
+        return pre + _P + k.slice(pre.length);
+      };
+      window.localStorage.getItem = function (k) {
+        return _raw.get.call(this, _map(k));
+      };
+      window.localStorage.setItem = function (k, v) {
+        return _raw.set.call(this, _map(k), v);
+      };
+      window.localStorage.removeItem = function (k) {
+        return _raw.rm.call(this, _map(k));
+      };
+      window.__siteLocalPrefix = _P;
+      window.__nbIdbName = "dental_notebooks_v1_" + _S0.id; // IndexedDB 也分站 (sync.js / 練習本 / 口訣 / skin.js 都用這個)
+    }
+  } catch (e) {}
   var S = window.SITE;
   if (!S) {
     console.error(
