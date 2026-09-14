@@ -1,0 +1,485 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>筆記設定簡化 — 預覽 (2026-09-14)</title>
+    <style>
+      :root {
+        --p: #7c3aed;
+        --p2: #6b21a8;
+        --pl: #faf5ff;
+        --pb: #e9d5ff;
+        --b: #0369a1;
+        --bl: #f0f9ff;
+        --bb: #bae6fd;
+        --ink: #374151;
+        --mut: #6b7280;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        padding: 1rem;
+        font-family:
+          "Noto Sans TC",
+          system-ui,
+          -apple-system,
+          sans-serif;
+        background: #f3f4f6;
+        color: var(--ink);
+        line-height: 1.6;
+      }
+      h1 {
+        font-size: 1.15rem;
+        margin: 0 0 0.3rem;
+      }
+      .lead {
+        font-size: 0.88rem;
+        color: var(--mut);
+        margin: 0 0 1rem;
+      }
+      .cols {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.2rem;
+        align-items: start;
+      }
+      @media (max-width: 900px) {
+        .cols {
+          grid-template-columns: 1fr;
+        }
+      }
+      .plan {
+        background: #fff;
+        border-radius: 14px;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+        overflow: hidden;
+      }
+      .plan > .tag {
+        padding: 0.6rem 1rem;
+        font-weight: 800;
+        color: #fff;
+      }
+      .plan.a > .tag {
+        background: linear-gradient(135deg, #7c3aed, #a855f7);
+      }
+      .plan.b > .tag {
+        background: linear-gradient(135deg, #0369a1, #06b6d4);
+      }
+      .plan > .why {
+        padding: 0.6rem 1rem;
+        font-size: 0.82rem;
+        color: var(--mut);
+        border-bottom: 1px dashed #e5e7eb;
+      }
+      .modal {
+        padding: 1rem 1.1rem 1.2rem;
+      }
+      .modal h3 {
+        margin: 0 0 0.5rem;
+        font-size: 1.05rem;
+      }
+      .row {
+        display: flex;
+        gap: 0.5rem;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+      input[type="text"],
+      input[type="password"] {
+        flex: 1;
+        min-width: 0;
+        padding: 0.55rem 0.7rem;
+        border: 1.5px solid #d1d5db;
+        border-radius: 8px;
+        font-family: monospace;
+        font-size: 0.85rem;
+        background: #fff;
+      }
+      .btn {
+        border: none;
+        border-radius: 8px;
+        padding: 0.5rem 0.9rem;
+        font-weight: 700;
+        cursor: pointer;
+        font-size: 0.85rem;
+        white-space: nowrap;
+      }
+      .btn.p {
+        background: var(--p);
+        color: #fff;
+      }
+      .btn.ghost {
+        background: #fff;
+        color: var(--p2);
+        border: 1.5px solid #c084fc;
+      }
+      .btn.sky {
+        background: #e0f2fe;
+        color: var(--b);
+        border: 1.5px solid #7dd3fc;
+      }
+      .card {
+        border: 1.5px solid var(--pb);
+        background: var(--pl);
+        border-radius: 10px;
+        padding: 0.7rem 0.85rem;
+        margin-top: 0.7rem;
+      }
+      .card.blue {
+        border-color: var(--bb);
+        background: var(--bl);
+      }
+      .card.grey {
+        border-color: #e5e7eb;
+        background: #f9fafb;
+      }
+      .card summary {
+        cursor: pointer;
+        font-weight: 800;
+        color: var(--p2);
+        font-size: 0.92rem;
+        list-style: none;
+      }
+      .card.blue summary {
+        color: var(--b);
+      }
+      .card.grey summary {
+        color: var(--mut);
+        font-weight: 700;
+        font-size: 0.85rem;
+      }
+      .card summary::before {
+        content: "▸ ";
+      }
+      .card[open] summary::before {
+        content: "▾ ";
+      }
+      .small {
+        font-size: 0.78rem;
+        color: var(--mut);
+      }
+      .tip {
+        font-size: 0.8rem;
+        background: #fffbeb;
+        border-radius: 8px;
+        padding: 0.45rem 0.7rem;
+        color: #92400e;
+        margin-top: 0.6rem;
+      }
+      .guide {
+        display: flex;
+        gap: 0.5rem;
+        align-items: center;
+        background: #ecfdf5;
+        border: 1.5px solid #a7f3d0;
+        border-radius: 10px;
+        padding: 0.55rem 0.8rem;
+        font-size: 0.85rem;
+      }
+      .guide b {
+        color: #047857;
+      }
+      ol.steps {
+        margin: 0.4rem 0 0 1.2rem;
+        padding: 0;
+        font-size: 0.84rem;
+      }
+      ol.steps li {
+        margin: 0.15rem 0;
+      }
+      .stepcard {
+        border: 1.5px solid #e5e7eb;
+        border-radius: 12px;
+        padding: 0.75rem 0.9rem;
+        margin-top: 0.7rem;
+        background: #fff;
+        position: relative;
+      }
+      .stepcard .num {
+        position: absolute;
+        left: -0.6rem;
+        top: -0.6rem;
+        width: 1.7rem;
+        height: 1.7rem;
+        border-radius: 50%;
+        background: var(--b);
+        color: #fff;
+        font-weight: 800;
+        display: grid;
+        place-items: center;
+        font-size: 0.85rem;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+      }
+      .stepcard h4 {
+        margin: 0 0 0.3rem;
+        font-size: 0.95rem;
+        color: var(--ink);
+      }
+      .stepcard.done {
+        border-color: #a7f3d0;
+        background: #f0fdf4;
+      }
+      .progress {
+        display: flex;
+        gap: 0.4rem;
+        font-size: 0.78rem;
+        color: var(--mut);
+        margin: 0.2rem 0 0.4rem;
+        flex-wrap: wrap;
+      }
+      .progress span {
+        background: #f3f4f6;
+        border-radius: 999px;
+        padding: 0.15rem 0.6rem;
+      }
+      .progress span.on {
+        background: #dcfce7;
+        color: #166534;
+        font-weight: 700;
+      }
+      .before {
+        margin-top: 1.4rem;
+        background: #fff;
+        border-radius: 14px;
+        padding: 1rem 1.1rem;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+      }
+      .before h2 {
+        font-size: 1rem;
+        margin: 0 0 0.5rem;
+      }
+      table.cmp {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.84rem;
+      }
+      table.cmp th,
+      table.cmp td {
+        border: 1px solid #e5e7eb;
+        padding: 0.4rem 0.55rem;
+        text-align: left;
+        vertical-align: top;
+      }
+      table.cmp th {
+        background: #f9fafb;
+      }
+      code {
+        background: #f1f5f9;
+        padding: 0.05rem 0.3rem;
+        border-radius: 4px;
+        font-size: 0.82em;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>筆記「AI / 圖床 設定」簡化 — 兩個方案預覽</h1>
+    <p class="lead">
+      現況:一打開就是一整頁鑰匙、token、repo、模型、安全提醒,新手會被嚇到。下面兩個方案都把「第一次只要做一件事」放最前面,其他收進去;入門指引直接放在設定裡,不用靠使用者自己去找。畫面是靜態示意,按鈕沒有功能。
+    </p>
+
+    <div class="cols">
+      <!-- 方案 A -->
+      <section class="plan a">
+        <div class="tag">方案 A|一眼一件事</div>
+        <div class="why">
+          打開只看到「貼一把 AI
+          鑰匙」。申請步驟、多把鑰匙、模型、貼圖、安全說明全部收成一行,想看再點開。最短、最不嚇人。
+        </div>
+        <div class="modal">
+          <h3>⚙️ 筆記設定</h3>
+          <div class="guide">
+            📖 <span><b>第一次用?</b> 看 3 分鐘入門指引,照著走就好</span>
+            <button class="btn sky" style="margin-left: auto">打開指引</button>
+          </div>
+          <p class="small" style="margin: 0.5rem 0 0">
+            設定綁在你的帳號上,換手機、換科目都不用重設。
+          </p>
+
+          <div class="card">
+            <div style="font-weight: 800; color: var(--p2); font-size: 0.95rem">
+              🤖 AI 鑰匙(做筆記要用)
+            </div>
+            <div class="row" style="margin-top: 0.45rem">
+              <input type="password" placeholder="把鑰匙貼這裡 (AIzaSy 開頭)" />
+              <button class="btn p">測試</button>
+            </div>
+            <details style="margin-top: 0.45rem">
+              <summary
+                class="small"
+                style="cursor: pointer; color: var(--p2); font-weight: 700"
+              >
+                還沒有鑰匙?免費、不用綁卡、3 步驟 ▸
+              </summary>
+              <ol class="steps">
+                <li>
+                  點
+                  <a href="#" style="color: var(--p)">Google AI Studio</a
+                  >,用任何 Google 帳號登入
+                </li>
+                <li>
+                  按藍色「+ Create API key」→「Create API key in new project」
+                </li>
+                <li>複製那串 AIzaSy 開頭的字,貼回上面</li>
+              </ol>
+            </details>
+            <details style="margin-top: 0.3rem">
+              <summary class="small" style="cursor: pointer; color: var(--mut)">
+                進階:多貼幾把鑰匙、換模型 ▸
+              </summary>
+              <p class="small" style="margin: 0.3rem 0">
+                (這裡才放「+ 新增一把 key」和「使用模型」下拉,預設不用動)
+              </p>
+            </details>
+          </div>
+
+          <details class="card blue">
+            <summary>📷 筆記貼圖(選用,可以先跳過)</summary>
+            <p class="small" style="margin: 0.4rem 0">
+              想在筆記裡貼截圖才需要。要一個 GitHub 帳號 + 一把 token,照步驟 5
+              分鐘。
+            </p>
+            <div class="row">
+              <input type="password" placeholder="github_pat_..." />
+            </div>
+            <div class="row" style="margin-top: 0.4rem">
+              <input type="text" placeholder="帳號/repo名稱" />
+            </div>
+            <details style="margin-top: 0.4rem">
+              <summary
+                class="small"
+                style="cursor: pointer; color: var(--b); font-weight: 700"
+              >
+                申請 token 詳細步驟 ▸
+              </summary>
+            </details>
+          </details>
+
+          <details class="card grey">
+            <summary>🔒 鑰匙只存在你自己的帳號裡,不要給別人 ▸</summary>
+            <p class="small" style="margin: 0.4rem 0">
+              就像家裡的鑰匙,給別人就會被拿去用你的額度。截圖前先確認「顯示」沒打勾。不小心外洩:回
+              Google AI Studio / GitHub
+              把舊的刪掉、重新申請一把貼回來就失效了。連 ezpass
+              的管理者都看不到。
+            </p>
+          </details>
+        </div>
+      </section>
+
+      <!-- 方案 B -->
+      <section class="plan b">
+        <div class="tag">方案 B|照 3 步走(入門指引直接長在裡面)</div>
+        <div class="why">
+          把入門指引的三步驟直接排成設定畫面:做到哪一步會打勾,沒做的一眼看得出。給「不會乖乖看指引」的人:不看也會照著走。
+        </div>
+        <div class="modal">
+          <h3>⚙️ 筆記設定</h3>
+          <div class="progress">
+            <span class="on">① 拿鑰匙 ✓</span><span>② 貼進來測試</span
+            ><span>③ 回去做題</span>
+          </div>
+
+          <div class="stepcard done">
+            <div class="num">1</div>
+            <h4>拿一把免費 AI 鑰匙(不用綁卡)</h4>
+            <ol class="steps">
+              <li>
+                點
+                <a href="#" style="color: var(--p)">Google AI Studio</a>,用任何
+                Google 帳號登入
+              </li>
+              <li>
+                按藍色「+ Create API key」→「Create API key in new project」
+              </li>
+              <li>複製那串 AIzaSy 開頭的字</li>
+            </ol>
+          </div>
+
+          <div class="stepcard">
+            <div class="num">2</div>
+            <h4>貼進來,按一下測試</h4>
+            <div class="row">
+              <input type="password" placeholder="AIzaSy..." />
+              <button class="btn p">測試</button>
+            </div>
+            <p class="small" style="margin: 0.35rem 0 0">
+              🔒 這把鑰匙只存在你的帳號裡,不要給別人;截圖前確認沒打勾「顯示」。
+            </p>
+          </div>
+
+          <div class="stepcard">
+            <div class="num">3</div>
+            <h4>回到考題,答完按「📒 加入筆記」</h4>
+            <p class="small" style="margin: 0">
+              AI 會把那題的重點整理進你的筆記本;之後做題按「📖
+              偷看筆記」隨時翻。
+            </p>
+          </div>
+
+          <details class="card grey" style="margin-top: 1rem">
+            <summary>進階(筆記貼圖、多把鑰匙、換模型)▸</summary>
+            <p class="small" style="margin: 0.4rem 0">
+              貼圖要 GitHub token +
+              repo(有申請步驟);多貼幾把鑰匙撞額度會自動換;模型預設就好。
+            </p>
+          </details>
+          <p class="small" style="margin: 0.6rem 0 0; text-align: center">
+            📖 想看完整入門指引?<a href="#" style="color: var(--b)">點這裡</a>
+          </p>
+        </div>
+      </section>
+    </div>
+
+    <div class="before">
+      <h2>跟現況比</h2>
+      <table class="cmp">
+        <tr>
+          <th></th>
+          <th>現況</th>
+          <th>方案 A</th>
+          <th>方案 B</th>
+        </tr>
+        <tr>
+          <td>打開第一眼</td>
+          <td>
+            安全提醒 6 行 + 鑰匙 + 模型 + token + repo + 6 步申請,全部攤開
+          </td>
+          <td>一個輸入框 + 一顆測試</td>
+          <td>三張步驟卡,做到哪打勾到哪</td>
+        </tr>
+        <tr>
+          <td>入門指引</td>
+          <td>要自己去右上選單找</td>
+          <td>最上面一條綠色橫幅,一鍵打開</td>
+          <td>指引本身就是畫面,不用另外看</td>
+        </tr>
+        <tr>
+          <td>貼圖(GitHub)</td>
+          <td>跟 AI 鑰匙一樣醒目,新手以為都要填</td>
+          <td>收成一行「選用,可以先跳過」</td>
+          <td>收進「進階」</td>
+        </tr>
+        <tr>
+          <td>安全提醒</td>
+          <td>一整塊,放最上面</td>
+          <td>收成一行,點開才長</td>
+          <td>一句話跟在輸入框下面</td>
+        </tr>
+        <tr>
+          <td>適合</td>
+          <td>—</td>
+          <td>已經會用、只想快點貼鑰匙的人</td>
+          <td>完全沒碰過、需要牽著走的人</td>
+        </tr>
+      </table>
+      <p class="small" style="margin: 0.6rem 0 0">
+        兩個也可以合起來:第一次進來用 B 的三步驟;三步都打勾之後,以後打開就縮成
+        A。
+      </p>
+    </div>
+  </body>
+</html>
