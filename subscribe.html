@@ -16,9 +16,9 @@
       href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap"
       rel="stylesheet"
     />
-    <script src="skin.js?v=v708"></script>
-    <link rel="stylesheet" href="skin.css?v=v708" />
-    <link rel="stylesheet" href="site.css?v=v708" />
+    <script src="skin.js?v=v709"></script>
+    <link rel="stylesheet" href="skin.css?v=v709" />
+    <link rel="stylesheet" href="site.css?v=v709" />
     <style>
       * {
         box-sizing: border-box;
@@ -676,7 +676,7 @@
         }
       }
     </style>
-    <link rel="stylesheet" href="skin.css?v=v708" />
+    <link rel="stylesheet" href="skin.css?v=v709" />
   </head>
   <body>
     <div class="wrap">
@@ -725,6 +725,8 @@
       <p class="sub-title">
         一次訂閱，一站通用：訂閱期間內開放的科目都能使用。
       </p>
+      <div id="status-card"></div>
+
 
       <!-- v642: 購買須知 — 付款方式 / 開通時間 / 退款 / 客服 / 賣家資訊 (綠界收款審核要求) -->
       <section class="pub-box buy-notes" id="buy-notes">
@@ -801,7 +803,6 @@
       </section>
 
 
-      <div id="status-card"></div>
 
       <div
         id="redeem-box"
@@ -855,23 +856,23 @@
       </div>
 
       <div class="plans" id="plans">
-        <div class="plan" data-plan="monthly" data-amount="400">
+        <div class="plan" data-plan="monthly" data-amount="300">
           <div class="name">月費</div>
-          <div class="price">$400<span class="unit"> / 月</span></div>
+          <div class="price">$300<span class="unit"> / 月</span></div>
           <div class="save"></div>
           <div class="per">短期衝刺</div>
         </div>
-        <div class="plan recommend" data-plan="quarterly" data-amount="1000">
+        <div class="plan recommend" data-plan="quarterly" data-amount="800">
           <div class="name">季費</div>
-          <div class="price">$1000<span class="unit"> / 3 月</span></div>
-          <div class="save">省 $200 (17% off)</div>
-          <div class="per">$333 / 月</div>
+          <div class="price">$800<span class="unit"> / 3 月</span></div>
+          <div class="save">省 $100 (11% off)</div>
+          <div class="per">$267 / 月</div>
         </div>
-        <div class="plan" data-plan="semi" data-amount="1500">
+        <div class="plan" data-plan="semi" data-amount="1200">
           <div class="name">半年</div>
-          <div class="price">$1500<span class="unit"> / 6 月</span></div>
-          <div class="save">省 $900 (38% off)</div>
-          <div class="per">$250 / 月</div>
+          <div class="price">$1200<span class="unit"> / 6 月</span></div>
+          <div class="save">省 $600 (33% off)</div>
+          <div class="per">$200 / 月</div>
         </div>
       </div>
 
@@ -1151,10 +1152,10 @@
     <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-database-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
-    <script src="auth.js?v=v708"></script>
-    <script src="subscription.js?v=v708"></script>
-    <script src="sites.js?v=v708"></script>
-    <script src="nav.js?v=v708"></script>
+    <script src="auth.js?v=v709"></script>
+    <script src="subscription.js?v=v709"></script>
+    <script src="sites.js?v=v709"></script>
+    <script src="nav.js?v=v709"></script>
     <script>
       // 目前開放的科目 (從 sites.js 來) — 2026-09-11 HUA 說「這是什麼服務」整塊刪掉,
       //   這段留著但先確認元素還在,免得日後有人把它放回來又忘了接
